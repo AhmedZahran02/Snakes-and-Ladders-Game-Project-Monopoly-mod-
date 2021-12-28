@@ -298,8 +298,5 @@
       <Filter>GUIClasses</Filter>
     </ClInclude>
     <ClInclude Include="DEFS.h" />
-    <ClInclude Include="CardFive.h">
-      <Filter>GameObjects\Cards</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

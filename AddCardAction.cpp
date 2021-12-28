@@ -4,6 +4,7 @@
 #include "Output.h"
 #include "CardOne.h"
 #include "CardFive.h"
+#include "CardThree.h"
 
 AddCardAction::AddCardAction(ApplicationManager *pApp) : Action(pApp)
 {
@@ -57,6 +58,7 @@ void AddCardAction::Execute()
 	Card * pCard = NULL; // will point to the card object type
 	switch (cardNumber)
 	{
+		// A- Add the remaining cases
 	case 1:
 		pCard = new CardOne(cardPosition);
 		break;
@@ -99,6 +101,9 @@ void AddCardAction::Execute()
 		//pCard = new CardTwelve(cardPosition);
 		break;
 
+	case 3:
+		pCard = new CardThree(cardPosition);
+		break;
 
 	}
 
