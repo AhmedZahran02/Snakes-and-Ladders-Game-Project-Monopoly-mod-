@@ -32,7 +32,7 @@ public:
 	int GetTurnCount() const;		// A getter for the turnCount
 
 	///TODO: You can add setters and getters for data members here (if needed)
-
+	int GetJustRolledDiceNum() const;
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Circle on its current cell

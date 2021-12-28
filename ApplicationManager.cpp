@@ -112,6 +112,17 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		//pAct = new OpenGridAction(this);
 		break;
 
+	case INPT_DICE_VAL:
+		//pAct = new InputDiceValueAction(this);
+		break;
+
+	case NEW_GAME:
+		//pAct = new NewGameAction(this);
+		break;
+
+	case EXITT:
+		break;
+
 
 	case STATUS:	// a click on the status bar ==> no action
 		return;
