@@ -160,6 +160,9 @@
     <ClCompile Include="AddLadderAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="CardOne.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
     <ClCompile Include="AddCardAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -185,9 +188,6 @@
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
     <ClCompile Include="CardThree.cpp">
-      <Filter>GameObjects\Cards</Filter>
-    </ClCompile>
-    <ClCompile Include="CardOne.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
   </ItemGroup>
@@ -267,6 +267,9 @@
     <ClInclude Include="Card.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
+    <ClInclude Include="CardOne.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
     <ClInclude Include="Ladder.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
@@ -299,9 +302,6 @@
     </ClInclude>
     <ClInclude Include="DEFS.h" />
     <ClInclude Include="CardThree.h">
-      <Filter>GameObjects\Cards</Filter>
-    </ClInclude>
-    <ClInclude Include="CardOne.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
     <ClInclude Include="CardFive.h">
