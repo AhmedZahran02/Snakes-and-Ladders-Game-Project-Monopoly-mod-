@@ -68,7 +68,7 @@ void AddCardAction::Execute()
 		break;
 
 	case 3:
-		//pCard = new CardThree(cardPosition);
+		pCard = new CardThree(cardPosition);
 		break;
 
 	case 4:
@@ -99,10 +99,6 @@ void AddCardAction::Execute()
 		break;
 	case 12:
 		//pCard = new CardTwelve(cardPosition);
-		break;
-
-	case 3:
-		pCard = new CardThree(cardPosition);
 		break;
 
 	}

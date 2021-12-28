@@ -35,7 +35,7 @@ void RollDiceAction::Execute()
 		int diceNumber = 1 + rand() % 6; // from 1 to 6 --> should change seed
 
 		// 3- Get the "current" player from pGrid
-
+		pGrid->GetCurrentPlayer();
 		// 4- Move the currentPlayer using function Move of class player
 
 		// 5- Advance the current player number of pGrid
