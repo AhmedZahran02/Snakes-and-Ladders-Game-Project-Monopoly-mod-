@@ -40,10 +40,10 @@ void AddCardAction::ReadActionParameters()
 	// 2- Read the "cardNumber" parameter and set its data member
 	int x = 0; int y = 0;
 	do {
-		pOut->PrintMessage("Enter the card number 1-15,click ");
+		pOut->PrintMessage("Enter the card number from 1 to 12");
 		pIn->GetPointClicked(x, y);
 		cardNumber = pIn->GetInteger(pOut);
-	} while (cardNumber < 1 || cardNumber>15);
+	} while (cardNumber < 1 && cardNumber>12);
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
 	cardPosition = pIn->GetCellClicked();
 	// 4- Make the needed validations on the read parameters
