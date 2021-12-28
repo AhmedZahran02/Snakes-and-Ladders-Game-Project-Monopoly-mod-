@@ -38,6 +38,11 @@ int Player::GetTurnCount() const
 	return turnCount;
 }
 
+int Player::GetJustRolledDiceNum() const
+{
+	return justRolledDiceNum;
+}
+
 // ====== Drawing Functions ======
 
 void Player::Draw(Output* pOut) const

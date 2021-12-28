@@ -184,7 +184,7 @@
     <ClCompile Include="Output.cpp">
       <Filter>GUIClasses</Filter>
     </ClCompile>
-    <ClCompile Include="CardThree.cpp">
+    <ClCompile Include="CardFive.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
   </ItemGroup>
@@ -298,8 +298,5 @@
       <Filter>GUIClasses</Filter>
     </ClInclude>
     <ClInclude Include="DEFS.h" />
-    <ClInclude Include="CardThree.h">
-      <Filter>GameObjects\Cards</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>
