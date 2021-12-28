@@ -69,7 +69,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:
-		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATER)
 		break;
 
 	case ROLL_DICE:
@@ -78,13 +78,39 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_DESIGN_MODE:
-		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATTER)
+		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATER)
 		break;
 
 		
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
+	case ADD_SNAKE:
+		pAct = new AddSnakeAction(this);
+		break;
 
+	case COPY_CARD:
+		pAct = new CopyCardAction(this);
+		break;
+
+	case CUT_CARD:
+		pAct = new CutCardAction(this);
+		break;
+
+	case PST_CARD:
+		pAct = new PasteCardAction(this);
+		break;
+
+	case DEL_GM_OBJ:
+		pAct = new DeleteGameObjectAction(this);
+		break;
+
+	case SAVE_GRID:
+		pAct = new SaveGridAction(this);
+		break;
+
+	case OPEN_GRID:
+		pAct = new OpenGridAction(this);
+		break;
 
 
 	case STATUS:	// a click on the status bar ==> no action
