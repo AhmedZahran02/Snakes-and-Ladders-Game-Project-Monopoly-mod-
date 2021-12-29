@@ -1,4 +1,6 @@
 #include "PasteCardAction.h"
+#include "CutCardAction.h"
+#include "CopyCardAction.h"
 #include "ApplicationManager.h"
 #include "Card.h"
 
@@ -15,7 +17,7 @@ void PasteCardAction::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 	int x, y;
 	do {
-		pOut->PrintMessage("click on cell with card to paste");
+		pOut->PrintMessage("click on cell to paste in it");
 		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
 	} while (cardPosition.IsValidCell() != true);
 
