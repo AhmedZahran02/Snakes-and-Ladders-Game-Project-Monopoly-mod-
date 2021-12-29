@@ -190,6 +190,12 @@
     <ClCompile Include="CardOne.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="CardSix.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="SwitchToPlayModeAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CMUgraphicsLib\auxil.h">
@@ -306,6 +312,12 @@
     </ClInclude>
     <ClInclude Include="CardFive.h">
       <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSix.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="SwitchToPlayModeAction.h">
+      <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
