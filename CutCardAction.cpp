@@ -16,7 +16,6 @@ void CutCardAction::ReadActionParameters()
 	int x, y;
 	do {
 		pOut->PrintMessage("click on cell with card to cut");
-		pIn->GetPointClicked(x, y);
 		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
 	} while (cardPosition.IsValidCell() != true);
 
