@@ -5,11 +5,13 @@
 #include "AddLadderAction.h"
 #include "AddCardAction.h"
 #include "RollDiceAction.h"
+#include "InputDiceValueAction.h"
 #include "SwitchToPlayModeAction.h"
 #include "SwitchToDesignModeAction.h"
 #include "CutCardAction.h"
 #include "CopyCardAction.h"
 #include "PasteCardAction.h"
+#include "NewGameAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -122,11 +124,11 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case INPT_DICE_VAL:
-		//pAct = new InputDiceValueAction(this);
+		pAct = new InputDiceValueAction(this);
 		break;
 
 	case NEW_GAME:
-		//pAct = new NewGameAction(this);
+		pAct = new NewGameAction(this);
 		break;
 
 	case EXITT:

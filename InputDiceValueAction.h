@@ -2,7 +2,7 @@
 #include "Action.h"
 class InputDiceValueAction : public Action
 {
-	int inputDiceValue;
+	int inputDiceValue = 0;
 public:
 	InputDiceValueAction(ApplicationManager* pApp);
 	virtual void ReadActionParameters();
