@@ -1,13 +1,13 @@
-#include "CutCardAction.h"
+#include "CopyCardAction.h"
 #include "ApplicationManager.h"
 #include "Card.h"
 
-CutCardAction::CutCardAction(ApplicationManager* pApp) : Action(pApp)
+CopyCardAction::CopyCardAction(ApplicationManager* pApp) : Action(pApp)
 {
 	// Initializes the pManager pointer of Action with the passed pointer
 }
 
-void CutCardAction::ReadActionParameters()
+void CopyCardAction::ReadActionParameters()
 {
 	// Get a Pointer to the Input / Output Interfaces
 	Grid* pGrid = pManager->GetGrid();
@@ -15,7 +15,7 @@ void CutCardAction::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 	int x, y;
 	do {
-		pOut->PrintMessage("click on cell with card to cut");
+		pOut->PrintMessage("click on cell with card to copy");
 		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
 	} while (cardPosition.IsValidCell() != true);
 
@@ -23,7 +23,7 @@ void CutCardAction::ReadActionParameters()
 	pOut->ClearStatusBar();
 }
 
-void CutCardAction::Execute()
+void CopyCardAction::Execute()
 {
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
@@ -32,11 +32,10 @@ void CutCardAction::Execute()
 	if (pCard)
 	{
 		pGrid->SetClipboard(pCard);
-		pGrid->RemoveObjectFromCell(cardPosition);
 	}
 	else
 	{
-		pGrid->PrintErrorMessage("error cannot cut");
+		pGrid->PrintErrorMessage("error cannot copy");
 		return;
 	}
 
@@ -44,6 +43,6 @@ void CutCardAction::Execute()
 	pGrid->UpdateInterface();
 }
 
-CutCardAction::~CutCardAction()
+CopyCardAction::~CopyCardAction()
 {
 }
