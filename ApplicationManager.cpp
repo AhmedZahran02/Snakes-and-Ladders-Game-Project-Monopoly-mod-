@@ -6,6 +6,7 @@
 #include "AddCardAction.h"
 #include "RollDiceAction.h"
 #include "SwitchToPlayModeAction.h"
+#include "SwitchToDesignModeAction.h"
 #include "CutCardAction.h"
 
 ///TODO: Add #include for all action types
@@ -82,7 +83,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_DESIGN_MODE:
-		pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATER)
+		pAct = new SwitchToDesignModeAction(this);
+		//pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATER)
 		break;
 
 		
