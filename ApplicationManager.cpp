@@ -6,6 +6,7 @@
 #include "AddCardAction.h"
 #include "RollDiceAction.h"
 #include "SwitchToPlayModeAction.h"
+#include "CutCardAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -95,8 +96,9 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		//pAct = new CopyCardAction(this);
 		break;
 
-	case CUT_CARD: //To be uncommented:
-		//pAct = new CutCardAction(this);
+	case CUT_CARD:
+		// create an object of CutCardAction here
+		pAct = new CutCardAction(this);
 		break;
 
 	case PST_CARD: //To be uncommented:

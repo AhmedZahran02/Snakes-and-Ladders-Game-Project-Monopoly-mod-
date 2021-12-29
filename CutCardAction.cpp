@@ -13,15 +13,13 @@ void CutCardAction::ReadActionParameters()
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	pOut->PrintMessage("Click on cell to cut :");
-	// Read the CardCell parameter
-	cardPosition = pIn->GetCellClicked();
-	//Validation
-	if (cardPosition.IsValidCell() == false)
-	{
-		pGrid->PrintErrorMessage("Invalid Cell ! ");
-		return;
-	}
+	int x, y;
+	do {
+		pOut->PrintMessage("click on cell with card to cut");
+		pIn->GetPointClicked(x, y);
+		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
+	} while (cardPosition.IsValidCell() != true);
+
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
 }
