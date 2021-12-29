@@ -63,6 +63,7 @@
     <ClCompile Include="SwitchToDesignModeAction.cpp" />
     <ClCompile Include="SwitchToPlayModeAction.cpp" />
     <ClCompile Include="NewGameAction.cpp" />
+    <ClCompile Include="CardFour.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -112,5 +113,6 @@
     <ClInclude Include="SwitchToPlayModeAction.h" />
     <ClInclude Include="UI_Info.h" />
     <ClInclude Include="NewGameAction.h" />
+    <ClInclude Include="CardFour.h" />
   </ItemGroup>
 </Project>
