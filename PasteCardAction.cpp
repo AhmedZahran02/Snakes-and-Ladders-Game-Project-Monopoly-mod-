@@ -28,7 +28,6 @@ void PasteCardAction::Execute()
 {
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
-	int x, y;
 	Grid* pGrid = pManager->GetGrid();
 	Card* pCard = pGrid->GetClipboard();
 	if (pCard)

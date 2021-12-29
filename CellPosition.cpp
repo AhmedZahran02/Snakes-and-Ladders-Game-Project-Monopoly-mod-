@@ -113,6 +113,7 @@ CellPosition CellPosition::GetCellPositionFromNum(int cellNum)
 		//       I mean: position.SetVCell(...) and position.SetHCell(...) then return it
 		return position;
 	}
+	return;
 }
 
 

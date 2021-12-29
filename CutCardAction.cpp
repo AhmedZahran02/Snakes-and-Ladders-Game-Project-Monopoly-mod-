@@ -14,7 +14,6 @@ void CutCardAction::ReadActionParameters()
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	int x, y;
 	do {
 		pOut->PrintMessage("click on cell with card to cut");
 		cardPosition=pIn->GetCellClicked();
