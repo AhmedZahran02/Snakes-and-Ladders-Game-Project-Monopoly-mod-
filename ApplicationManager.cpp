@@ -1,9 +1,11 @@
 #include "ApplicationManager.h"
-
+#include "Input.h"
+#include "Output.h"
 #include "Grid.h"
 #include "AddLadderAction.h"
 #include "AddCardAction.h"
 #include "RollDiceAction.h"
+#include "SwitchToPlayModeAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -69,7 +71,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:
-		pOut->CreatePlayModeToolBar(); // temporary till you made its action class (CHANGE THIS LATER)
+		//pAct = new SwitchToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATER)
+		pOut->CreatePlayModeToolBar();
 		break;
 
 	case ROLL_DICE:

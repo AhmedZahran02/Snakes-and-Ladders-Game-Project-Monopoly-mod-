@@ -134,6 +134,7 @@
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardOne.cpp" />
+    <ClCompile Include="CardSix.cpp" />
     <ClCompile Include="CardThree.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="CellPosition.cpp" />
@@ -183,6 +184,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="RollDiceAction.cpp" />
+    <ClCompile Include="SwitchToPlayModeAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -191,6 +193,7 @@
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardOne.h" />
+    <ClInclude Include="CardSix.h" />
     <ClInclude Include="CardThree.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellPosition.h" />
@@ -224,6 +227,7 @@
     <ClInclude Include="Output.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="RollDiceAction.h" />
+    <ClInclude Include="SwitchToPlayModeAction.h" />
     <ClInclude Include="UI_Info.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

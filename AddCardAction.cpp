@@ -5,7 +5,7 @@
 #include "CardThree.h"
 //#include "CardFour.h"
 #include "CardFive.h"
-//#include "CardSix.h"
+#include "CardSix.h"
 //#include "CardSeven.h"
 //#include "CardEight.h"
 //#include "CardNine.h"
@@ -89,7 +89,7 @@ void AddCardAction::Execute()
 		break;
 		// A- Add the remaining cases
 	case 6:
-		//pCard = new CardSix(cardPosition);
+		pCard = new CardSix(cardPosition);
 		break;
 	case 7:
 		//pCard = new CardSeven(cardPosition);
@@ -128,7 +128,10 @@ void AddCardAction::Execute()
 			pGrid->PrintErrorMessage("invalid position");
 		}
 	}
-
+	if (pCard != NULL) {
+		delete pCard;
+		pCard = NULL;
+	}
 	// Here, the card is created and added to the GameObject of its Cell, so we finished executing the AddCardAction
 
 }
