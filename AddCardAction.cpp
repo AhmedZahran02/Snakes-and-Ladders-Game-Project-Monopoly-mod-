@@ -1,11 +1,17 @@
 #include "AddCardAction.h"
 
-#include "Input.h"
-#include "Output.h"
 #include "CardOne.h"
-#include "CardFive.h"
+//#include "CardTwo.h"
 #include "CardThree.h"
+//#include "CardFour.h"
+#include "CardFive.h"
 #include "CardSix.h"
+//#include "CardSeven.h"
+//#include "CardEight.h"
+//#include "CardNine.h"
+//#include "CardTen.h"
+//#include "CardEleven.h"
+//#include "CardTwelve.h"
 
 AddCardAction::AddCardAction(ApplicationManager *pApp) : Action(pApp)
 {
@@ -29,17 +35,20 @@ void AddCardAction::ReadActionParameters()
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	// 2- Read the "cardNumber" parameter and set its data member
-	int cn = pIn->GetInteger(pOut);
+	int x = 0; int y = 0;
+	do {
+		pOut->PrintMessage("Enter the card number from 1 to 12");
+		pIn->GetPointClicked(x, y);
+		cardNumber = pIn->GetInteger(pOut);
+	} while (cardNumber < 1 && cardNumber>12);
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
 	cardPosition = pIn->GetCellClicked();
 	// 4- Make the needed validations on the read parameters
-	if (cn >= 1 && cn <= 12)
-	{
-		cardNumber = cn;
-	}
-	else {
-		cardNumber = -1;
-	}
+	do {
+		pOut->PrintMessage("click on an empty cell to put card "+to_string(cardNumber)+" on");
+		pIn->GetPointClicked(x, y);
+		cardPosition = pIn->GetCellClicked();
+	} while (cardPosition.IsValidCell() != true);
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
 }
@@ -109,17 +118,14 @@ void AddCardAction::Execute()
 	{
 		// A- We get a pointer to the Grid from the ApplicationManager
 		Grid* pGrid = pManager->GetGrid();
-		Output* pOut = pGrid->GetOutput();
-		Input* pIn = pGrid->GetInput();
 		// B- Make the "pCard" reads its card parameters: ReadCardParameters(), It is virtual and depends on the card type
-		pCard->ReadCardParameters(pGrid);
+		pCard->ReadCardParameters(pGrid); //need check because not all cardes have read parameter
 		// C- Add the card object to the GameObject of its Cell:
 		bool done=pGrid->AddObjectToCell(pCard);
 		// D- if the GameObject cannot be added in the Cell, Print the appropriate error message on statusbar
-		Output* o;
-		if (pGrid==false)
+		if (!done)
 		{
-			pOut->PrintMessage("error");
+			pGrid->PrintErrorMessage("invalid position");
 		}
 	}
 	if (pCard != NULL) {
