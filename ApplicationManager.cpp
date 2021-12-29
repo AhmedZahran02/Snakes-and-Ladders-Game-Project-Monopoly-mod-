@@ -7,6 +7,8 @@
 #include "RollDiceAction.h"
 #include "SwitchToPlayModeAction.h"
 #include "CutCardAction.h"
+#include "CopyCardAction.h"
+#include "PasteCardAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -93,7 +95,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case COPY_CARD: //To be uncommented:
-		//pAct = new CopyCardAction(this);
+		pAct = new CopyCardAction(this);
 		break;
 
 	case CUT_CARD:
@@ -102,7 +104,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case PST_CARD: //To be uncommented:
-		//pAct = new PasteCardAction(this);
+		pAct = new PasteCardAction(this);
 		break;
 
 	case DEL_GM_OBJ: //To be uncommented:
