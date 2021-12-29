@@ -38,14 +38,13 @@ void AddCardAction::ReadActionParameters()
 	int x = 0; int y = 0;
 	do {
 		pOut->PrintMessage("Enter the card number from 1 to 12");
-		pIn->GetPointClicked(x, y);
+		//pIn->GetPointClicked(x, y);
 		cardNumber = pIn->GetInteger(pOut);
 	} while (cardNumber < 1 && cardNumber>12);
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
 	// 4- Make the needed validations on the read parameters
 	do {
 		pOut->PrintMessage("click on an empty cell to put card "+to_string(cardNumber)+" on");
-		pIn->GetPointClicked(x, y);
 		cardPosition = pIn->GetCellClicked();
 	} while (cardPosition.IsValidCell() != true);
 	// 5- Clear status bar
@@ -128,10 +127,7 @@ void AddCardAction::Execute()
 			pGrid->PrintErrorMessage("invalid position");
 		}
 	}
-	if (pCard != NULL) {
-		delete pCard;
-		pCard = NULL;
-	}
+	
 	// Here, the card is created and added to the GameObject of its Cell, so we finished executing the AddCardAction
 
 }
