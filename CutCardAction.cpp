@@ -31,10 +31,10 @@ void CutCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	//pGrid->;
-	if (true)
+	Card* pCard = pGrid->GetClipboard();
+	if (pCard)
 	{
-		//pGrid->SetClipboard();
+		pGrid->SetClipboard(pCard);
 		pGrid->RemoveObjectFromCell(cardPosition);
 	}
 	else
