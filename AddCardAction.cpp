@@ -42,7 +42,6 @@ void AddCardAction::ReadActionParameters()
 		cardNumber = pIn->GetInteger(pOut);
 	} while (cardNumber < 1 && cardNumber>12);
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
-	cardPosition = pIn->GetCellClicked();
 	// 4- Make the needed validations on the read parameters
 	do {
 		pOut->PrintMessage("click on an empty cell to put card "+to_string(cardNumber)+" on");
@@ -122,6 +121,7 @@ void AddCardAction::Execute()
 		pCard->ReadCardParameters(pGrid); //need check because not all cardes have read parameter
 		// C- Add the card object to the GameObject of its Cell:
 		bool done=pGrid->AddObjectToCell(pCard);
+		pGrid->SetClipboard(pCard);
 		// D- if the GameObject cannot be added in the Cell, Print the appropriate error message on statusbar
 		if (!done)
 		{
