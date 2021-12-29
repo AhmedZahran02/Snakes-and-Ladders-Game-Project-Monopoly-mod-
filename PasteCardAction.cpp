@@ -15,11 +15,10 @@ void PasteCardAction::ReadActionParameters()
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	int x, y;
 	do {
 		pOut->PrintMessage("click on cell to paste in it");
-		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
-	} while (cardPosition.IsValidCell() != true);
+		pastePosition = pIn->GetCellClicked(); // Read the CardCell parameter
+	} while (pastePosition.IsValidCell() != true);
 
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
@@ -29,15 +28,18 @@ void PasteCardAction::Execute()
 {
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
+	int x, y;
 	Grid* pGrid = pManager->GetGrid();
 	Card* pCard = pGrid->GetClipboard();
 	if (pCard)
 	{
 		pGrid->GetOutput()->DrawCell(pCard->GetPosition(),pCard->GetCardNumber());
+		pGrid->SetClipboard(NULL);
 	}
 	else
 	{
 		pGrid->PrintErrorMessage("error cannot paste");
+		pGrid->GetInput()->GetPointClicked(x, y);
 		return;
 	}
 

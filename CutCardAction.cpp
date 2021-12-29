@@ -16,8 +16,8 @@ void CutCardAction::ReadActionParameters()
 	int x, y;
 	do {
 		pOut->PrintMessage("click on cell with card to cut");
-		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
-	} while (cardPosition.IsValidCell() != true);
+		cardPosition=new Cell(pIn->GetCellClicked());
+	} while (cardPosition->GetCellPosition().IsValidCell() != true);
 
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
@@ -28,15 +28,17 @@ void CutCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	Card* pCard = pGrid->GetClipboard();
-	if (pCard)
+	GameObject* pCard= cardPosition->GetGameObject(); //get card object in the cell
+	int x, y;
+	if (dynamic_cast<Card*>(pCard))
 	{
-		pGrid->SetClipboard(pCard);
-		pGrid->RemoveObjectFromCell(cardPosition);
+		pGrid->SetClipboard((Card*)pCard);
+		pGrid->RemoveObjectFromCell(cardPosition->GetCellPosition());
 	}
 	else
 	{
 		pGrid->PrintErrorMessage("error cannot cut");
+		pGrid->GetInput()->GetPointClicked(x, y);
 		return;
 	}
 
@@ -46,4 +48,5 @@ void CutCardAction::Execute()
 
 CutCardAction::~CutCardAction()
 {
+	delete cardPosition;
 }

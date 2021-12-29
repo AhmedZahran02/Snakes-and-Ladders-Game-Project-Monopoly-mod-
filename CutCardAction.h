@@ -5,7 +5,7 @@
 class CutCardAction : public Action
 {
 	// [Action Parameters]
-	CellPosition cardPosition; //  cell position of the card
+	Cell *cardPosition; //  cell position of the card
 
 public:
 

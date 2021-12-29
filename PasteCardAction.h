@@ -5,7 +5,7 @@ class PasteCardAction :
 	public Action
 {
 	// [Action Parameters]
-	CellPosition cardPosition; //  cell position of the card
+	CellPosition pastePosition; //  cell position of the card
 
 public:
 
