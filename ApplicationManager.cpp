@@ -71,8 +71,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:
-		//pAct = new SwitchToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATER)
-		pOut->CreatePlayModeToolBar();
+		pAct = new SwitchToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATER)
+		//pOut->CreatePlayModeToolBar();
 		break;
 
 	case ROLL_DICE:
