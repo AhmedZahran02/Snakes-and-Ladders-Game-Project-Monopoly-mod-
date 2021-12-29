@@ -40,7 +40,6 @@ void PasteCardAction::Execute()
 	else
 	{
 		pGrid->PrintErrorMessage("error cannot paste");
-		pGrid->GetInput()->GetPointClicked(x, y);
 		return;
 	}
 

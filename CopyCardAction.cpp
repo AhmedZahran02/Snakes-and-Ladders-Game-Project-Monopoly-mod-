@@ -13,13 +13,11 @@ void CopyCardAction::ReadActionParameters()
 	Grid* pGrid = pManager->GetGrid();
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	int x, y;
 	do {
 		pOut->PrintMessage("click on cell with card to copy");
 		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
 	} while (cardPosition.IsValidCell() != true);
-
-	// 5- Clear status bar
+	// Clear status bar
 	pOut->ClearStatusBar();
 }
 
@@ -29,7 +27,6 @@ void CopyCardAction::Execute()
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Card* CardinCell = pGrid->GetGameObject(cardPosition); //get card object in the cell
-	int x, y;
 	if (CardinCell)
 	{
 		pGrid->SetClipboard(CardinCell);
@@ -37,7 +34,6 @@ void CopyCardAction::Execute()
 	else
 	{
 		pGrid->PrintErrorMessage("error cannot copy");
-		pGrid->GetInput()->GetPointClicked(x, y);
 		return;
 	}
 

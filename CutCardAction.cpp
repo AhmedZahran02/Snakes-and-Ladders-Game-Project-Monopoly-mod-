@@ -30,7 +30,6 @@ void CutCardAction::Execute()
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
 	Card* CardinCell= pGrid->GetGameObject(cardPosition); //get card object in the cell
-	int x, y;
 	if (CardinCell)
 	{
 		pGrid->SetClipboard(CardinCell);
@@ -39,7 +38,6 @@ void CutCardAction::Execute()
 	else
 	{
 		pGrid->PrintErrorMessage("error cannot cut");
-		pGrid->GetInput()->GetPointClicked(x, y);
 		return;
 	}
 
