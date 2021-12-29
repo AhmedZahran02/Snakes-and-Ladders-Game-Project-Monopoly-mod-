@@ -128,10 +128,7 @@ void AddCardAction::Execute()
 			pGrid->PrintErrorMessage("invalid position");
 		}
 	}
-	if (pCard != NULL) {
-		delete pCard;
-		pCard = NULL;
-	}
+	
 	// Here, the card is created and added to the GameObject of its Cell, so we finished executing the AddCardAction
 
 }
