@@ -121,6 +121,11 @@ void Grid::AdvanceCurrentPlayer()
 	currPlayerNumber = (currPlayerNumber + 1) % MaxPlayerCount; // this generates value from 0 to MaxPlayerCount - 1
 }
 
+void Grid::ReSetCurrentPlayerNum()
+{
+	currPlayerNumber = 0;
+}
+
 Card* Grid::GetGameObject(const CellPosition& position) const
 {
 	return dynamic_cast<Card*>(CellList[position.VCell()][position.HCell()]->GetGameObject());
