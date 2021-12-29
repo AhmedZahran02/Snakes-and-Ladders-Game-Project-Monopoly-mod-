@@ -31,20 +31,20 @@ void CutCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	//pGrid;
-	//if (obj)
-	//{
-	//	pGrid->SetClipboard();
-	//	pGrid->RemoveObjectFromCell(cardPosition);
-	//}
-	//else
-	//{
-	//	pGrid->PrintErrorMessage("error cannot cut");
-	//	return;
-	//}
+	//pGrid->;
+	if (true)
+	{
+		//pGrid->SetClipboard();
+		pGrid->RemoveObjectFromCell(cardPosition);
+	}
+	else
+	{
+		pGrid->PrintErrorMessage("error cannot cut");
+		return;
+	}
 
-	//// Here, the Card/CoinSet is cut and added to the Clipboard, so we finished executing the CutCardOrCoinsAction
-	//pGrid->UpdateInterface();
+	// Here, the Card/CoinSet is cut and added to the Clipboard, so we finished executing the CutCardOrCoinsAction
+	pGrid->UpdateInterface();
 }
 
 CutCardAction::~CutCardAction()
