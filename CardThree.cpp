@@ -1,5 +1,5 @@
 #include "CardThree.h"
-
+#include "ApplicationManager.h"
 
 CardThree::CardThree(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {

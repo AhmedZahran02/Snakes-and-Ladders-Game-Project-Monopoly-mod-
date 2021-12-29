@@ -1,6 +1,7 @@
 #include "CutCardAction.h"
 #include "ApplicationManager.h"
 #include "Card.h"
+#include "GameObject.h"
 
 CutCardAction::CutCardAction(ApplicationManager* pApp) : Action(pApp)
 {
@@ -16,8 +17,8 @@ void CutCardAction::ReadActionParameters()
 	int x, y;
 	do {
 		pOut->PrintMessage("click on cell with card to cut");
-		cardPosition=new Cell(pIn->GetCellClicked());
-	} while (cardPosition->GetCellPosition().IsValidCell() != true);
+		cardPosition=pIn->GetCellClicked();
+	} while (cardPosition.IsValidCell() != true);
 
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
@@ -28,12 +29,12 @@ void CutCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	GameObject* pCard= cardPosition->GetGameObject(); //get card object in the cell
+	Card* CardinCell= pGrid->GetGameObject(cardPosition); //get card object in the cell
 	int x, y;
-	if (dynamic_cast<Card*>(pCard))
+	if (CardinCell)
 	{
-		pGrid->SetClipboard((Card*)pCard);
-		pGrid->RemoveObjectFromCell(cardPosition->GetCellPosition());
+		pGrid->SetClipboard(CardinCell);
+		pGrid->RemoveObjectFromCell(cardPosition);
 	}
 	else
 	{
@@ -48,5 +49,4 @@ void CutCardAction::Execute()
 
 CutCardAction::~CutCardAction()
 {
-	delete cardPosition;
 }

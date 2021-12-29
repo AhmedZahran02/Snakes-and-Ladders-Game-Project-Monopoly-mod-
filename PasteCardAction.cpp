@@ -18,7 +18,7 @@ void PasteCardAction::ReadActionParameters()
 	do {
 		pOut->PrintMessage("click on cell to paste in it");
 		pastePosition = pIn->GetCellClicked(); // Read the CardCell parameter
-	} while (pastePosition.IsValidCell() != true);
+	} while (pastePosition.IsValidCell() == false || pastePosition.GetCellNum() == 1 || pastePosition.GetCellNum() == 99);
 
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
@@ -33,7 +33,8 @@ void PasteCardAction::Execute()
 	Card* pCard = pGrid->GetClipboard();
 	if (pCard)
 	{
-		pGrid->GetOutput()->DrawCell(pCard->GetPosition(),pCard->GetCardNumber());
+		pCard->SetPosition(pastePosition);
+		pGrid->AddObjectToCell(pCard);
 		pGrid->SetClipboard(NULL);
 	}
 	else

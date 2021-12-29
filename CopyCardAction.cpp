@@ -27,12 +27,12 @@ void CopyCardAction::Execute()
 {
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
-	int x, y;
 	Grid* pGrid = pManager->GetGrid();
-	Card* pCard = pGrid->GetClipboard();
-	if (pCard)
+	Card* CardinCell = pGrid->GetGameObject(cardPosition); //get card object in the cell
+	int x, y;
+	if (CardinCell)
 	{
-		pGrid->SetClipboard(pCard);
+		pGrid->SetClipboard(CardinCell);
 	}
 	else
 	{
