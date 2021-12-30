@@ -379,7 +379,4 @@
       <UniqueIdentifier>{07d502d0-ea04-4007-a8da-d98c8eb3b557}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
-  <ItemGroup>
-    <ResourceCompile Include="PT Project.rc" />
-  </ItemGroup>
 </Project>
