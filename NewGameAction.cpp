@@ -24,7 +24,6 @@ void NewGameAction::Execute()
 		pGrid->AdvanceCurrentPlayer();
 	}
 	pGrid->ReSetCurrentPlayerNum();
-	
 }
 
 NewGameAction::~NewGameAction()

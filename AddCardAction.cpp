@@ -8,9 +8,7 @@
 #include "CardSix.h"
 //#include "CardSeven.h"
 //#include "CardEight.h"
-//#include "CardNine.h"
-//#include "CardTen.h"
-//#include "CardEleven.h"
+#include "CardNineToEleven.h"
 //#include "CardTwelve.h"
 
 AddCardAction::AddCardAction(ApplicationManager *pApp) : Action(pApp)
@@ -97,13 +95,13 @@ void AddCardAction::Execute()
 		//pCard = new CardEight(cardPosition);
 		break;
 	case 9:
-		//pCard = new CardNine(cardPosition);
+		pCard = new CardNineToEleven(cardPosition,9);
 		break;
 	case 10:
-		//pCard = new CardTen(cardPosition);
+		pCard = new CardNineToEleven(cardPosition,10);
 		break;
 	case 11:
-		//pCard = new CardEleven(cardPosition);
+		pCard = new CardNineToEleven(cardPosition,11);
 		break;
 	case 12:
 		//pCard = new CardTwelve(cardPosition);
