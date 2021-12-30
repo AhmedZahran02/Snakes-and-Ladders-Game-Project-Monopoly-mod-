@@ -28,8 +28,6 @@ void AddLadderAction::ReadActionParameters()
 	pOut->PrintMessage("New Ladder: Click on its End Cell ...");
 	endPos = pIn->GetCellClicked();
 
-    
-
 	///TODO: Make the needed validations on the read parameters
 
 	

@@ -188,6 +188,9 @@
     <ClCompile Include="SwitchToPlayModeAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="CardTwo.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -330,6 +333,10 @@
     <ClInclude Include="SwitchToPlayModeAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="CardTwo.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">
@@ -359,5 +366,8 @@
     <Filter Include="GameObjects\Cards">
       <UniqueIdentifier>{07d502d0-ea04-4007-a8da-d98c8eb3b557}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PT Project.rc" />
   </ItemGroup>
 </Project>

@@ -137,6 +137,7 @@
     <ClCompile Include="CardOne.cpp" />
     <ClCompile Include="CardSix.cpp" />
     <ClCompile Include="CardThree.cpp" />
+    <ClCompile Include="CardTwo.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="CellPosition.cpp" />
     <ClCompile Include="CardFive.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="CardOne.h" />
     <ClInclude Include="CardSix.h" />
     <ClInclude Include="CardThree.h" />
+    <ClInclude Include="CardTwo.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="CellPosition.h" />
     <ClInclude Include="CardFive.h" />
@@ -237,10 +239,14 @@
     <ClInclude Include="Output.h" />
     <ClInclude Include="PasteCardAction.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="RollDiceAction.h" />
     <ClInclude Include="SwitchToDesignModeAction.h" />
     <ClInclude Include="SwitchToPlayModeAction.h" />
     <ClInclude Include="UI_Info.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="PT Project.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
