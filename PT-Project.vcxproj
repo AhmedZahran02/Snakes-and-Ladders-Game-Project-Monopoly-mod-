@@ -133,10 +133,12 @@
     <ClCompile Include="AddLadderAction.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="CardEleven.cpp" />
     <ClCompile Include="CardFour.cpp" />
-    <ClCompile Include="CardNineToEleven.cpp" />
+    <ClCompile Include="CardNine.cpp" />
     <ClCompile Include="CardOne.cpp" />
     <ClCompile Include="CardSix.cpp" />
+    <ClCompile Include="CardTen.cpp" />
     <ClCompile Include="CardThree.cpp" />
     <ClCompile Include="CardTwo.cpp" />
     <ClCompile Include="Cell.cpp" />
@@ -201,10 +203,12 @@
     <ClInclude Include="AddLadderAction.h" />
     <ClInclude Include="ApplicationManager.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="CardEleven.h" />
     <ClInclude Include="CardFour.h" />
-    <ClInclude Include="CardNineToEleven.h" />
+    <ClInclude Include="CardNine.h" />
     <ClInclude Include="CardOne.h" />
     <ClInclude Include="CardSix.h" />
+    <ClInclude Include="CardTen.h" />
     <ClInclude Include="CardThree.h" />
     <ClInclude Include="CardTwo.h" />
     <ClInclude Include="Cell.h" />

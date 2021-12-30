@@ -1,16 +1,23 @@
-#include "CardNineToEleven.h"
+#include "CardTen.h"
 
-CardNineToEleven::CardNineToEleven(const CellPosition& pos,int cardnum) : Card(pos) // set the cell position of the card
+Player* CardTen::card10owner;
+
+CardTen::CardTen(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
-	cardNumber = cardnum; // set the inherited cardNumber data member with the card number (1 here)
-	owner = NULL;
+	cardNumber = 10; // set the inherited cardNumber data member with the card number (1 here)
+	card10owner = NULL;
 }
 
-CardNineToEleven::~CardNineToEleven(void)
+void CardTen::setowner(Player* p)
+{
+	card10owner = p;
+}
+
+CardTen::~CardTen(void)
 {
 }
 
-void CardNineToEleven::ReadCardParameters(Grid* pGrid)
+void CardTen::ReadCardParameters(Grid* pGrid)
 {
 
 
@@ -24,9 +31,9 @@ void CardNineToEleven::ReadCardParameters(Grid* pGrid)
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	// 2- Read an Integer from the user using the Input class and set the parameters with it
-	pOut->PrintMessage("New Card "+to_string(cardNumber)+": Enter its Price ...");
+	pOut->PrintMessage("New Card 10: Enter its Price ...");
 	CardPrice = pIn->GetInteger(pOut);
-	pOut->PrintMessage("Card " + to_string(cardNumber) + ": Enter its Fees ...");
+	pOut->PrintMessage("Card 10: Enter its Fees ...");
 	Fees = pIn->GetInteger(pOut);
 
 	// [ Note ]:
@@ -37,7 +44,7 @@ void CardNineToEleven::ReadCardParameters(Grid* pGrid)
 	pOut->ClearStatusBar();
 }
 
-void CardNineToEleven::Apply(Grid* pGrid, Player* pPlayer)
+void CardTen::Apply(Grid* pGrid, Player* pPlayer)
 {
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
@@ -50,19 +57,22 @@ void CardNineToEleven::Apply(Grid* pGrid, Player* pPlayer)
 
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	if (owner==NULL)
+	if (card10owner == NULL)
 	{
-		pOut->PrintMessage("Do you want to buy this sell    1-yes   2-no");
+		pOut->PrintMessage("Do you want to buy those cells with cardnumber 10    1-yes   2-no");
 		int choise = pIn->GetInteger(pOut);
-		if (choise==2)
+		if (choise == 2)
 		{
 			return;
 		}
-		if (choise ==1)
+		if (choise == 1)
 		{
 			if (pPlayer->GetWallet() >= CardPrice)
 			{
-				owner = pPlayer;
+				setowner(pPlayer);
+				card10owner->SetWallet(card10owner->GetWallet() - CardPrice);
+				// apply owner for all cards not this only -> static
+
 			}
 			else
 			{
@@ -73,13 +83,10 @@ void CardNineToEleven::Apply(Grid* pGrid, Player* pPlayer)
 	}
 	else
 	{
-		if (pPlayer->GetCell()->HasCard()->GetCardNumber() == cardNumber)
-		{
-			pPlayer->SetWallet(pPlayer->GetWallet() - Fees);
-			owner->SetWallet(owner->GetWallet() + Fees);
-			return;
-		}
+		pPlayer->SetWallet(pPlayer->GetWallet() - Fees);
+		card10owner->SetWallet(card10owner->GetWallet() + Fees);
+		return;
 	}
-	
+
 }
 

@@ -194,7 +194,13 @@
     <ClCompile Include="Snake.cpp">
       <Filter>GameObjects</Filter>
     </ClCompile>
-    <ClCompile Include="CardNineToEleven.cpp">
+    <ClCompile Include="CardNine.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardTen.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
+    <ClCompile Include="CardEleven.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
   </ItemGroup>
@@ -346,7 +352,13 @@
     <ClInclude Include="Snake.h">
       <Filter>GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="CardNineToEleven.h">
+    <ClInclude Include="CardNine.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardTen.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="CardEleven.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
   </ItemGroup>
