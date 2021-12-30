@@ -9,10 +9,17 @@ void CardSix::ReadCardParameters(Grid* pGrid)
 {
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	pOut->PrintMessage("Please enter X coordinate of cell: ");
-	XdestinationCell = pIn->GetInteger(pOut);
-	pOut->PrintMessage("Please enter Y coordinate of cell: ");
-	YdestinationCell = pIn->GetInteger(pOut);
+	do
+	{
+		pOut->PrintMessage("Please enter X coordinate of destination cell between 0 and 10 (inclusive): ");
+		XdestinationCell = pIn->GetInteger(pOut);
+	} while (XdestinationCell < 0 || XdestinationCell > 10);
+	
+	do
+	{
+		pOut->PrintMessage("Please enter Y coordinate of destination cell between 0 and 8 (inclusive): ");
+		YdestinationCell = pIn->GetInteger(pOut);
+	} while (YdestinationCell < 0 || YdestinationCell > 8);
 }
 
 

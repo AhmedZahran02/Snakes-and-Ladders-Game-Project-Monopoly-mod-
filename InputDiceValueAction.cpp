@@ -17,7 +17,7 @@ void InputDiceValueAction::ReadActionParameters()
 	{
 		pOut->PrintMessage("Please enter a dice value between 1 and 6 (inclusive): ");
 		inputDiceValue = pIn->GetInteger(pOut);
-	} while (inputDiceValue < 1 && inputDiceValue > 6);
+	} while (inputDiceValue < 1 || inputDiceValue > 6);
 }
 
 void InputDiceValueAction::Execute()

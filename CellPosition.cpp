@@ -97,7 +97,7 @@ CellPosition CellPosition::GetCellPositionFromNum(int cellNum)
 {
 	// this is a static function (do NOT need a calling object so CANNOT use the data members of the calling object, vCell&hCell)
 
-	CellPosition position;
+	CellPosition position(-1, -1);
 
 	/// TODO: Implement this function as described in the .h file
 	if (cellNum > 0 && cellNum < 100) {
@@ -111,9 +111,9 @@ CellPosition CellPosition::GetCellPositionFromNum(int cellNum)
 
 		// Note: use the passed cellNum to set the vCell and hCell of the "position" variable declared inside the function
 		//       I mean: position.SetVCell(...) and position.SetHCell(...) then return it
-		return position;
 	}
-	return;
+	return position;
+	
 }
 
 
