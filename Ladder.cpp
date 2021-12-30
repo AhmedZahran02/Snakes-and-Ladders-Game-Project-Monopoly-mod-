@@ -1,4 +1,5 @@
 #include "Ladder.h"
+#include "Player.h"
 
 Ladder::Ladder(const CellPosition & startCellPos, const CellPosition & endCellPos) : GameObject(startCellPos)
 {
@@ -14,7 +15,7 @@ void Ladder::Draw(Output* pOut) const
 
 void Ladder::Apply(Grid* pGrid, Player* pPlayer) 
 {
-	
+	Output* pOut = pGrid->GetOutput();
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
 
@@ -25,6 +26,7 @@ void Ladder::Apply(Grid* pGrid, Player* pPlayer)
 
 	// 2- Apply the ladder's effect by moving the player to the endCellPos
 	//    Review the "pGrid" functions and decide which function can be used for that
+	pPlayer->Draw(pOut);
 	
 }
 
