@@ -191,6 +191,9 @@
     <ClCompile Include="CardTwo.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>GameObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -336,6 +339,9 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="CardTwo.h">
       <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>GameObjects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
