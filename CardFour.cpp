@@ -21,10 +21,8 @@ void CardFour::Apply(Grid* pGrid, Player* pPlayer)
 	// 1- Call Apply() of the base class Card to print the message that you reached this card number
 	Card::Apply(pGrid, pPlayer);
 	// 2- prevent the pPlayer from the next dice roll
-	ApplicationManager* pManager;
-	pPlayer->GetCell();
-	if (true)
+	if (ActionType::ROLL_DICE)
 	{
-	//donot know now
+		pPlayer->Move(pGrid,0);
 	}
 }
