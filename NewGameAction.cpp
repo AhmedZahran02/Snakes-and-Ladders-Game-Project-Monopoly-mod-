@@ -16,6 +16,7 @@ void NewGameAction::ReadActionParameters()
 void NewGameAction::Execute()
 {
 	Grid* pGrid = pManager->GetGrid();
+	pGrid->SetEndGame(0);
 	CellPosition start(8, 0);
 	for (int i = 0; i < 4; i++) {
 		Player* pPlayer = pGrid->GetCurrentPlayer();
