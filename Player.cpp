@@ -110,12 +110,15 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		NewCellPos.AddCellNum(justRolledDiceNum);
 		pGrid->UpdatePlayerCell(this, NewCellPos);
 		Output* pOut = pGrid->GetOutput();
+		Input* pIn = pGrid->GetInput();
 		GameObject* pGameObject = pCell->GetGameObject();
 		if (pGameObject != NULL) {
 			pGameObject->Apply(pGrid, this);
 		}
 		if (newCell > 99) {
-			pOut->PrintMessage("Congratulations! Player " + to_string(playerNum) + " won!");
+			pOut->PrintMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
+			int x, y;
+			pIn->GetPointClicked(x, y);
 			pGrid->SetEndGame(true);
 	}
 }
