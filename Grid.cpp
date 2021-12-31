@@ -1,6 +1,7 @@
 #include "Grid.h"
 
 #include "Cell.h"
+#include "CellPosition.h"
 #include "GameObject.h"
 #include "Ladder.h"
 #include "Card.h"
@@ -156,7 +157,7 @@ Ladder * Grid::GetNextLadder(const CellPosition & position)
 		{
 
 			if (CellList[i][j]->HasLadder() != NULL) {
-				return (Ladder*)CellList[i][j];
+				return (Ladder*)(CellList[i][j]->GetGameObject());
 			}
 			///TODO: Check if CellList[i][j] has a ladder, if yes return it
 			

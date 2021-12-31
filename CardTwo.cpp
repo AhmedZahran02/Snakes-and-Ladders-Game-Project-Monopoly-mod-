@@ -1,5 +1,7 @@
 #include "CardTwo.h"
 #include "Ladder.h"
+#include "Grid.h"
+#include "Player.h"
 
 CardTwo::CardTwo(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
@@ -12,13 +14,14 @@ void CardTwo::Apply(Grid* pGrid, Player* pPlayer) {
 	Ladder* NextLadder = pGrid->GetNextLadder(CellPositionOfPlayer);
 	
 	if (NextLadder == NULL) {
-		pOut->PrintMessage("No Next Ladder exists! The player will not move.");
+		pGrid->PrintErrorMessage("No Next Ladder exists! The player will not move.");
 	}
 	else {
-		int MovesCount = NextLadder->GetPosition().GetCellNum() - pPlayer->GetCell()->GetCellPosition().GetCellNum();
-		//pPlayer->Move(pGrid, MovesCount);
-		/*CellPosition LadderStartPosition = NextLadder->GetPosition();*/
-		//pGrid->UpdatePlayerCell(pPlayer, LadderStartPosition);
+		pGrid->PrintErrorMessage("You have Card 2. You are lucky, You will go to the next Ladder Click to continue");
+		//int MovesCount = NextLadder->GetPosition().GetCellNum() - pPlayer->GetCell()->GetCellPosition().GetCellNum();
+		CellPosition LadderPosition = NextLadder->GetPosition();
+		pGrid->UpdatePlayerCell(pPlayer,LadderPosition);
+		NextLadder->Apply(pGrid,pPlayer);
 	}
 
 }

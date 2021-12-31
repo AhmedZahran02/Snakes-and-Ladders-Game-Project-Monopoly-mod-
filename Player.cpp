@@ -116,16 +116,15 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			pGameObject->Apply(pGrid, this);
 		}
 		if (newCell > 99) {
-			pOut->PrintMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
-			int x, y;
-			pIn->GetPointClicked(x, y);
+			pGrid->PrintErrorMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
 			pGrid->SetEndGame(true);
 	}
+		stepCount = pCell->GetCellPosition().GetCellNum();
 }
 
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
 	playersInfo += "P" + to_string(playerNum) + "(" ;
 	playersInfo += to_string(wallet) + ", ";
-	playersInfo += to_string(turnCount) + ")";
+	playersInfo += to_string(stepCount) + ")";
 }
