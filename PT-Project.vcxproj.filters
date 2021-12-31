@@ -206,6 +206,9 @@
     <ClCompile Include="AddSnakeAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="DeleteGameObjectAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -365,6 +368,9 @@
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
     <ClInclude Include="AddSnakeAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="DeleteGameObjectAction.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

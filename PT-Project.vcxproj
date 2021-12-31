@@ -183,6 +183,7 @@
     <ClCompile Include="CMUgraphicsLib\jpeg\jutils.c" />
     <ClCompile Include="CopyCardAction.cpp" />
     <ClCompile Include="CutCardAction.cpp" />
+    <ClCompile Include="DeleteGameObjectAction.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -239,6 +240,7 @@
     <ClInclude Include="CopyCardAction.h" />
     <ClInclude Include="CutCardAction.h" />
     <ClInclude Include="DEFS.h" />
+    <ClInclude Include="DeleteGameObjectAction.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
     <ClInclude Include="Input.h" />
