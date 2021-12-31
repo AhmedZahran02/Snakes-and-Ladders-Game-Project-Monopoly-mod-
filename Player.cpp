@@ -95,10 +95,9 @@ void Player::Move(Grid* pGrid, int diceNumber)
 	// 6- Apply() the game object of the reached cell (if any)
 
 	// 7- Check if the player reached the end cell of the whole game, and if yes, Set end game with true: pGrid->SetEndGame(true)
-	turnCount++;
-	if (turnCount == 3) {
-		turnCount = (turnCount + 1) % 4;
-		if (turnCount % 3 == 0) {
+	//turnCount++;
+		turnCount++;
+		if (turnCount == 3) {
 			int newWallet = wallet + diceNumber * 10;
 			SetWallet(newWallet);
 			turnCount = 0;
@@ -118,7 +117,6 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		if (newCell > 99) {
 			pOut->PrintMessage("Congratulations! Player " + to_string(playerNum) + " won!");
 			pGrid->SetEndGame(true);
-		}
 	}
 }
 
