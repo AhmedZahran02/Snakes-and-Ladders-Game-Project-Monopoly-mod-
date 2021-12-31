@@ -36,17 +36,22 @@ void AddCardAction::ReadActionParameters()
 	Input* pIn = pGrid->GetInput();
 	// 2- Read the "cardNumber" parameter and set its data member
 	int x = 0; int y = 0;
-	do {
-		pOut->PrintMessage("Enter the card number from 1 to 12");
-		//pIn->GetPointClicked(x, y);
-		cardNumber = pIn->GetInteger(pOut);
-	} while (cardNumber < 1 && cardNumber>12);
+	pOut->PrintMessage("Enter the card number from 1 to 12 .....");
+	cardNumber = pIn->GetInteger(pOut);
+	if (cardNumber < 1 || cardNumber>12)
+	{
+		pGrid->PrintErrorMessage("Invalid Card number,click to continue!");
+	}
+	else
+	{
+		do {
+			pOut->PrintMessage("click on an empty cell to put card " + to_string(cardNumber) + " on");
+			cardPosition = pIn->GetCellClicked();
+		} while (cardPosition.IsValidCell() != true);
+	}
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
 	// 4- Make the needed validations on the read parameters
-	do {
-		pOut->PrintMessage("click on an empty cell to put card "+to_string(cardNumber)+" on");
-		cardPosition = pIn->GetCellClicked();
-	} while (cardPosition.IsValidCell() != true);
+	
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
 }
