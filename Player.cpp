@@ -99,9 +99,14 @@ void Player::Move(Grid * pGrid, int diceNumber)
 	CellPosition NewCellPos = pCell->GetCellPosition();
 	NewCellPos.AddCellNum(justRolledDiceNum);
 	pGrid->UpdatePlayerCell(this,NewCellPos);
+	Output* pOut = pGrid->GetOutput();
 	GameObject* pGameObject = pCell->GetGameObject();
 	if (pGameObject != NULL) {
 		pGameObject->Apply(pGrid,this);
+	}
+	if (NewCellPos.GetCellNum() > 99) {
+		pOut->PrintMessage("Congratulations! Player " + to_string(playerNum)+" won!");
+		pGrid->SetEndGame(true);
 	}
 }
 

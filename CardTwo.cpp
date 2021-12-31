@@ -16,7 +16,9 @@ void CardTwo::Apply(Grid* pGrid, Player* pPlayer) {
 	}
 	else {
 		int MovesCount = NextLadder->GetPosition().GetCellNum() - pPlayer->GetCell()->GetCellPosition().GetCellNum();
-		pPlayer->Move(pGrid, MovesCount);
+		//pPlayer->Move(pGrid, MovesCount);
+		/*CellPosition LadderStartPosition = NextLadder->GetPosition();*/
+		//pGrid->UpdatePlayerCell(pPlayer, LadderStartPosition);
 	}
 
 }
