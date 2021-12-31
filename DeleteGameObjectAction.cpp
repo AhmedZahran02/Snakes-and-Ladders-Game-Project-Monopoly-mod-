@@ -14,13 +14,11 @@ void DeleteGameObjectAction::Execute() {
 	Input* pIn = pGrid->GetInput();
 	bool deleted = pGrid->RemoveObjectFromCell(GameObjectPosition);
 	if (!deleted) {
-		pOut->PrintMessage("There is no GameObject here Click to continue");
+		pGrid->PrintErrorMessage("There is no GameObject here Click to continue");
 	}
 	else {
 		pOut->PrintMessage("GameObject deleted successfully Click to continue");
 	}
-	int x, y;
-	pIn->GetPointClicked(x, y);
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
 	//update interface
