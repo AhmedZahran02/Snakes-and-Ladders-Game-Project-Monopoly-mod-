@@ -30,6 +30,7 @@ void CardTen::ReadCardParameters(Grid* pGrid)
 	// 1- Get a Pointer to the Input / Output Interfaces from the Grid
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
+	//card10owner = pGrid->GetCurrentPlayer();
 	// 2- Read an Integer from the user using the Input class and set the parameters with it
 	pOut->PrintMessage("New Card 10: Enter its Price ...");
 	CardPrice = pIn->GetInteger(pOut);
@@ -70,6 +71,7 @@ void CardTen::Apply(Grid* pGrid, Player* pPlayer)
 			if (pPlayer->GetWallet() >= CardPrice)
 			{
 				setowner(pPlayer);
+				//card10owner = pGrid->GetCurrentPlayer();
 				card10owner->SetWallet(card10owner->GetWallet() - CardPrice);
 				// apply owner for all cards not this only -> static
 

@@ -33,6 +33,7 @@ public:
 
 	///TODO: You can add setters and getters for data members here (if needed)
 	int GetJustRolledDiceNum() const;
+	void SetTurnCount(int s);
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Circle on its current cell
@@ -46,7 +47,7 @@ public:
 	                                            // for example, if the end cell contains a ladder, take it
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
-	                                                   // for example: P0(wallet, turnCount)
+	                                                   // for example: (wallet, turnCount)
 
 };
 
