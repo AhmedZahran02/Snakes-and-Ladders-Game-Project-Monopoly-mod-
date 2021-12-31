@@ -3,6 +3,7 @@
 #include "Output.h"
 #include "Grid.h"
 #include "AddLadderAction.h"
+#include "AddSnakeAction.h"
 #include "AddCardAction.h"
 #include "RollDiceAction.h"
 #include "InputDiceValueAction.h"
@@ -68,6 +69,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new AddLadderAction(this);
 		break;
 
+
 	case ADD_CARD:
 		// create an object of AddCardAction here
 		pAct = new AddCardAction(this);
@@ -95,7 +97,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
 	case ADD_SNAKE: //To be uncommented:
-		//pAct = new AddSnakeAction(this);
+		pAct = new AddSnakeAction(this);
 		break;
 
 	case COPY_CARD: //To be uncommented:
