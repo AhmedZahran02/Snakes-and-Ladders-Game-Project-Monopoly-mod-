@@ -31,15 +31,15 @@ void AddLadderAction::ReadActionParameters()
 	///TODO: Make the needed validations on the read parameters
 	bool Valid = true;
 	if ((startPos.GetCellNum() == 1)) {
-		pOut->PrintMessage("Cannot put any Game object on the first cell");
+		pGrid->PrintErrorMessage("Cannot put any Game object on the first cell");
 		Valid = false;
 	}
 	else if (startPos.HCell() != endPos.HCell()) {
-		pOut->PrintMessage("The ladder can be vertical only!");
+		pGrid->PrintErrorMessage("The ladder can be vertical only!");
 		Valid = false;
 	}
 	else if (startPos.VCell() <= endPos.VCell()) {
-		pOut->PrintMessage("The Ladder can be positioned to up only !");
+		pGrid->PrintErrorMessage("The Ladder can be positioned to up only !");
 		Valid = false;
 	}
 	if (!Valid) {

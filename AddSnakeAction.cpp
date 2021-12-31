@@ -41,15 +41,15 @@ void AddSnakeAction::ReadActionParameters() {
 	//Doing the validations for the snake
 	bool Valid = true;
 	if ((startPos.GetCellNum() == 1)) {
-		pOut->PrintMessage("Cannot put any Game object on the first cell");
+		pGrid->PrintErrorMessage("Cannot put any Game object on the first cell");
 		Valid = false;
 	}
 	else if (startPos.HCell() != endPos.HCell()) {
-		pOut->PrintMessage("The Snake can be vertical only!");
+		pGrid->PrintErrorMessage("The Snake can be vertical only!");
 		Valid = false;
 	}
 	else if (startPos.VCell() >= endPos.VCell()) {
-		pOut->PrintMessage("The Snake can be positioned to down only !");
+		pGrid->PrintErrorMessage("The Snake can be positioned to down only !");
 		Valid = false;
 	}
 	if (!Valid) {
@@ -58,8 +58,7 @@ void AddSnakeAction::ReadActionParameters() {
 		startPos.SetVCell(0);
 		endPos.SetHCell(0);
 	}
-
-
+	pOut->ClearStatusBar();
 }
 AddSnakeAction::~AddSnakeAction() {
 
