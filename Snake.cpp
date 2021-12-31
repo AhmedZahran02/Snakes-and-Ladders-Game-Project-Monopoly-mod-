@@ -1,4 +1,5 @@
 #include "Snake.h"
+#include "Player.h"
 
 Snake::Snake(const CellPosition& startCellPos, const CellPosition& endCellPos) : GameObject(startCellPos)
 {
