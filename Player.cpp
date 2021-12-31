@@ -55,6 +55,7 @@ void Player::Draw(Output* pOut) const
 	color playerColor = UI.PlayerColors[playerNum];
 
 	///TODO: use the appropriate output function to draw the player with "playerColor"
+
 	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, playerColor);
 }
 
@@ -69,7 +70,7 @@ void Player::ClearDrawing(Output* pOut) const
 
 // ====== Game Functions ======
 
-void Player::Move(Grid * pGrid, int diceNumber)
+void Player::Move(Grid* pGrid, int diceNumber)
 {
 
 	///TODO: Implement this function as mentioned in the guideline steps (numbered below) below
@@ -79,10 +80,10 @@ void Player::Move(Grid * pGrid, int diceNumber)
 
 
 	// 1- Increment the turnCount because calling Move() means that the player has rolled the dice once
-	
+
 	// 2- Check the turnCount to know if the wallet recharge turn comes (recharge wallet instead of move)
 	//    If yes, recharge wallet and reset the turnCount and return from the function (do NOT move)
-	
+
 	// 3- Set the justRolledDiceNum with the passed diceNumber
 
 	// 4- Get the player current cell position, say "pos", and add to it the diceNumber (update the position)
@@ -94,24 +95,30 @@ void Player::Move(Grid * pGrid, int diceNumber)
 	// 6- Apply() the game object of the reached cell (if any)
 
 	// 7- Check if the player reached the end cell of the whole game, and if yes, Set end game with true: pGrid->SetEndGame(true)
-	turnCount = (turnCount + 1) % 4;
-	if (turnCount % 3 == 0) {
-		int newWallet = wallet + diceNumber * 10;
-		SetWallet(newWallet);
-		return;
-	}
-	justRolledDiceNum = diceNumber;
-	CellPosition NewCellPos = pCell->GetCellPosition();
-	NewCellPos.AddCellNum(justRolledDiceNum);
-	pGrid->UpdatePlayerCell(this,NewCellPos);
-	Output* pOut = pGrid->GetOutput();
-	GameObject* pGameObject = pCell->GetGameObject();
-	if (pGameObject != NULL) {
-		pGameObject->Apply(pGrid,this);
-	}
-	if (NewCellPos.GetCellNum() > 99) {
-		pOut->PrintMessage("Congratulations! Player " + to_string(playerNum)+" won!");
-		pGrid->SetEndGame(true);
+	turnCount++;
+	if (turnCount == 3) {
+		turnCount = (turnCount + 1) % 4;
+		if (turnCount % 3 == 0) {
+			int newWallet = wallet + diceNumber * 10;
+			SetWallet(newWallet);
+			turnCount = 0;
+			return;
+		}
+		justRolledDiceNum = diceNumber;
+		CellPosition NewCellPos = pCell->GetCellPosition();
+		int newCell = NewCellPos.GetCellNum() + justRolledDiceNum;
+
+		NewCellPos.AddCellNum(justRolledDiceNum);
+		pGrid->UpdatePlayerCell(this, NewCellPos);
+		Output* pOut = pGrid->GetOutput();
+		GameObject* pGameObject = pCell->GetGameObject();
+		if (pGameObject != NULL) {
+			pGameObject->Apply(pGrid, this);
+		}
+		if (newCell > 99) {
+			pOut->PrintMessage("Congratulations! Player " + to_string(playerNum) + " won!");
+			pGrid->SetEndGame(true);
+		}
 	}
 }
 

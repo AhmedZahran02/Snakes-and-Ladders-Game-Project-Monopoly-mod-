@@ -9,6 +9,7 @@
 #include "InputDiceValueAction.h"
 #include "SwitchToPlayModeAction.h"
 #include "SwitchToDesignModeAction.h"
+#include "DeleteGameObjectAction.h"
 #include "CutCardAction.h"
 #include "CopyCardAction.h"
 #include "PasteCardAction.h"
@@ -114,7 +115,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case DEL_GM_OBJ: //To be uncommented:
-		//pAct = new DeleteGameObjectAction(this);
+		pAct = new DeleteGameObjectAction(this);
 		break;
 
 	case SAVE_GRID: //To be uncommented:

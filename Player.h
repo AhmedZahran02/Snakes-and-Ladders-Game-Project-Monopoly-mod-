@@ -47,7 +47,7 @@ public:
 	                                            // for example, if the end cell contains a ladder, take it
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
-	                                                   // for example: P0(wallet, turnCount)
+	                                                   // for example: (wallet, turnCount)
 
 };
 
