@@ -21,6 +21,7 @@ void NewGameAction::Execute()
 		Player* pPlayer = pGrid->GetCurrentPlayer();
 		pGrid->UpdatePlayerCell(pPlayer, start);
 		pPlayer->SetWallet(100);
+		pPlayer->SetTurnCount(0);
 		pGrid->AdvanceCurrentPlayer();
 	}
 	pGrid->ReSetCurrentPlayerNum();

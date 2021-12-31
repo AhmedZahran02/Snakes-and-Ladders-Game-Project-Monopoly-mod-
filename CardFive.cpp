@@ -11,7 +11,7 @@ CardFive::CardFive(const CellPosition& pos) : Card(pos) // set the cell position
 
 void CardFive::Apply(Grid* pGrid, Player* pPlayer)
 {
-	pPlayer->Move(pGrid, pPlayer->GetJustRolledDiceNum());
+	pPlayer->Move(pGrid, -1*pPlayer->GetJustRolledDiceNum());
 	GameObject* obj = pPlayer->GetCell()->GetGameObject();
 	if (obj) {
 		obj->Apply(pGrid, pPlayer);
