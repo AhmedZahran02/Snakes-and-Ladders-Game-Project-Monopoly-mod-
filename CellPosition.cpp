@@ -127,7 +127,7 @@ void CellPosition::AddCellNum(int addedNum)
 	if (toBeChangedNum > 99) {
 		toBeChangedNum = 99;
 	}
-	else if (toBeChangedNum < 0) {
+	if (toBeChangedNum < 0) {
 		toBeChangedNum = 0;
 	}
 

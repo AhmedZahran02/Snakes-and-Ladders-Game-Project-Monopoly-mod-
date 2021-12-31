@@ -50,6 +50,7 @@ void Player::Draw(Output* pOut) const
 	color playerColor = UI.PlayerColors[playerNum];
 
 	///TODO: use the appropriate output function to draw the player with "playerColor"
+
 	pOut->DrawPlayer(pCell->GetCellPosition(), playerNum, playerColor);
 }
 
@@ -90,13 +91,16 @@ void Player::Move(Grid * pGrid, int diceNumber)
 
 	// 7- Check if the player reached the end cell of the whole game, and if yes, Set end game with true: pGrid->SetEndGame(true)
 	turnCount++;
-	if (turnCount % 3 == 0) {
+	if (turnCount == 3) {
 		int newWallet = wallet + diceNumber * 10;
 		SetWallet(newWallet);
+		turnCount = 0;
 		return;
 	}
 	justRolledDiceNum = diceNumber;
 	CellPosition NewCellPos = pCell->GetCellPosition();
+	int newCell = NewCellPos.GetCellNum() + justRolledDiceNum;
+
 	NewCellPos.AddCellNum(justRolledDiceNum);
 	pGrid->UpdatePlayerCell(this,NewCellPos);
 	Output* pOut = pGrid->GetOutput();
@@ -104,7 +108,7 @@ void Player::Move(Grid * pGrid, int diceNumber)
 	if (pGameObject != NULL) {
 		pGameObject->Apply(pGrid,this);
 	}
-	if (NewCellPos.GetCellNum() > 99) {
+	if (newCell > 99) {
 		pOut->PrintMessage("Congratulations! Player " + to_string(playerNum)+" won!");
 		pGrid->SetEndGame(true);
 	}
