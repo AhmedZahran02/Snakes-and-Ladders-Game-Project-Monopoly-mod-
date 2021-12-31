@@ -4,9 +4,10 @@
 class CardNine : public Card
 {
 	//Parameters:
-	int CardPrice;
-	int Fees;
+	static int CardPrice;
+	static int Fees;
 	static Player* card9owner;
+	static bool done;
 public:
 	CardNine(const CellPosition& pos); // A Constructor takes card position
 

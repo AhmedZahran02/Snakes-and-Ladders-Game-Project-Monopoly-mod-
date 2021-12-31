@@ -375,12 +375,6 @@
     <Filter Include="Application Manager">
       <UniqueIdentifier>{3f85a34d-0da5-4258-b68a-32fe45c5bf42}</UniqueIdentifier>
     </Filter>
-    <Filter Include="CMUgraphicsLib">
-      <UniqueIdentifier>{d5e3cb84-d1d6-4389-9284-6b556f2ce865}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="CMUgraphicsLib\jpeg">
-      <UniqueIdentifier>{9c1fd177-ca66-4cf4-855a-6c6f4e846c4a}</UniqueIdentifier>
-    </Filter>
     <Filter Include="GameObjects">
       <UniqueIdentifier>{9b79e2e2-82bb-47a9-9383-072d96aaa53c}</UniqueIdentifier>
     </Filter>
@@ -395,6 +389,12 @@
     </Filter>
     <Filter Include="GameObjects\Cards">
       <UniqueIdentifier>{07d502d0-ea04-4007-a8da-d98c8eb3b557}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMUgraphicsLib">
+      <UniqueIdentifier>{d5e3cb84-d1d6-4389-9284-6b556f2ce865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CMUgraphicsLib\jpeg">
+      <UniqueIdentifier>{9c1fd177-ca66-4cf4-855a-6c6f4e846c4a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

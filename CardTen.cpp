@@ -1,6 +1,9 @@
 #include "CardTen.h"
 
 Player* CardTen::card10owner;
+bool CardTen::done = false;
+int CardTen::CardPrice;
+int CardTen::Fees;
 
 CardTen::CardTen(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
@@ -32,10 +35,18 @@ void CardTen::ReadCardParameters(Grid* pGrid)
 	Input* pIn = pGrid->GetInput();
 	//card10owner = pGrid->GetCurrentPlayer();
 	// 2- Read an Integer from the user using the Input class and set the parameters with it
-	pOut->PrintMessage("New Card 10: Enter its Price ...");
-	CardPrice = pIn->GetInteger(pOut);
-	pOut->PrintMessage("Card 10: Enter its Fees ...");
-	Fees = pIn->GetInteger(pOut);
+	if (done == false)
+	{
+		pOut->PrintMessage("New Card 10: Enter its Price ...");
+		CardPrice = pIn->GetInteger(pOut);
+		pOut->PrintMessage("Card 10: Enter its Fees ...");
+		Fees = pIn->GetInteger(pOut);
+		done = true;
+	}
+	else
+	{
+
+	}
 
 	// [ Note ]:
 	// Card parameters are the inputs you need to take from the user in the time of adding the Card in the grid

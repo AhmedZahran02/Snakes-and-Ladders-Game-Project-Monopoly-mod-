@@ -1,6 +1,9 @@
 #include "CardNine.h"
 
 Player* CardNine::card9owner;
+bool CardNine::done=false;
+int CardNine::CardPrice;
+int CardNine::Fees;
 
 CardNine::CardNine(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
@@ -31,10 +34,18 @@ void CardNine::ReadCardParameters(Grid* pGrid)
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	// 2- Read an Integer from the user using the Input class and set the parameters with it
-	pOut->PrintMessage("New Card 9: Enter its Price ...");
-	CardPrice = pIn->GetInteger(pOut);
-	pOut->PrintMessage("Card 9: Enter its Fees ...");
-	Fees = pIn->GetInteger(pOut);
+	if (done==false)
+	{
+		pOut->PrintMessage("New Card 9: Enter its Price ...");
+		CardPrice = pIn->GetInteger(pOut);
+		pOut->PrintMessage("Card 9: Enter its Fees ...");
+		Fees = pIn->GetInteger(pOut);
+		done = true;
+	}
+	else
+	{
+	
+	}
 
 	// [ Note ]:
 	// Card parameters are the inputs you need to take from the user in the time of adding the Card in the grid
@@ -72,7 +83,6 @@ void CardNine::Apply(Grid* pGrid, Player* pPlayer)
 				setowner(pPlayer);
 				card9owner->SetWallet(card9owner->GetWallet() - CardPrice);
 				// apply owner for all cards not this only -> static
-				
 			}
 			else
 			{
