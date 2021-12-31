@@ -58,6 +58,8 @@ void AddSnakeAction::ReadActionParameters() {
 		startPos.SetVCell(0);
 		endPos.SetHCell(0);
 	}
+
+	// Clear messages
 	pOut->ClearStatusBar();
 }
 AddSnakeAction::~AddSnakeAction() {
