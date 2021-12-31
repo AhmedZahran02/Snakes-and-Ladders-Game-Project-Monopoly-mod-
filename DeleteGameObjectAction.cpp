@@ -18,6 +18,7 @@ void DeleteGameObjectAction::Execute() {
 	}
 	else {
 		pOut->PrintMessage("GameObject deleted successfully Click to continue");
+		pIn->GetCellClicked();
 	}
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
