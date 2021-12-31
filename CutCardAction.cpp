@@ -15,7 +15,7 @@ void CutCardAction::ReadActionParameters()
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	do {
-		pOut->PrintMessage("click on cell with card to cut");
+		pOut->PrintMessage("click on cell with card to cut .......");
 		cardPosition=pIn->GetCellClicked();
 	} while (cardPosition.IsValidCell() != true);
 
@@ -33,15 +33,17 @@ void CutCardAction::Execute()
 	{
 		pGrid->SetClipboard(CardinCell);
 		pGrid->RemoveObjectFromCell(cardPosition);
+		//update interface
+		pGrid->UpdateInterface();
+		pGrid->PrintErrorMessage("Successfully Card "+to_string(CardinCell->GetCardNumber())+" was cut ,click to continue!");
 	}
 	else
 	{
-		pGrid->PrintErrorMessage("error cannot cut");
+		pGrid->PrintErrorMessage("error cannot cut ,No Card was found ,click to continue!");
 		return;
 	}
 
-	//update interface
-	pGrid->UpdateInterface();
+	
 }
 
 CutCardAction::~CutCardAction()

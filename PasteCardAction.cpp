@@ -16,7 +16,7 @@ void PasteCardAction::ReadActionParameters()
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	do {
-		pOut->PrintMessage("click on cell to paste in it");
+		pOut->PrintMessage("click on cell to paste the card to it ........");
 		pastePosition = pIn->GetCellClicked(); // Read the CardCell parameter
 	} while (pastePosition.IsValidCell() == false || pastePosition.GetCellNum() == 1 || pastePosition.GetCellNum() == 99);
 
@@ -34,16 +34,18 @@ void PasteCardAction::Execute()
 	{
 		pCard->SetPosition(pastePosition);
 		pGrid->AddObjectToCell(pCard);
+		//update interface
+		pGrid->UpdateInterface();
+		pGrid->PrintErrorMessage("Successfully Card " + to_string(pCard->GetCardNumber()) + " was pasted ,click to continue!");
 		pGrid->SetClipboard(NULL);
 	}
 	else
 	{
-		pGrid->PrintErrorMessage("error cannot paste");
+		pGrid->PrintErrorMessage("error cannot paste ,No card in clipboard ,click to continue!");
 		return;
 	}
 
-	//update interface
-	pGrid->UpdateInterface();
+	
 }
 
 PasteCardAction::~PasteCardAction()

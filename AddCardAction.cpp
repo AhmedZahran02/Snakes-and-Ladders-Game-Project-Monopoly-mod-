@@ -129,7 +129,7 @@ void AddCardAction::Execute()
 		// D- if the GameObject cannot be added in the Cell, Print the appropriate error message on statusbar
 		if (!done)
 		{
-			pGrid->PrintErrorMessage("invalid position");
+			pGrid->PrintErrorMessage("invalid position,click to continue!");
 		}
 	}
 	

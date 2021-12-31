@@ -14,7 +14,7 @@ void CopyCardAction::ReadActionParameters()
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	do {
-		pOut->PrintMessage("click on cell with card to copy");
+		pOut->PrintMessage("click on cell with card to copy .........");
 		cardPosition = pIn->GetCellClicked(); // Read the CardCell parameter
 	} while (cardPosition.IsValidCell() != true);
 	// Clear status bar
@@ -30,15 +30,17 @@ void CopyCardAction::Execute()
 	if (CardinCell)
 	{
 		pGrid->SetClipboard(CardinCell);
+		//update interface
+		pGrid->UpdateInterface();
+		pGrid->PrintErrorMessage("Successfully Card " + to_string(CardinCell->GetCardNumber()) + " was copied ,click to continue!");
 	}
 	else
 	{
-		pGrid->PrintErrorMessage("error cannot copy");
+		pGrid->PrintErrorMessage("error cannot copy ,No Card was found ,click to continue!");
 		return;
 	}
 
-	//update interface
-	pGrid->UpdateInterface();
+	
 }
 
 CopyCardAction::~CopyCardAction()
