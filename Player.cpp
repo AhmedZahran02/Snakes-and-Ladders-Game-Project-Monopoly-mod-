@@ -29,7 +29,14 @@ Cell* Player::GetCell() const
 
 void Player::SetWallet(int wallet)
 {
-	this->wallet = wallet;
+	if (wallet<0)
+	{
+		this->wallet = 0;
+	}
+	else
+	{
+		this->wallet = wallet;
+	}
 	// Make any needed validations
 }
 

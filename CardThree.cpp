@@ -21,8 +21,7 @@ void CardThree::Apply(Grid* pGrid, Player* pPlayer)
 	// 1- Call Apply() of the base class Card to print the message that you reached this card number
 	Card::Apply(pGrid, pPlayer);
 	// 2- give the pPlayer an extra dice roll
-	Output* pOut = pGrid->GetOutput();
-	pOut->PrintMessage("You have landed on Card 3, you now have an extra dice roll!");
+	pGrid->PrintErrorMessage("You have landed on Card 3, you now have an extra dice roll!");
 	for (int i = 0; i < 3; i++) {
 		pGrid->AdvanceCurrentPlayer();
 	}

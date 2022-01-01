@@ -21,5 +21,15 @@ void CardFour::Apply(Grid* pGrid, Player* pPlayer)
 	// 1- Call Apply() of the base class Card to print the message that you reached this card number
 	Card::Apply(pGrid, pPlayer);
 	// 2- prevent the pPlayer from the next dice roll
-	//need to do 
+	pGrid->PrintErrorMessage("You have landed on Card 4, you are prevented from rolling the next turn!");
+		if (pPlayer=pGrid->GetCurrentPlayer())
+		{
+
+		}
+		else
+		{
+			pGrid->UpdateInterface();
+		}
+	
+		
 }
