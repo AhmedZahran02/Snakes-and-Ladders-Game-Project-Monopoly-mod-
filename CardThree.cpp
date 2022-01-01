@@ -23,6 +23,7 @@ void CardThree::Apply(Grid* pGrid, Player* pPlayer)
 	// 2- give the pPlayer an extra dice roll
 	Output* pOut = pGrid->GetOutput();
 	pOut->PrintMessage("You have landed on Card 3, you now have an extra dice roll!");
-	for (int i = 0; i < 3; i++)
+	for (int i = 0; i < 3; i++) {
 		pGrid->AdvanceCurrentPlayer();
+	}
 }
