@@ -2,7 +2,7 @@
 
 #include "GameObject.h"
 
-Player::Player(Cell * pCell, int playerNum) : stepCount(0), wallet(100), playerNum(playerNum)
+Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerNum(playerNum)
 {
 	this->pCell = pCell;
 	this->turnCount = 0;
@@ -15,6 +15,16 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(0), wallet(100), playerN
 void Player::SetCell(Cell * cell)
 {
 	pCell = cell;
+}
+
+int Player::GetPlayerNum() const
+{
+	return playerNum;
+}
+
+void Player::SetStepCount(int s)
+{
+	stepCount = (s >= 1 && s <= 99) ? s : 1;
 }
 
 void Player::SetTurnCount(int s)
@@ -48,6 +58,11 @@ int Player::GetWallet() const
 int Player::GetTurnCount() const
 {
 	return turnCount;
+}
+
+int Player::GetStepCount() const
+{
+	return stepCount;
 }
 
 int Player::GetJustRolledDiceNum() const

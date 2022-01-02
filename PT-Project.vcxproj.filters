@@ -209,6 +209,9 @@
     <ClCompile Include="DeleteGameObjectAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="CardSeven.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -372,6 +375,9 @@
     </ClInclude>
     <ClInclude Include="DeleteGameObjectAction.h">
       <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="CardSeven.h">
+      <Filter>GameObjects\Cards</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

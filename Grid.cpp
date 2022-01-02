@@ -83,7 +83,8 @@ void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 
 	// Set the player's CELL with the new position
 	Cell * newCell = CellList[newPosition.VCell()][newPosition.HCell()];
-	player->SetCell(newCell);	
+	player->SetCell(newCell);
+
 
 	// Draw the player's circle on the new cell position
 	player->Draw(pOut);
@@ -141,6 +142,10 @@ Card* Grid::GetGameObject(const CellPosition& position) const
 
 // ========= Other Getters =========
 
+void Grid::SetCurrentPlayer(const int playerNum)
+{
+	currPlayerNumber = playerNum;
+}
 
 Player * Grid::GetCurrentPlayer() const
 {
