@@ -11,11 +11,16 @@ CardFive::CardFive(const CellPosition& pos) : Card(pos) // set the cell position
 
 void CardFive::Apply(Grid* pGrid, Player* pPlayer)
 {
-	pPlayer->Move(pGrid, -1*pPlayer->GetJustRolledDiceNum());
-	GameObject* obj = pPlayer->GetCell()->GetGameObject();
-	if (obj) {
-		obj->Apply(pGrid, pPlayer);
-	}
+	Card::Apply(pGrid, pPlayer);
+	int diceNumber = pPlayer->GetJustRolledDiceNum();
+	CellPosition destination = pPlayer->GetCell()->GetCellPosition();
+	destination.AddCellNum(-1 * diceNumber);
+	pPlayer->SetStepCount(destination.GetCellNum());
+	pGrid->UpdatePlayerCell(pPlayer, destination);
+	pGrid->UpdateInterface();
+	GameObject* pObj  = pPlayer->GetCell()->GetGameObject();
+	if (dynamic_cast<Card*>(pObj))
+		pObj->Apply(pGrid, pPlayer);
 }
 
 CardFive::~CardFive()
