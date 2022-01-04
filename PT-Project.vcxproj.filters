@@ -212,6 +212,7 @@
     <ClCompile Include="CardSeven.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="CardEight.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -379,6 +380,7 @@
     <ClInclude Include="CardSeven.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
+    <ClInclude Include="CardEight.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

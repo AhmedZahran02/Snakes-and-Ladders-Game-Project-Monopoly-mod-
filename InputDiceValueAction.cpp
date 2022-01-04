@@ -1,6 +1,7 @@
 #include "InputDiceValueAction.h"
 #include "Grid.h"
 #include "Player.h"
+#include "CardEight.h"
 
 InputDiceValueAction::InputDiceValueAction(ApplicationManager* pApp)
 	: Action(pApp)
@@ -31,11 +32,31 @@ void InputDiceValueAction::Execute()
 		pManager->ExecuteAction(EXITT);
 	}
 	else {
+		Output* pOut = pGrid->GetOutput();
 		Player* pPlayer = pGrid->GetCurrentPlayer();
-		// 4- Move the currentPlayer using function Move of class player
-		pPlayer->Move(pGrid, inputDiceValue);
-		// 5- Advance the current player number of pGrid
-		pGrid->AdvanceCurrentPlayer();
+		int playerNum = pPlayer->GetPlayerNum();
+		Cell* pCell = pPlayer->GetCell();
+		GameObject* pObj = pCell->GetGameObject();
+		CardEight* pCardEight = dynamic_cast<CardEight*>(pObj);
+		if (pCardEight && pCardEight->isJailed(playerNum)) {
+			pCardEight->DecrementRemDays(playerNum);
+			if (pCardEight->GetRemDays(playerNum) == 0) {
+				pCardEight->free(playerNum);
+				pOut->PrintMessage("You are now free from next turn!");
+			}
+			else {
+				pOut->PrintMessage("You are locked in prison! " + to_string(pCardEight->GetRemDays(playerNum)) + " turns remaining.");
+			}
+			pGrid->AdvanceCurrentPlayer();
+			pGrid->UpdateInterface();
+		}
+		else {
+			// 4- Move the currentPlayer using function Move of class player
+			pPlayer->Move(pGrid, inputDiceValue);
+			// 5- Advance the current player number of pGrid
+			pGrid->AdvanceCurrentPlayer();
+			pGrid->UpdateInterface();
+		}
 	}
 }
 
