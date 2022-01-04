@@ -14,6 +14,7 @@ CardNine::CardNine(const CellPosition& pos) : Card(pos) // set the cell position
 void CardNine::setowner(Player* p)
 {
 	card9owner = p;
+	p->SetOwnership(0, CardPrice);
 }
 
 CardNine::~CardNine(void)

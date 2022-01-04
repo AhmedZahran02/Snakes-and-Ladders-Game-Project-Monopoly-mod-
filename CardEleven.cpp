@@ -14,6 +14,7 @@ CardEleven::CardEleven(const CellPosition& pos) : Card(pos) // set the cell posi
 void CardEleven::setowner(Player* p)
 {
 	card11owner = p;
+	p->SetOwnership(2, CardPrice);
 }
 
 CardEleven::~CardEleven(void)
@@ -36,10 +37,14 @@ void CardEleven::ReadCardParameters(Grid* pGrid)
 	// 2- Read an Integer from the user using the Input class and set the parameters with it
 	if (done == false)
 	{
-		pOut->PrintMessage("New Card 11: Enter its Price ...");
-		CardPrice = pIn->GetInteger(pOut);
-		pOut->PrintMessage("Card 11: Enter its Fees ...");
-		Fees = pIn->GetInteger(pOut);
+		do {
+			pOut->PrintMessage("New Card 11: Enter its Price ...");
+			CardPrice = pIn->GetInteger(pOut);
+		} while (CardPrice <= 0);
+		do {
+			pOut->PrintMessage("Card 11: Enter its Fees ...");
+			Fees = pIn->GetInteger(pOut);
+		} while (Fees <= 0);
 		done = true;
 	}
 	else

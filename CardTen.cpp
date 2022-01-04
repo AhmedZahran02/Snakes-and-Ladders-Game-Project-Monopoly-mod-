@@ -14,6 +14,7 @@ CardTen::CardTen(const CellPosition& pos) : Card(pos) // set the cell position o
 void CardTen::setowner(Player* p)
 {
 	card10owner = p;
+	p->SetOwnership(1, CardPrice);
 }
 
 CardTen::~CardTen(void)

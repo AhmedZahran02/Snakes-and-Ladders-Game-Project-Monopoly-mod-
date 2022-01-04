@@ -70,6 +70,23 @@ int Player::GetJustRolledDiceNum() const
 	return justRolledDiceNum;
 }
 
+void Player::SetOwnership(int stationNumber, int stationPrice)
+{
+	ownedStations[stationNumber] = 1;
+	stationPrices[stationNumber] = stationPrice;
+}
+
+int Player::GetStationPrice(int stationNumber) const
+{
+	return stationPrices[stationNumber];
+}
+
+void Player::ReleaseOwnership(int stationNumber)
+{
+	ownedStations[stationNumber] = false;
+	stationPrices[stationNumber] = 0;
+}
+
 // ====== Drawing Functions ======
 
 void Player::Draw(Output* pOut) const

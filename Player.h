@@ -16,6 +16,8 @@ class Player
 	int turnCount;         // a counter that starts with 0, is incremented with each dice roll
 	                       // and reset again when reached 3
 	                       // it is used to indicate when to move and when to add to your wallet
+	bool ownedStations[3];
+	int stationPrices[3];
 	
 public:
 
@@ -37,6 +39,9 @@ public:
 	int GetStepCount() const;
 	void SetStepCount(int s);
 	int GetPlayerNum() const;
+	void SetOwnership(int stationNumber, int stationPrice);
+	void ReleaseOwnership(int stationNumber);
+	int GetStationPrice(int stationNumber) const;
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Circle on its current cell

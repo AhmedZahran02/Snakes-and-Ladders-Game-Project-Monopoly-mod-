@@ -11,7 +11,7 @@
 #include "CardNine.h"
 #include "CardTen.h"
 #include "CardEleven.h"
-//#include "CardTwelve.h"
+#include "CardTwelve.h"
 
 AddCardAction::AddCardAction(ApplicationManager *pApp) : Action(pApp)
 {
@@ -111,7 +111,7 @@ void AddCardAction::Execute()
 		pCard = new CardEleven(cardPosition);
 		break;
 	case 12:
-		//pCard = new CardTwelve(cardPosition);
+		pCard = new CardTwelve(cardPosition);
 		break;
 
 	}

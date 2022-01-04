@@ -11,7 +11,7 @@ class CardEleven : public Card
 public:
 	CardEleven(const CellPosition& pos); // A Constructor takes card position
 
-	void setowner(Player* p);
+	static void setowner(Player* p);
 
 	virtual void ReadCardParameters(Grid* pGrid); // Reads the parameters of CardOne which is: walletAmount
 
