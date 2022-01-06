@@ -86,6 +86,8 @@ public:
 
 	void SaveAll(ofstream& outFile, int Type);
 
+	void RemoveAllObjects();
+
 	~Grid(); // A destructor for any needed deallcations
 };
 

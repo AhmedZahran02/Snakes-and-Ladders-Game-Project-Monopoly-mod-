@@ -52,3 +52,8 @@ void CardFour::Save(ofstream& outFile, int Type)
 		outFile << endl;
 	}
 }
+
+void CardFour::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+}

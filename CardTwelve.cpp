@@ -78,3 +78,8 @@ void CardTwelve::Save(ofstream& outFile, int Type)
 		outFile << endl;
 	}
 }
+
+void CardTwelve::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+}

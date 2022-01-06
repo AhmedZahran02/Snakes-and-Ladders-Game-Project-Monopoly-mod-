@@ -115,3 +115,9 @@ void CardNine::Save(ofstream& outFile, int Type)
 		outFile << " " << CardPrice << " " << Fees << endl;
 	}
 }
+
+void CardNine::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+	inFile >> CardPrice >> Fees;
+}

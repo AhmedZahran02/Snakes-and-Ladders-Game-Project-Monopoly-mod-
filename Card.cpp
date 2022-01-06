@@ -54,9 +54,8 @@ void Card::Save(ofstream& outFile, int Type)
 void Card::Open(ifstream& inFile)
 {
 	int cellNum;
-	inFile >> cardNumber >> cellNum;
-	position.GetCellPositionFromNum(cellNum);
-	switch 
+	inFile >> cellNum;
+	position = position.GetCellPositionFromNum(cellNum);
 }
 
 Card::~Card()

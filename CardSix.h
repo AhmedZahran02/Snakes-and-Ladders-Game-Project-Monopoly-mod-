@@ -10,6 +10,7 @@ public:
     void ReadCardParameters(Grid* pGrid);
     void Apply(Grid* pGrid, Player* pPlayer);
     virtual void Save(ofstream& outFile, int Type);
+    virtual void Open(ifstream& inFile);
     ~CardSix();
 };
 

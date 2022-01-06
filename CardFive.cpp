@@ -34,3 +34,8 @@ void CardFive::Save(ofstream& outFile, int Type)
 		outFile << endl;
 	}
 }
+
+void CardFive::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+}

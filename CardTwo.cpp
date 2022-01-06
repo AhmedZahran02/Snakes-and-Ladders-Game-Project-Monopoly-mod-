@@ -37,3 +37,8 @@ void CardTwo::Save(ofstream& outFile, int Type)
 CardTwo::~CardTwo() {
 
 }
+
+void CardTwo::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+}

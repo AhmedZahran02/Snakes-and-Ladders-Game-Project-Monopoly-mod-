@@ -21,6 +21,8 @@ public:
 
 	virtual void Save(ofstream& outFile, int Type);
 
+	virtual void Open(ifstream& inFile);
+
 	virtual ~CardTen(); // A Virtual Destructor
 };
 

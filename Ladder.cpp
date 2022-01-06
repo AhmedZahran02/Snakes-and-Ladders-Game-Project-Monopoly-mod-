@@ -53,8 +53,10 @@ void Ladder::Open(ifstream& inFile)
 {
 	int startCellNum, endCellNum;
 	inFile >> startCellNum >> endCellNum;
-	position.GetCellPositionFromNum(startCellNum);
-	endCellPos.GetCellPositionFromNum(endCellNum);
+	CellPosition pos(startCellNum);
+	CellPosition pos2(endCellNum);
+	position = pos;
+	endCellPos = pos2;
 }
 
 Ladder::~Ladder()

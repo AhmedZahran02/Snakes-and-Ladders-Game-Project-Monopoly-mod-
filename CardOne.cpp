@@ -58,3 +58,9 @@ void CardOne::Save(ofstream& outFile, int Type)
 		outFile << " " << walletAmount << endl;
 	}
 }
+
+void CardOne::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+	inFile >> walletAmount;
+}

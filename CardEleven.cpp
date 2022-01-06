@@ -121,3 +121,9 @@ void CardEleven::Save(ofstream& outFile, int Type)
 	}
 }
 
+void CardEleven::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+	inFile >> CardPrice >> Fees;
+}
+

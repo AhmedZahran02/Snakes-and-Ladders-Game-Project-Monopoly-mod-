@@ -35,3 +35,8 @@ void CardSeven::Save(ofstream& outFile, int Type)
 		outFile << endl;
 	}
 }
+
+void CardSeven::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+}

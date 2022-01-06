@@ -54,8 +54,9 @@ void Snake::Open(ifstream& inFile)
 {
 	int startCellNum, endCellNum;
 	inFile >> startCellNum >> endCellNum;
-	position.GetCellPositionFromNum(startCellNum);
-	endCellPos.GetCellPositionFromNum(endCellNum);
+
+	position = position.GetCellPositionFromNum(startCellNum);
+	endCellPos = endCellPos.GetCellPositionFromNum(endCellNum);
 }
 
 Snake::~Snake()

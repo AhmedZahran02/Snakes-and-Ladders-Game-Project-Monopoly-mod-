@@ -86,3 +86,9 @@ void CardEight::Save(ofstream& outFile, int Type)
 		outFile << " " << bailMoney << endl;
 	}
 }
+
+void CardEight::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+	inFile >> bailMoney;
+}

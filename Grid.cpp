@@ -77,6 +77,16 @@ bool Grid::RemoveObjectFromCell(const CellPosition & pos)
 	return true;
 }
 
+void Grid::RemoveAllObjects()
+{
+	for (int i = NumVerticalCells - 1; i >= 0; i--) {
+		for (int j = 0; j < NumHorizontalCells; j++) {
+			CellPosition pos(i, j);
+			RemoveObjectFromCell(pos);
+		}
+	}
+}
+
 void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 {
 	// Clear the player's circle from the old cell position

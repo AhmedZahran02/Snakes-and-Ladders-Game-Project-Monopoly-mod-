@@ -46,3 +46,9 @@ void CardSix::Save(ofstream& outFile, int Type)
 		outFile << " " << XdestinationCell << " " << YdestinationCell << endl;
 	}
 }
+
+void CardSix::Open(ifstream& inFile)
+{
+	Card::Open(inFile);
+	inFile >> XdestinationCell >> YdestinationCell;
+}

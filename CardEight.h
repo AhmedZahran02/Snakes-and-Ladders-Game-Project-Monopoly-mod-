@@ -24,6 +24,8 @@ public:
 
     virtual void Save(ofstream& outFile, int Type);
 
+    virtual void Open(ifstream& inFile);
+
     void free(int playerNum);
 };
 

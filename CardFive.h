@@ -6,6 +6,7 @@ public:
 	CardFive::CardFive(const CellPosition& pos);
 	void Apply(Grid* pGrid, Player* pPlayer);
 	virtual void Save(ofstream& outFile, int Type);
+	virtual void Open(ifstream& inFile);
 	virtual ~CardFive();
 };
 
