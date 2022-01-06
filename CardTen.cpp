@@ -77,7 +77,7 @@ void CardTen::Apply(Grid* pGrid, Player* pPlayer)
 	Input* pIn = pGrid->GetInput();
 	if (card10owner == NULL)
 	{
-		pOut->PrintMessage("Do you want to buy those cells with cardnumber 10    1-yes   2-no");
+		pOut->PrintMessage("Do you want to buy those cells with cardnumber 10 it's price is " + to_string(CardPrice) + ",it's Fees is " + to_string(Fees) + "   1-yes   2-no");
 		int choise = pIn->GetInteger(pOut);
 		if (choise == 2)
 		{
@@ -88,7 +88,7 @@ void CardTen::Apply(Grid* pGrid, Player* pPlayer)
 			if (pPlayer->GetWallet() >= CardPrice)
 			{
 				setowner(pPlayer);
-				//card10owner = pGrid->GetCurrentPlayer();
+				pGrid->PrintErrorMessage("Now, you are the owner of card " + to_string(cardNumber) + "!");
 				card10owner->SetWallet(card10owner->GetWallet() - CardPrice);
 				// apply owner for all cards not this only -> static
 
@@ -102,6 +102,7 @@ void CardTen::Apply(Grid* pGrid, Player* pPlayer)
 	}
 	else
 	{
+		pGrid->PrintErrorMessage("Decrementing your wallet by " + to_string(Fees) + " to the owner player " + to_string(card10owner->GetPlayerNum()) + ",click to continue!");
 		pPlayer->SetWallet(pPlayer->GetWallet() - Fees);
 		card10owner->SetWallet(card10owner->GetWallet() + Fees);
 		return;
