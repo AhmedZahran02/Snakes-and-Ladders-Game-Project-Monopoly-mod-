@@ -218,6 +218,7 @@
     <ClCompile Include="CardEight.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
+    <ClCompile Include="SaveGridAction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -391,6 +392,7 @@
     <ClInclude Include="CardEight.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
+    <ClInclude Include="SaveGridAction.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

@@ -50,3 +50,12 @@ void CardOne::Apply(Grid* pGrid, Player* pPlayer)
 	pGrid->PrintErrorMessage("Decrementing your wallet by "+to_string(walletAmount)+",click to continue!");
 	pPlayer->SetWallet(pPlayer->GetWallet()-walletAmount);
 }
+
+void CardOne::Save(ofstream& outFile, int Type)
+{
+	int cellNum = position.GetCellNum();
+	if (Type == 2) {
+		outFile << cardNumber << " " << cellNum << " " << walletAmount;
+	}
+	else return;
+}

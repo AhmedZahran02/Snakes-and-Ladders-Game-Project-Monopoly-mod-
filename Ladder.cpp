@@ -38,6 +38,15 @@ CellPosition Ladder::GetEndPosition() const
 	return endCellPos;
 }
 
+void Ladder::Save(ofstream& outFile, int Type)
+{
+	if (Type != 0)
+		return;
+	else {
+
+	}
+}
+
 Ladder::~Ladder()
 {
 }

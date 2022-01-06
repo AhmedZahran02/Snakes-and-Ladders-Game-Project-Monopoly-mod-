@@ -22,6 +22,8 @@ public:
 
     void DecrementRemDays(int playerNum);
 
+    //virtual void Save(ofstream& outFile, int Type);
+
     void free(int playerNum);
 };
 

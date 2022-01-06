@@ -43,6 +43,11 @@ void Card::Apply(Grid* pGrid, Player* pPlayer)
 	pGrid->PrintErrorMessage("You have reached card " + to_string(cardNumber) + ". Click to continue ...");
 }
 
+void Card::Save(ofstream& outFile, int Type)
+{
+	
+}
+
 Card::~Card()
 {
 }

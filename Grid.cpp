@@ -6,6 +6,7 @@
 #include "Ladder.h"
 #include "Card.h"
 #include "Player.h"
+#include "Snake.h"
 
 Grid::Grid(Input * pIn, Output * pOut) : pIn(pIn), pOut(pOut) // Initializing pIn, pOut
 {
@@ -174,6 +175,32 @@ Ladder * Grid::GetNextLadder(const CellPosition & position)
 }
 
 
+int Grid::GetNumOfObjects(int Type) const
+{
+	int cntLadder = 0;
+	int cntSnake = 0;
+	int cntCard = 0;
+	for (int i = NumVerticalCells - 1; i >= 0; i--) {
+		for (int j = 0; j < NumHorizontalCells; j++) {
+			GameObject* pObj = CellList[i][j]->GetGameObject();
+			if (dynamic_cast<Ladder*>(pObj))
+				cntLadder++;
+			if (dynamic_cast<Snake*>(pObj))
+				cntSnake++;
+			if (dynamic_cast<Card*>(pObj))
+				cntCard++;
+		}
+	}
+	switch (Type) {
+	case 0:
+		return cntLadder;
+	case 1:
+		return cntSnake;
+	case 2:
+		return cntCard;
+	}
+}
+
 // ========= User Interface Functions =========
 
 
@@ -233,6 +260,14 @@ void Grid::PrintErrorMessage(string msg)
 	pOut->ClearStatusBar();
 }
 
+void Grid::SaveAll(ofstream& outFile, int Type)
+{
+	for (int i = NumVerticalCells - 1; i >= 0; i--) {
+		for (int j = 0; j < NumHorizontalCells; j++) {
+			CellList[i][j]->GetGameObject()->Save(outFile, Type);
+		}
+	}
+}
 
 Grid::~Grid()
 {
