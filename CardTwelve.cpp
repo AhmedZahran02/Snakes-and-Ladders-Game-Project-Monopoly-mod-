@@ -70,3 +70,11 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 
 CardTwelve::~CardTwelve()
 {}
+
+void CardTwelve::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << endl;
+	}
+}

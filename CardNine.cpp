@@ -107,3 +107,10 @@ void CardNine::Apply(Grid* pGrid, Player* pPlayer)
 	
 }
 
+void CardNine::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << " " << CardPrice << " " << Fees << endl;
+	}
+}

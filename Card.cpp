@@ -45,7 +45,10 @@ void Card::Apply(Grid* pGrid, Player* pPlayer)
 
 void Card::Save(ofstream& outFile, int Type)
 {
-	
+	int cellNum = position.GetCellNum();
+	if (Type == 2) {
+		outFile << cardNumber << " " << cellNum;
+	}
 }
 
 Card::~Card()

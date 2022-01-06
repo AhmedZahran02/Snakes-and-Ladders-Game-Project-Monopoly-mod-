@@ -78,3 +78,11 @@ void CardEight::free(int playerNum)
 {
 	arrJailedPlayers[playerNum] = false;
 }
+
+void CardEight::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << " " << bailMoney << endl;
+	}
+}

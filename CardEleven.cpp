@@ -113,3 +113,11 @@ void CardEleven::Apply(Grid* pGrid, Player* pPlayer)
 
 }
 
+void CardEleven::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << " " << CardPrice << " " << Fees << endl;
+	}
+}
+

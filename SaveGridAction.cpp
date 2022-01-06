@@ -31,8 +31,14 @@ void SaveGridAction::Execute()
 	ofstream outFile(fileName);
 
 	Grid* pGrid = pManager->GetGrid();
+	int ladderCount = pGrid->GetNumOfObjects(0);
+	int snakeCount = pGrid->GetNumOfObjects(1);
+	int cardCount = pGrid->GetNumOfObjects(2);
+	outFile << ladderCount << endl;
 	pGrid->SaveAll(outFile, 0);
+	outFile << snakeCount << endl;
 	pGrid->SaveAll(outFile, 1);
+	outFile << cardCount << endl;
 	pGrid->SaveAll(outFile, 2);
 	
 	outFile.close();
