@@ -53,6 +53,6 @@ void OpenGridAction::Execute()
 	inFile >> cardCount;
 	Card* pCard;
 	for (int i = 0; i < cardCount; i++) {
-		pCard-
+		pCard;
 	}
 }
