@@ -5,8 +5,9 @@ bool CardNine::done=false;
 int CardNine::CardPrice;
 int CardNine::Fees;
 
-CardNine::CardNine(const CellPosition& pos) : CardNineToEleven(pos,9) // set the cell position of the card
+CardNine::CardNine(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
+	cardNumber = 9; // set the inherited cardNumber data member with the card number
 	card9owner = NULL;
 }
 

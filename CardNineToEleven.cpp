@@ -4,6 +4,7 @@ CardNineToEleven::CardNineToEleven(const CellPosition& pos,int cardnum) : Card(p
 {
 	cardNumber = cardnum; // set the inherited cardNumber data member with the card number 
 }
+
 void CardNineToEleven::ReadCardParameters(Grid* pGrid)
 {
 }
