@@ -26,3 +26,11 @@ void CardThree::Apply(Grid* pGrid, Player* pPlayer)
 		pGrid->AdvanceCurrentPlayer();
 	}
 }
+
+void CardThree::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2){
+		Card::Save(outFile, Type);
+		outFile << endl;
+	}
+}

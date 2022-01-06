@@ -27,3 +27,11 @@ void CardSeven::Apply(Grid* pGrid, Player* pPlayer)
 	}
 	pGrid->SetCurrentPlayer((currPlayer->GetPlayerNum() + 3) % 4);
 }
+
+void CardSeven::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << endl;
+	}
+}

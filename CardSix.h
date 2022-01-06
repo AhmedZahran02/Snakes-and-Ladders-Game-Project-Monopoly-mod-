@@ -9,7 +9,7 @@ public:
     CardSix(const CellPosition & pos);
     void ReadCardParameters(Grid* pGrid);
     void Apply(Grid* pGrid, Player* pPlayer);
-    //virtual void Save(ofstream& outFile, int Type);
+    virtual void Save(ofstream& outFile, int Type);
     ~CardSix();
 };
 

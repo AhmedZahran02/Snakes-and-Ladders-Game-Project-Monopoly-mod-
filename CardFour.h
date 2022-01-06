@@ -19,7 +19,7 @@ public:
 
 	void free(int playerNum);
 
-	//virtual void Save(ofstream& outFile, int Type);
+	virtual void Save(ofstream& outFile, int Type);
 
 	virtual ~CardFour(); // A Virtual Destructor
 };

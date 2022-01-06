@@ -26,3 +26,11 @@ void CardFive::Apply(Grid* pGrid, Player* pPlayer)
 CardFive::~CardFive()
 {
 }
+
+void CardFive::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << endl;
+	}
+}

@@ -40,10 +40,12 @@ CellPosition Ladder::GetEndPosition() const
 
 void Ladder::Save(ofstream& outFile, int Type)
 {
+	int startCellNum = position.GetCellNum();
+	int endCellNum = endCellPos.GetCellNum();
 	if (Type != 0)
 		return;
 	else {
-
+		outFile << startCellNum << " " << endCellNum << endl;
 	}
 }
 

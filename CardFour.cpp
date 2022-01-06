@@ -44,3 +44,11 @@ void CardFour::free(int playerNum)
 	Freed = true;
 	Card4Players[playerNum] = false;
 }
+
+void CardFour::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2){
+		Card::Save(outFile, Type);
+		outFile << endl;
+	}
+}

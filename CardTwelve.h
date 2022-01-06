@@ -10,7 +10,7 @@ public:
 
     virtual void Apply(Grid* pGrid, Player* pPlayer);
 
-    //virtual void Save(ofstream& outFile, int Type);
+    virtual void Save(ofstream& outFile, int Type);
 
     virtual ~CardTwelve();
 };

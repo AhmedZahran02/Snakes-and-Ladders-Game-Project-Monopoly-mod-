@@ -53,9 +53,8 @@ void CardOne::Apply(Grid* pGrid, Player* pPlayer)
 
 void CardOne::Save(ofstream& outFile, int Type)
 {
-	int cellNum = position.GetCellNum();
-	if (Type == 2) {
-		outFile << cardNumber << " " << cellNum << " " << walletAmount;
+	if (Type == 2){
+		Card::Save(outFile, Type);
+		outFile << " " << walletAmount << endl;
 	}
-	else return;
 }

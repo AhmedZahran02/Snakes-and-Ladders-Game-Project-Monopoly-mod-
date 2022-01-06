@@ -265,7 +265,9 @@ void Grid::SaveAll(ofstream& outFile, int Type)
 {
 	for (int i = NumVerticalCells - 1; i >= 0; i--) {
 		for (int j = 0; j < NumHorizontalCells; j++) {
-			CellList[i][j]->GetGameObject()->Save(outFile, Type);
+			GameObject* pObj = CellList[i][j]->GetGameObject();
+			if (pObj)
+				pObj->Save(outFile, Type);
 		}
 	}
 }

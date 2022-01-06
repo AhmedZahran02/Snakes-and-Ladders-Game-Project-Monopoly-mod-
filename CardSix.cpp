@@ -38,3 +38,11 @@ CardSix::~CardSix()
 {
 
 }
+
+void CardSix::Save(ofstream& outFile, int Type)
+{
+	if (Type == 2) {
+		Card::Save(outFile, Type);
+		outFile << " " << XdestinationCell << " " << YdestinationCell << endl;
+	}
+}

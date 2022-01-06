@@ -28,9 +28,9 @@ void CardTwo::Apply(Grid* pGrid, Player* pPlayer) {
 
 void CardTwo::Save(ofstream& outFile, int Type)
 {
-	int cellNum = position.GetCellNum();
-	if (Type == 2) {
-		outFile << cardNumber << " " << cellNum << "";
+	if (Type == 2){
+		Card::Save(outFile, Type);
+		outFile << endl;
 	}
 }
 

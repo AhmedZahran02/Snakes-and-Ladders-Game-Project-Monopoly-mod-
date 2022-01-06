@@ -14,6 +14,7 @@
 #include "CopyCardAction.h"
 #include "PasteCardAction.h"
 #include "NewGameAction.h"
+#include "SaveGridAction.h"
 
 ///TODO: Add #include for all action types
 
@@ -119,7 +120,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case SAVE_GRID: //To be uncommented:
-		//pAct = new SaveGridAction(this);
+		pAct = new SaveGridAction(this);
 		break;
 
 	case OPEN_GRID: //To be uncommented:
