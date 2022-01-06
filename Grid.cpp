@@ -212,6 +212,7 @@ void Grid::UpdateInterface() const
 		for (int i = 0; i < MaxPlayerCount; i++)
 		{
 			PlayerList[i]->AppendPlayerInfo(playersInfo); // passed by reference
+
 			if (i < MaxPlayerCount-1) // except the last player
 				playersInfo += ", ";
 		}
