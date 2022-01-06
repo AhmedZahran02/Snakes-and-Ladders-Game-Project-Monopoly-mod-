@@ -22,9 +22,9 @@ void NewGameAction::Execute()
 	pGrid->SetEndGame(0);
 	CellPosition start(8, 0);
 
-	CardNine::setowner(NULL);
-	CardTen::setowner(NULL);
-	CardEleven::setowner(NULL);
+	CardNine::nullowner();
+	CardTen::nullowner();
+	CardEleven::nullowner();
 
 	for (int i = 0; i < 4; i++) {
 		Player* pPlayer = pGrid->GetCurrentPlayer();
@@ -32,6 +32,7 @@ void NewGameAction::Execute()
 		pPlayer->SetWallet(100);
 		pPlayer->SetStepCount(1);
 		pPlayer->SetTurnCount(0);
+		pPlayer->ReleaseOwnership(i);
 		pGrid->AdvanceCurrentPlayer();
 	}
 	pGrid->ReSetCurrentPlayerNum();

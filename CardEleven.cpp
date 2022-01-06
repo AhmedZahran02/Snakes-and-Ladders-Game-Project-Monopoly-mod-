@@ -17,6 +17,11 @@ void CardEleven::setowner(Player* p)
 	p->SetOwnership(2, CardPrice);
 }
 
+void CardEleven::nullowner()
+{
+	card11owner = NULL;
+}
+
 CardEleven::~CardEleven(void)
 {
 }

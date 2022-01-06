@@ -21,6 +21,11 @@ CardTen::~CardTen(void)
 {
 }
 
+void CardTen::nullowner()
+{
+	card10owner = NULL;
+}
+
 void CardTen::ReadCardParameters(Grid* pGrid)
 {
 
