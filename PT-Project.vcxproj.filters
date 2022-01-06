@@ -5,6 +5,9 @@
     <ClCompile Include="Action.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="AddCardAction.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
     <ClCompile Include="AddLadderAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -215,13 +218,6 @@
     <ClCompile Include="CardEight.cpp">
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
-    <ClCompile Include="CardNineToEleven.cpp">
-      <Filter>GameObjects\Cards</Filter>
-    </ClCompile>
-    <ClCompile Include="OpenGridAction.cpp" />
-    <ClCompile Include="AddCardAction.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
     <ClCompile Include="SaveGridAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -398,10 +394,6 @@
     <ClInclude Include="CardEight.h">
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
-    <ClInclude Include="CardNineToEleven.h">
-      <Filter>GameObjects\Cards</Filter>
-    </ClInclude>
-    <ClInclude Include="OpenGridAction.h" />
     <ClInclude Include="SaveGridAction.h">
       <Filter>Actions</Filter>
     </ClInclude>

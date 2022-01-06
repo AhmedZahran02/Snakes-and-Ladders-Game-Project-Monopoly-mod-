@@ -28,7 +28,7 @@ void SaveGridAction::ReadActionParameters()
 void SaveGridAction::Execute()
 {
 	ReadActionParameters();
-	ofstream outFile(fileName);
+	ofstream outFile(fileName+".txt");
 
 	Grid* pGrid = pManager->GetGrid();
 	int ladderCount = pGrid->GetNumOfObjects(0);

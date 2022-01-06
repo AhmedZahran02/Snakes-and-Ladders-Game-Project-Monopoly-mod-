@@ -1,7 +1,7 @@
 #pragma once
-#include "CardNineToEleven.h"
+#include "Card.h"
 
-class CardNine : public CardNineToEleven
+class CardNine : public Card
 {
 	//Parameters:
 	static int CardPrice;
