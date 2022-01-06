@@ -1,5 +1,6 @@
 #include "CardFour.h"
 #include "ApplicationManager.h"
+#include "RollDiceAction.h"
 
 CardFour::CardFour(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
@@ -22,14 +23,9 @@ void CardFour::Apply(Grid* pGrid, Player* pPlayer)
 	Card::Apply(pGrid, pPlayer);
 	// 2- prevent the pPlayer from the next dice roll
 	pGrid->PrintErrorMessage("You have landed on Card 4, you are prevented from rolling the next turn!");
-		if (pPlayer=pGrid->GetCurrentPlayer())
-		{
-
-		}
-		else
-		{
-			pGrid->UpdateInterface();
-		}
-	
-		
+	if (true)
+	{
+		int x = pPlayer->GetJustRolledDiceNum();
+		pPlayer->Move(pGrid, -x);
+	}
 }
