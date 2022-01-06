@@ -2,6 +2,9 @@
 #include "ApplicationManager.h"
 #include "RollDiceAction.h"
 
+bool CardFour::Card4Players[4];
+int CardFour::arrRemRolls[4];
+
 CardFour::CardFour(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
 	cardNumber = 4; // set the inherited cardNumber data member with the card number (1 here)
@@ -23,9 +26,28 @@ void CardFour::Apply(Grid* pGrid, Player* pPlayer)
 	Card::Apply(pGrid, pPlayer);
 	// 2- prevent the pPlayer from the next dice roll
 	pGrid->PrintErrorMessage("You have landed on Card 4, you are prevented from rolling the next turn!");
-	if (true)
-	{
-		int x = pPlayer->GetJustRolledDiceNum();
-		pPlayer->Move(pGrid, -x);
-	}
+	
+	int playerNum = pPlayer->GetPlayerNum();
+	Card4Players[playerNum] = true;
+	arrRemRolls[playerNum] = 1;
+}
+
+bool CardFour::isCard4Players(int playerNum) const
+{
+	return Card4Players[playerNum];
+}
+
+int CardFour::GetRemRolls(int playerNum) const
+{
+	return arrRemRolls[playerNum];
+}
+
+void CardFour::DecrementRemRolls(int playerNum)
+{
+	arrRemRolls[playerNum]--;
+}
+
+void CardFour::free(int playerNum)
+{
+	Card4Players[playerNum] = false;
 }

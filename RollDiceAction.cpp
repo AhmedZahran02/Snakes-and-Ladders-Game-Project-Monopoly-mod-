@@ -3,6 +3,7 @@
 #include "Grid.h"
 #include "Player.h"
 #include "Card.h"
+#include "CardFour.h"
 #include "CardEight.h"
 #include <time.h> // used to in srand to generate random numbers with different seed
 
@@ -39,6 +40,9 @@ void RollDiceAction::Execute()
 		Cell* pCell = pPlayer->GetCell();
 		GameObject* pObj = pCell->GetGameObject();
 		CardEight* pCardEight = dynamic_cast<CardEight*>(pObj);
+
+		CardFour* pCardFour = dynamic_cast<CardFour*>(pObj);
+
 		if (pCardEight && pCardEight->isJailed(playerNum)) {
 			pCardEight->DecrementRemDays(playerNum);
 			if (pCardEight->GetRemDays(playerNum) == 0) {
@@ -48,6 +52,15 @@ void RollDiceAction::Execute()
 			else {
 				pOut->PrintMessage("You are locked in prison! " + to_string(pCardEight->GetRemDays(playerNum)) + " turns remaining.");
 			}			
+			pGrid->AdvanceCurrentPlayer();
+			pGrid->UpdateInterface();
+		}
+		else if (pCardFour && pCardFour->isCard4Players(playerNum)) {
+			pCardFour->DecrementRemRolls(playerNum);
+			if (pCardFour->GetRemRolls(playerNum) == 0) {
+				pCardFour->free(playerNum);
+				pOut->PrintMessage("You will be able to roll dice from next turn!");
+			}
 			pGrid->AdvanceCurrentPlayer();
 			pGrid->UpdateInterface();
 		}
