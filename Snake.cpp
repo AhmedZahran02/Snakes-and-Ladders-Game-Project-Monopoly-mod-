@@ -50,6 +50,14 @@ void Snake::Save(ofstream& outFile, int Type)
 	}
 }
 
+void Snake::Open(ifstream& inFile)
+{
+	int startCellNum, endCellNum;
+	inFile >> startCellNum >> endCellNum;
+	position.GetCellPositionFromNum(startCellNum);
+	endCellPos.GetCellPositionFromNum(endCellNum);
+}
+
 Snake::~Snake()
 {
 }

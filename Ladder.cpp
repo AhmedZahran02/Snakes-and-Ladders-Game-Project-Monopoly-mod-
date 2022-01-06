@@ -49,6 +49,14 @@ void Ladder::Save(ofstream& outFile, int Type)
 	}
 }
 
+void Ladder::Open(ifstream& inFile)
+{
+	int startCellNum, endCellNum;
+	inFile >> startCellNum >> endCellNum;
+	position.GetCellPositionFromNum(startCellNum);
+	endCellPos.GetCellPositionFromNum(endCellNum);
+}
+
 Ladder::~Ladder()
 {
 }

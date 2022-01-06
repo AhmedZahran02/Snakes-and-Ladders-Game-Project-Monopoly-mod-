@@ -194,6 +194,7 @@
     <ClCompile Include="InputDiceValueAction.cpp" />
     <ClCompile Include="Ladder.cpp" />
     <ClCompile Include="NewGameAction.cpp" />
+    <ClCompile Include="OpenGridAction.cpp" />
     <ClCompile Include="Output.cpp" />
     <ClCompile Include="PasteCardAction.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -256,6 +257,7 @@
     <ClInclude Include="InputDiceValueAction.h" />
     <ClInclude Include="Ladder.h" />
     <ClInclude Include="NewGameAction.h" />
+    <ClInclude Include="OpenGridAction.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="PasteCardAction.h" />
     <ClInclude Include="Player.h" />

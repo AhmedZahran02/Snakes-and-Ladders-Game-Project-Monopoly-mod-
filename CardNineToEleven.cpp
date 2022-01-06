@@ -11,3 +11,8 @@ void CardNineToEleven::ReadCardParameters(Grid* pGrid)
 void CardNineToEleven::Apply(Grid* pGrid, Player* pPlayer)
 {
 }
+
+void CardNineToEleven::Save(ofstream& outFile, int Type)
+{
+
+}
