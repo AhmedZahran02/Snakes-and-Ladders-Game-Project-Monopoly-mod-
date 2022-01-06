@@ -32,7 +32,9 @@ void NewGameAction::Execute()
 		pPlayer->SetWallet(100);
 		pPlayer->SetStepCount(1);
 		pPlayer->SetTurnCount(0);
-		pPlayer->ReleaseOwnership(i);
+		pPlayer->ReleaseOwnership(0);
+		pPlayer->ReleaseOwnership(1);
+		pPlayer->ReleaseOwnership(2);
 		pGrid->AdvanceCurrentPlayer();
 	}
 	pGrid->ReSetCurrentPlayerNum();
