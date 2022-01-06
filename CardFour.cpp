@@ -1,9 +1,6 @@
 #include "CardFour.h"
-#include "ApplicationManager.h"
-#include "RollDiceAction.h"
 
 bool CardFour::Card4Players[MaxPlayerCount];
-int CardFour::arrRemRolls[MaxPlayerCount];
 
 CardFour::CardFour(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
@@ -29,7 +26,8 @@ void CardFour::Apply(Grid* pGrid, Player* pPlayer)
 	
 	int playerNum = pPlayer->GetPlayerNum();
 	Card4Players[playerNum] = true;
-	arrRemRolls[playerNum] = 1;
+	//arrRemRolls[playerNum] = 1;
+	Freed = false;
 }
 
 bool CardFour::isCard4Players(int playerNum) const
@@ -37,17 +35,12 @@ bool CardFour::isCard4Players(int playerNum) const
 	return Card4Players[playerNum];
 }
 
-int CardFour::GetRemRolls(int playerNum) const
-{
-	return arrRemRolls[playerNum];
-}
-
-void CardFour::DecrementRemRolls(int playerNum)
-{
-	arrRemRolls[playerNum]--;
+bool CardFour::isfree() const{
+	return Freed;
 }
 
 void CardFour::free(int playerNum)
 {
+	Freed = true;
 	Card4Players[playerNum] = false;
 }

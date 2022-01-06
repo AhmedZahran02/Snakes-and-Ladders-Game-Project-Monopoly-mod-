@@ -56,8 +56,7 @@ void RollDiceAction::Execute()
 			pGrid->UpdateInterface();
 		}
 		else if (pCardFour && pCardFour->isCard4Players(playerNum)) {
-			pCardFour->DecrementRemRolls(playerNum);
-			if (pCardFour->GetRemRolls(playerNum) == 0) {
+			if (pCardFour->isfree() == false) {
 				pCardFour->free(playerNum);
 				pOut->PrintMessage("You will be able to roll dice from next turn!");
 			}
