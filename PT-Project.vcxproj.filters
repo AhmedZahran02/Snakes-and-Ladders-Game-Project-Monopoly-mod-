@@ -219,6 +219,9 @@
       <Filter>GameObjects\Cards</Filter>
     </ClCompile>
     <ClCompile Include="SaveGridAction.cpp" />
+    <ClCompile Include="CardNineToEleven.cpp">
+      <Filter>GameObjects\Cards</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -393,6 +396,9 @@
       <Filter>GameObjects\Cards</Filter>
     </ClInclude>
     <ClInclude Include="SaveGridAction.h" />
+    <ClInclude Include="CardNineToEleven.h">
+      <Filter>GameObjects\Cards</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Actions">

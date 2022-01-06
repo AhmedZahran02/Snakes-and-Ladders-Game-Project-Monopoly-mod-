@@ -1,7 +1,7 @@
 #pragma once
-#include "Card.h"
+#include "CardNineToEleven.h"
 
-class CardNine : public Card
+class CardNine : public CardNineToEleven
 {
 	//Parameters:
 	static int CardPrice;
@@ -15,7 +15,7 @@ public:
 
 	static void nullowner();
 
-	virtual void ReadCardParameters(Grid* pGrid); // Reads the parameters of CardOne which is: walletAmount
+	virtual void ReadCardParameters(Grid* pGrid); // Reads the parameters of Card 9
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applies the effect of Card on the passed Player
 

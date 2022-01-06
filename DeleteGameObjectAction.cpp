@@ -13,6 +13,9 @@ void DeleteGameObjectAction::Execute() {
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
 	bool deleted = pGrid->RemoveObjectFromCell(GameObjectPosition);
+	//update interface
+	pGrid->UpdateInterface();
+
 	if (!deleted) {
 		pGrid->PrintErrorMessage("There is no GameObject here Click to continue");
 	}
@@ -22,8 +25,6 @@ void DeleteGameObjectAction::Execute() {
 	}
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
-	//update interface
-	pGrid->UpdateInterface();
 }
 void DeleteGameObjectAction::ReadActionParameters() {
 	// Get a Pointer to the Input / Output Interfaces
