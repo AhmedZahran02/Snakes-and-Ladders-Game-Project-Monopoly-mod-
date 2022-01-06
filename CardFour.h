@@ -5,8 +5,8 @@
 class CardFour : public Card
 {
 private:
-	static int arrRemRolls[4];
-	static bool Card4Players[4];
+	static int arrRemRolls[MaxPlayerCount];
+	static bool Card4Players[MaxPlayerCount];
 public:
 	CardFour(const CellPosition& pos); // A Constructor takes card position
 

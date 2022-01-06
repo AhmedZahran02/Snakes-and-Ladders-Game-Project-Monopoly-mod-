@@ -4,8 +4,8 @@ class CardEight :
     public Card
 {
     static int bailMoney;
-    static int arrRemDays[4];
-    static bool arrJailedPlayers[4];
+    static int arrRemDays[MaxPlayerCount];
+    static bool arrJailedPlayers[MaxPlayerCount];
     static bool done;
 public:
     CardEight(CellPosition& pos);

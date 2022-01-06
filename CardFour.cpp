@@ -2,12 +2,12 @@
 #include "ApplicationManager.h"
 #include "RollDiceAction.h"
 
-bool CardFour::Card4Players[4];
-int CardFour::arrRemRolls[4];
+bool CardFour::Card4Players[MaxPlayerCount];
+int CardFour::arrRemRolls[MaxPlayerCount];
 
 CardFour::CardFour(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
-	cardNumber = 4; // set the inherited cardNumber data member with the card number (1 here)
+	cardNumber = 4; // set the inherited cardNumber data member with the card number (4 here)
 }
 
 CardFour::~CardFour(void)

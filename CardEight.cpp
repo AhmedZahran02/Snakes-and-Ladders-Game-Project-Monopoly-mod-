@@ -1,7 +1,7 @@
 #include "CardEight.h"
 
-bool CardEight::arrJailedPlayers[4];
-int CardEight::arrRemDays[4];
+bool CardEight::arrJailedPlayers[MaxPlayerCount];
+int CardEight::arrRemDays[MaxPlayerCount];
 int CardEight::bailMoney;
 bool CardEight::done = false;
 
