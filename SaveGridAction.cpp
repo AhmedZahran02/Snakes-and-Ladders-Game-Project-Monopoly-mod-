@@ -28,18 +28,27 @@ void SaveGridAction::ReadActionParameters()
 void SaveGridAction::Execute()
 {
 	ReadActionParameters();
-	ofstream outFile(fileName+".txt");
+	ofstream outFile(fileName+".txt",ios::trunc);
 
 	Grid* pGrid = pManager->GetGrid();
 	int ladderCount = pGrid->GetNumOfObjects(0);
 	int snakeCount = pGrid->GetNumOfObjects(1);
 	int cardCount = pGrid->GetNumOfObjects(2);
-	outFile << ladderCount << endl;
-	pGrid->SaveAll(outFile, 0);
-	outFile << snakeCount << endl;
-	pGrid->SaveAll(outFile, 1);
-	outFile << cardCount << endl;
-	pGrid->SaveAll(outFile, 2);
+
+	if (outFile.is_open())
+	{
+		outFile << ladderCount << endl;
+		pGrid->SaveAll(outFile, 0);
+		outFile << snakeCount << endl;
+		pGrid->SaveAll(outFile, 1);
+		outFile << cardCount << endl;
+		pGrid->SaveAll(outFile, 2);
+	}
+	else
+	{
+		return;
+	}
+	
 	
 	outFile.close();
 }

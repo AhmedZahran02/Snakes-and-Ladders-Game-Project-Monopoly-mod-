@@ -6,7 +6,7 @@ class PasteCardAction :
 {
 	// [Action Parameters]
 	CellPosition pastePosition; //  cell position of the card
-	Card* pCard;
+	Card* pCard=NULL;
 
 public:
 

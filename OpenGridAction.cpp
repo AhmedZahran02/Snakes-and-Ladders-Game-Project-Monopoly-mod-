@@ -58,22 +58,15 @@ void OpenGridAction::Execute()
 			pLadder->Open(inFile);
 			pGrid->AddObjectToCell(pLadder);
 		}
-	}
 	
-	if (inFile.is_open())
-	{
 		inFile >> snakeCount;
 		for (int i = 0; i < snakeCount; i++) {
 			Snake* pSnake = new Snake(end, start);
 			pSnake->Open(inFile);
 			pGrid->AddObjectToCell(pSnake);
 		}
-	}
-
-	if (inFile.is_open())
-	{
+	
 		inFile >> cardCount;
-		Card* pCard = new Card(start);
 
 		CardOne* pCardOne = new CardOne(start);
 		CardTwo* pCardTwo = new CardTwo(start);
@@ -143,6 +136,7 @@ void OpenGridAction::Execute()
 				break;
 			}
 		}
+		inFile.close();
 	}
 	pGrid->UpdateInterface();
 }
