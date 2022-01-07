@@ -3,7 +3,7 @@
 
 CardThree::CardThree(const CellPosition& pos) : Card(pos) // set the cell position of the card
 {
-	cardNumber = 3; // set the inherited cardNumber data member with the card number (1 here)
+	cardNumber = 3; // set the inherited cardNumber data member with the card number (3 here)
 }
 
 CardThree::~CardThree(void)
@@ -22,6 +22,7 @@ void CardThree::Apply(Grid* pGrid, Player* pPlayer)
 	Card::Apply(pGrid, pPlayer);
 	// 2- give the pPlayer an extra dice roll
 	pGrid->PrintErrorMessage("You have landed on Card 3, you now have an extra dice roll!");
+	//giving player an additional dice roll 
 	for (int i = 0; i < 3; i++) {
 		pGrid->AdvanceCurrentPlayer();
 	}
@@ -29,13 +30,13 @@ void CardThree::Apply(Grid* pGrid, Player* pPlayer)
 
 void CardThree::Save(ofstream& outFile, int Type)
 {
-	if (Type == 2){
+	if (Type == 2){ // number 2 representing cards
 		Card::Save(outFile, Type);
-		outFile << endl;
+		outFile << endl; //writing in save file which is .txt
 	}
 }
 
 void CardThree::Open(ifstream& inFile)
 {
-	Card::Open(inFile);
+	Card::Open(inFile); //load data from .txt
 }

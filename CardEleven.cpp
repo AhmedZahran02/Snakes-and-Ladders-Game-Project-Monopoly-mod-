@@ -115,15 +115,15 @@ void CardEleven::Apply(Grid* pGrid, Player* pPlayer)
 
 void CardEleven::Save(ofstream& outFile, int Type)
 {
-	if (Type == 2) {
+	if (Type == 2) { // number 2 representing cards
 		Card::Save(outFile, Type);
-		outFile << " " << CardPrice << " " << Fees << endl;
+		outFile << " " << CardPrice << " " << Fees << endl; //writing in save file which is .txt
 	}
 }
 
 void CardEleven::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
-	inFile >> CardPrice >> Fees;
+	inFile >> CardPrice >> Fees; //load data from .txt
 }
 

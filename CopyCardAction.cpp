@@ -29,7 +29,7 @@ void CopyCardAction::Execute()
 	Card* CardinCell = dynamic_cast<Card*>(pGrid->GetGameObject(cardPosition)); //get card object in the cell
 	if (CardinCell)
 	{
-		pGrid->SetClipboard(CardinCell);
+		pGrid->SetClipboard(CardinCell); //putting card in clipboard
 		//update interface
 		pGrid->UpdateInterface();
 		pGrid->PrintErrorMessage("Successfully Card " + to_string(CardinCell->GetCardNumber()) + " was copied ,click to continue!");

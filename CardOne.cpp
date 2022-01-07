@@ -53,14 +53,14 @@ void CardOne::Apply(Grid* pGrid, Player* pPlayer)
 
 void CardOne::Save(ofstream& outFile, int Type)
 {
-	if (Type == 2){
+	if (Type == 2){ // number 2 representing cards
 		Card::Save(outFile, Type);
-		outFile << " " << walletAmount << endl;
+		outFile << " " << walletAmount << endl; //writing in save file which is .txt
 	}
 }
 
 void CardOne::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
-	inFile >> walletAmount;
+	inFile >> walletAmount; //load data from .txt
 }

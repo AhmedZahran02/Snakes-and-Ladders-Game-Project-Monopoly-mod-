@@ -46,7 +46,7 @@ void AddCardAction::ReadActionParameters()
 	{
 		do {
 			pOut->PrintMessage("Click on an empty cell to put card " + to_string(cardNumber) + " on");
-			cardPosition = pIn->GetCellClicked();
+			cardPosition = pIn->GetCellClicked(); //getting cell to add card in
 		} while (cardPosition.IsValidCell() != true);
 	}
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
@@ -69,7 +69,7 @@ void AddCardAction::Execute()
 	ReadActionParameters();
 	// 2- Switch case on cardNumber data member and create the appropriate card object type
 	Card * pCard = NULL; // will point to the card object type
-	switch (cardNumber)
+	switch (cardNumber) //adding card depending on card number taken from user 
 	{
 		// A- Add the remaining cases
 	case 1:
@@ -91,7 +91,6 @@ void AddCardAction::Execute()
 	case 5:
 		pCard = new CardFive(cardPosition);
 		break;
-		// A- Add the remaining cases
 	case 6:
 		pCard = new CardSix(cardPosition);
 		break;

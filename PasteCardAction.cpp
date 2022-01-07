@@ -18,7 +18,7 @@ void PasteCardAction::ReadActionParameters()
 	do {
 		pOut->PrintMessage("click on cell to paste the card to it ........");
 		pastePosition = pIn->GetCellClicked(); // Read the CardCell parameter
-	} while (pastePosition.IsValidCell() == false || pastePosition.GetCellNum() == 1 || pastePosition.GetCellNum() == 99 || pGrid->GetGameObject(pastePosition) != NULL);
+	} while (pastePosition.IsValidCell() == false || pastePosition.GetCellNum() == 1 || pastePosition.GetCellNum() == 99 || pGrid->GetGameObject(pastePosition) != NULL); //checking cases where canot paste the card
 
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
@@ -32,8 +32,8 @@ void PasteCardAction::Execute()
 	Card* pCard = pGrid->GetClipboard();
 	if (pCard)
 	{
-		pCard->SetPosition(pastePosition);
-		pGrid->AddObjectToCell(pCard);
+		pCard->SetPosition(pastePosition); //setting position to be pasted on
+		pGrid->AddObjectToCell(pCard); //adding card to cell 
 		//update interface
 		pGrid->UpdateInterface();
 		pGrid->PrintErrorMessage("Successfully Card " + to_string(pCard->GetCardNumber()) + " was pasted ,click to continue!");

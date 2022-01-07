@@ -12,9 +12,9 @@ public:
 
 	virtual void Apply(Grid* pGrid, Player* pPlayer); // Applies the effect of CardThree on the passed Player
 													  
-	virtual void Save(ofstream& outFile, int Type);
+	virtual void Save(ofstream& outFile, int Type); //save card 3 data using fstream
 
-	virtual void Open(ifstream& inFile);
+	virtual void Open(ifstream& inFile); //load card 3 data using fstream
 
 	virtual ~CardThree(); // A Virtual Destructor
 };
