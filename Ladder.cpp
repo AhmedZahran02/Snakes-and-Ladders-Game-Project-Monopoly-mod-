@@ -1,6 +1,7 @@
 #include "Ladder.h"
 #include "Player.h"
 #include "Card.h"
+#include "Snake.h"
 
 Ladder::Ladder(const CellPosition & startCellPos, const CellPosition & endCellPos) : GameObject(startCellPos)
 {
@@ -67,30 +68,57 @@ void Ladder::Open(ifstream& inFile)
 bool Ladder::IsOverLapping(GameObject* NewGameObject) const {
 
 	Ladder* NewLadder= dynamic_cast<Ladder*>(NewGameObject);
-	if (!NewLadder) return false;
+	Snake* NewSnake = dynamic_cast<Snake*>(NewGameObject);
+	if (NewLadder){
 
-	CellPosition StartOfNewLadder = NewLadder->GetPosition();
-	CellPosition EndOfNewLadder = NewLadder->endCellPos;
+		CellPosition StartOfNewLadder = NewLadder->GetPosition();
+		CellPosition EndOfNewLadder = NewLadder->endCellPos;
 
-	CellPosition StartOfCurrentLadder = position.GetCellNum();
-	CellPosition EndOfCurrentLadder = endCellPos.GetCellNum();
+		CellPosition StartOfCurrentLadder = position.GetCellNum();
+		CellPosition EndOfCurrentLadder = endCellPos.GetCellNum();
 
-	//Check if they aren't in the same H
-	if (StartOfNewLadder.HCell() != StartOfCurrentLadder.HCell()) {
+		//Check if they aren't in the same H
+		if (StartOfNewLadder.HCell() != StartOfCurrentLadder.HCell()) {
+			return false;
+		}
+
+		int NewLadderStart = StartOfNewLadder.VCell();
+		int NewLadderEnd = EndOfNewLadder.VCell();
+		int CurrentLadderStart = StartOfCurrentLadder.VCell();
+		int CurremtLadderEnd = EndOfCurrentLadder.VCell();
+
+
+		if (NewLadderStart >= CurremtLadderEnd && NewLadderEnd <= CurrentLadderStart) {
+			return true;
+		}
 		return false;
 	}
-
-	int NewLadderStart = StartOfNewLadder.VCell();
-	int NewLadderEnd = EndOfNewLadder.VCell();
-	int CurrentLadderStart = StartOfCurrentLadder.VCell();
-	int CurremtLadderEnd = EndOfCurrentLadder.VCell();
+	if (NewSnake) {
 
 
-	if (NewLadderStart <= CurremtLadderEnd || NewLadderEnd <= CurrentLadderStart) {
-		return true;
+		CellPosition StartOfNewSnake = NewSnake->GetPosition();
+		CellPosition EndOfNewSnake = NewSnake->GetEndPosition();
+
+		CellPosition StartOfCurrentLadder = position.GetCellNum();
+		CellPosition EndOfCurrentLadder = endCellPos.GetCellNum();
+
+		//Check if they aren't in the same H
+		if (StartOfNewSnake.HCell() != StartOfCurrentLadder.HCell()) {
+			return false;
+		}
+
+		int NewSnakeStart = StartOfNewSnake.VCell();
+		int NewSnakeEnd = EndOfNewSnake.VCell();
+		int CurrentLadderStart = StartOfCurrentLadder.VCell();
+		int CurremtLadderEnd = EndOfCurrentLadder.VCell();
+
+
+		if (NewSnakeStart <= CurrentLadderStart && NewSnakeEnd >= CurremtLadderEnd) {
+			return true;
+		}
+		return false;
+
 	}
-	return false;
-
 }
 
 

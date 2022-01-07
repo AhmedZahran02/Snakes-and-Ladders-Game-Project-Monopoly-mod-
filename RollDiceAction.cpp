@@ -67,7 +67,7 @@ void RollDiceAction::Execute()
 			// 2- Generate a random number from 1 to 6 --> This step is done for you
 			srand((int)time(NULL)); // time is for different seed each run
 			int diceNumber = 1 + rand() % 6; // from 1 to 6 --> should change seed
-			pGrid->GetOutput()->PrintMessage("Rolled Dice " + to_string(diceNumber) + "Click to continue");
+			pGrid->GetOutput()->PrintMessage("Rolled DiceNumber: " + to_string(diceNumber) + ", Click to continue");
 			int x, y;
 			pGrid->GetInput()->GetPointClicked(x, y);
 			// 3- Get the "current" player from pGrid

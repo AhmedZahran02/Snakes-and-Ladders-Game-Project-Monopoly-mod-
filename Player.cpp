@@ -147,18 +147,20 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		int newCell = NewCellPos.GetCellNum() + justRolledDiceNum;
 
 		NewCellPos.AddCellNum(justRolledDiceNum);
-		pGrid->UpdatePlayerCell(this, NewCellPos);
-		Output* pOut = pGrid->GetOutput();
-		Input* pIn = pGrid->GetInput();
-		GameObject* pGameObject = pCell->GetGameObject();
-		if (pGameObject != NULL) {
-			pGameObject->Apply(pGrid, this);
+		if (newCell < 100){
+			pGrid->UpdatePlayerCell(this, NewCellPos);
+			Output* pOut = pGrid->GetOutput();
+			Input* pIn = pGrid->GetInput();
+			GameObject* pGameObject = pCell->GetGameObject();
+			if (pGameObject != NULL) {
+				pGameObject->Apply(pGrid, this);
+			stepCount = pCell->GetCellPosition().GetCellNum();
+			}
 		}
-		if (newCell > 99) {
+		if (newCell == 100) {
 			pGrid->PrintErrorMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
 			pGrid->SetEndGame(true);
-	}
-		stepCount = pCell->GetCellPosition().GetCellNum();
+		}
 }
 
 void Player::AppendPlayerInfo(string & playersInfo) const
