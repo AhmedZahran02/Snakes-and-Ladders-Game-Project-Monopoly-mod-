@@ -68,71 +68,95 @@ void OpenGridAction::Execute()
 	
 		inFile >> cardCount;
 
-		CardOne* pCardOne = new CardOne(start);
-		CardTwo* pCardTwo = new CardTwo(start);
-		CardThree* pCardThree = new CardThree(start);
-		CardFour* pCardFour = new CardFour(start);
-		CardFive* pCardFive = new CardFive(start);
-		CardSix* pCardSix = new CardSix(start);
-		CardSeven* pCardSeven = new CardSeven(start);
-		CardEight* pCardEight = new CardEight(start);
-		CardNine* pCardNine = new CardNine(start);
-		CardTen* pCardTen = new CardTen(start);
-		CardEleven* pCardEleven = new CardEleven(start);
-		CardTwelve* pCardTwelve = new CardTwelve(start);
-
+	
 		int cardNumber;
-		inFile >> cardNumber;
 		for (int i = 0; i < cardCount; i++) {
+			inFile >> cardNumber;
 			switch (cardNumber)
 			{
 			case 1:
+			{
+				CardOne* pCardOne = new CardOne(start);
 				pCardOne->Open(inFile);
 				pGrid->AddObjectToCell(pCardOne);
-				break;
+			}
+			break;
 			case 2:
+			{
+				CardTwo* pCardTwo = new CardTwo(start);
 				pCardTwo->Open(inFile);
 				pGrid->AddObjectToCell(pCardTwo);
-				break;
+			}
+			break;
 			case 3:
+			{
+				CardThree* pCardThree = new CardThree(start);
 				pCardThree->Open(inFile);
 				pGrid->AddObjectToCell(pCardThree);
-				break;
+			}
+			break;
 			case 4:
+			{
+				CardFour* pCardFour = new CardFour(start);
 				pCardFour->Open(inFile);
 				pGrid->AddObjectToCell(pCardFour);
-				break;
+			}
+			break;
 			case 5:
+			{
+				CardFive* pCardFive = new CardFive(start);
 				pCardFive->Open(inFile);
 				pGrid->AddObjectToCell(pCardFive);
-				break;
+			}
+			break;
 			case 6:
+			{
+				CardSix* pCardSix = new CardSix(start);
 				pCardSix->Open(inFile);
 				pGrid->AddObjectToCell(pCardSix);
-				break;
+			}
+			break;
 			case 7:
+			{
+				CardSeven * pCardSeven = new CardSeven(start);
 				pCardSeven->Open(inFile);
 				pGrid->AddObjectToCell(pCardSeven);
+			}
 				break;
 			case 8:
+			{
+				CardEight* pCardEight = new CardEight(start);
 				pCardEight->Open(inFile);
 				pGrid->AddObjectToCell(pCardEight);
+			}
 				break;
 			case 9:
+			{
+				CardNine* pCardNine = new CardNine(start);
 				pCardNine->Open(inFile);
 				pGrid->AddObjectToCell(pCardNine);
+			}
 				break;
 			case 10:
+			{
+				CardTen* pCardTen = new CardTen(start);
 				pCardTen->Open(inFile);
 				pGrid->AddObjectToCell(pCardTen);
+			}
 				break;
 			case 11:
+			{
+				CardEleven* pCardEleven = new CardEleven(start);
 				pCardEleven->Open(inFile);
 				pGrid->AddObjectToCell(pCardEleven);
+			}
 				break;
 			case 12:
+			{
+				CardTwelve* pCardTwelve = new CardTwelve(start);
 				pCardTwelve->Open(inFile);
 				pGrid->AddObjectToCell(pCardTwelve);
+			}
 				break;
 			}
 		}
