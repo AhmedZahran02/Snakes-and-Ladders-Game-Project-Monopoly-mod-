@@ -1,5 +1,6 @@
 #include "Ladder.h"
 #include "Player.h"
+#include "Card.h"
 
 Ladder::Ladder(const CellPosition & startCellPos, const CellPosition & endCellPos) : GameObject(startCellPos)
 {
@@ -30,7 +31,11 @@ void Ladder::Apply(Grid* pGrid, Player* pPlayer)
 	Input* pIn = pGrid->GetInput();
 	pGrid->PrintErrorMessage("You have reached a ladder. Click to continue ...");
 	pGrid->UpdatePlayerCell(pPlayer, endCellPos);
-	
+
+	if (Card* pCard=dynamic_cast<Card*>(pGrid->GetGameObject(endCellPos)))
+	{
+		pCard->Apply(pGrid,pPlayer);
+	}
 }
 
 CellPosition Ladder::GetEndPosition() const
