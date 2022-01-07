@@ -29,7 +29,7 @@ void PasteCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	Card* pCard = pGrid->GetClipboard();
+	pCard = pGrid->GetClipboard();
 	if (pCard)
 	{
 		pCard->SetPosition(pastePosition); //setting position to be pasted on
@@ -46,6 +46,12 @@ void PasteCardAction::Execute()
 
 	
 }
+
+void PasteCardAction::Save(ofstream& outFile, int Type)
+{
+	pCard->Save(outFile,2);
+}
+
 
 PasteCardAction::~PasteCardAction()
 {
