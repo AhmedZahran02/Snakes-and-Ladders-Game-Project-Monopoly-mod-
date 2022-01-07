@@ -47,7 +47,7 @@ void PasteCardAction::Execute()
 	if (cCard)
 	{
 		Card* pCard = NULL;
-		switch (cardnum) //creating card depending on card number taken from clipboard 
+		switch (cardnum) //creating new card depending on card number taken from clipboard 
 		{
 		case 1:
 			pCard = new CardOne(*(dynamic_cast<CardOne*>(cCard)));
@@ -86,7 +86,7 @@ void PasteCardAction::Execute()
 			pCard = new CardTwelve(*(dynamic_cast<CardTwelve*>(cCard)));
 			break;
 		}
-		pCard->SetPosition(pastePosition); //changing position to new position
+		pCard->SetPosition(pastePosition); //changing position to new paste position
 		pGrid->AddObjectToCell(pCard); //adding card to cell 
 		//update interface
 		pGrid->UpdateInterface();
@@ -103,7 +103,8 @@ void PasteCardAction::Execute()
 
 void PasteCardAction::Save(ofstream& outFile, int Type)
 {
-		pCard->Save(outFile, 2);
+		pCard->Save(outFile, 2); //writing in save file which is .txt
+								 // number 2 representing cards
 }
 
 
