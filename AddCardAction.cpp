@@ -45,7 +45,7 @@ void AddCardAction::ReadActionParameters()
 	else
 	{
 		do {
-			pOut->PrintMessage("click on an empty cell to put card " + to_string(cardNumber) + " on");
+			pOut->PrintMessage("Click on an empty cell to put card " + to_string(cardNumber) + " on");
 			cardPosition = pIn->GetCellClicked();
 		} while (cardPosition.IsValidCell() != true);
 	}
@@ -129,7 +129,7 @@ void AddCardAction::Execute()
 		// D- if the GameObject cannot be added in the Cell, Print the appropriate error message on statusbar
 		if (!done)
 		{
-			pGrid->PrintErrorMessage("invalid position,click to continue!");
+			pGrid->PrintErrorMessage("Invalid position,click to continue!");
 		}
 	}
 	

@@ -58,6 +58,10 @@ void Card::Open(ifstream& inFile)
 	position = position.GetCellPositionFromNum(cellNum);
 }
 
+bool Card::IsOverLapping(GameObject* NewGameObject) const {
+	return false;
+}
+
 Card::~Card()
 {
 }

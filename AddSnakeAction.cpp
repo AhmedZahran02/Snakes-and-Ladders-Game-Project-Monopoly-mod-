@@ -38,6 +38,8 @@ void AddSnakeAction::ReadActionParameters() {
 	// Read the endPos parameter
 	pOut->PrintMessage("New Snake: Click on its End Cell ...");
 	endPos = pIn->GetCellClicked();
+
+	Snake* InputSnake = new Snake(startPos, endPos);
 	//Doing the validations for the snake
 	bool Valid = true;
 	if ((startPos.GetCellNum() == 1)) {
@@ -52,12 +54,17 @@ void AddSnakeAction::ReadActionParameters() {
 		pGrid->PrintErrorMessage("The Snake can be positioned to down only !");
 		Valid = false;
 	}
+	else if (pGrid->IsOverLapping(InputSnake)) {
+		pGrid->PrintErrorMessage("Snakes can't be overlapping!");
+		Valid = false;
+	}
 	if (!Valid) {
 		endPos.SetHCell(0);
 		endPos.SetVCell(0);
 		startPos.SetVCell(0);
 		endPos.SetHCell(0);
 	}
+	delete InputSnake;
 
 	// Clear messages
 	pOut->ClearStatusBar();

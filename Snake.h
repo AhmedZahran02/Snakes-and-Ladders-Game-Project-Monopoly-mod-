@@ -16,6 +16,8 @@ public:
 	virtual void Save(ofstream& outFile, int Type);
 	virtual void Open(ifstream& inFile);
 
+	virtual bool IsOverLapping(GameObject* NewGameObject) const;
+
 	virtual ~Snake(); // Virtual destructor
 };
 

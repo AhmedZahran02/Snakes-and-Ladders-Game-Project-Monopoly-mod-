@@ -18,4 +18,5 @@ void GameObject::SetPosition(const CellPosition& pos)
 
 GameObject::~GameObject()
 {
+
 }

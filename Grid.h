@@ -88,6 +88,8 @@ public:
 
 	void RemoveAllObjects();
 
+	bool IsOverLapping(GameObject* NewGameObject) const;
+
 	~Grid(); // A destructor for any needed deallcations
 };
 

@@ -28,6 +28,8 @@ void AddLadderAction::ReadActionParameters()
 	pOut->PrintMessage("New Ladder: Click on its End Cell ...");
 	endPos = pIn->GetCellClicked();
 
+	Ladder *InputLadder = new Ladder(startPos, endPos);
+
 	///TODO: Make the needed validations on the read parameters
 	bool Valid = true;
 	if ((startPos.GetCellNum() == 1)) {
@@ -42,13 +44,17 @@ void AddLadderAction::ReadActionParameters()
 		pGrid->PrintErrorMessage("The Ladder can be positioned to up only !");
 		Valid = false;
 	}
+	else if (pGrid->IsOverLapping(InputLadder) ){
+		pGrid->PrintErrorMessage("Ladders can't be overlapping!");
+		Valid = false;
+	}
 	if (!Valid) {
 		endPos.SetHCell(0);
 		endPos.SetVCell(0);
 		startPos.SetVCell(0);
 		endPos.SetHCell(0);
 	}
-	
+	delete InputLadder;
 
 	// Clear messages
 	pOut->ClearStatusBar();

@@ -282,6 +282,24 @@ void Grid::SaveAll(ofstream& outFile, int Type)
 	}
 }
 
+bool Grid::IsOverLapping(GameObject* NewGameObject) const {
+	for (int i = 0; i < 9; i++)
+	{
+		for (int j = 0; j < 11; j++)
+		{
+			GameObject* GameObjectinCell = CellList[i][j]->GetGameObject();
+			if ( GameObjectinCell!= NULL) {
+				if (GameObjectinCell->IsOverLapping(NewGameObject)) {
+					return true;
+				}
+			}
+
+		}
+
+	}
+	return false;
+}
+
 Grid::~Grid()
 {
 	delete pIn;

@@ -58,6 +58,33 @@ void Snake::Open(ifstream& inFile)
 	position = position.GetCellPositionFromNum(startCellNum);
 	endCellPos = endCellPos.GetCellPositionFromNum(endCellNum);
 }
+ bool Snake::IsOverLapping(GameObject* NewGameObject) const{
+	 Snake* NewSnake = dynamic_cast<Snake*> (NewGameObject);
+	 if (!NewSnake) return false;
+	 
+	 CellPosition StartOfNewSnake = NewSnake->GetPosition();
+	 CellPosition EndOfNewSnake = NewSnake->endCellPos;
+
+	 CellPosition StartOfCurrentSnake = position.GetCellNum();
+	 CellPosition EndOfCurrentSnake = endCellPos.GetCellNum();
+
+		//Check if they aren't in the same H
+	 if (StartOfNewSnake.HCell() != StartOfCurrentSnake.HCell()) {
+		 return false;
+	 }
+
+	 int NewSnakeStart = StartOfNewSnake.VCell();
+	 int NewSnakeEnd = EndOfNewSnake.VCell();
+	 int CurrentSnakeStart = StartOfCurrentSnake.VCell();
+	 int CurremtSnakeEnd = EndOfCurrentSnake.VCell();
+
+
+	 if (NewSnakeStart <= CurremtSnakeEnd || NewSnakeEnd <= CurrentSnakeStart) {
+		 return true;
+	 }
+	 return false;
+
+}
 
 Snake::~Snake()
 {

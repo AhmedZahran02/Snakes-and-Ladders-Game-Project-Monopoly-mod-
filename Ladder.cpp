@@ -59,6 +59,36 @@ void Ladder::Open(ifstream& inFile)
 	endCellPos = pos2;
 }
 
+bool Ladder::IsOverLapping(GameObject* NewGameObject) const {
+
+	Ladder* NewLadder= dynamic_cast<Ladder*>(NewGameObject);
+	if (!NewLadder) return false;
+
+	CellPosition StartOfNewLadder = NewLadder->GetPosition();
+	CellPosition EndOfNewLadder = NewLadder->endCellPos;
+
+	CellPosition StartOfCurrentLadder = position.GetCellNum();
+	CellPosition EndOfCurrentLadder = endCellPos.GetCellNum();
+
+	//Check if they aren't in the same H
+	if (StartOfNewLadder.HCell() != StartOfCurrentLadder.HCell()) {
+		return false;
+	}
+
+	int NewLadderStart = StartOfNewLadder.VCell();
+	int NewLadderEnd = EndOfNewLadder.VCell();
+	int CurrentLadderStart = StartOfCurrentLadder.VCell();
+	int CurremtLadderEnd = EndOfCurrentLadder.VCell();
+
+
+	if (NewLadderStart <= CurremtLadderEnd || NewLadderEnd <= CurrentLadderStart) {
+		return true;
+	}
+	return false;
+
+}
+
+
 Ladder::~Ladder()
 {
 }
