@@ -47,6 +47,7 @@ void OpenGridAction::Execute()
 	Grid* pGrid = pManager->GetGrid();
 	pGrid->RemoveAllObjects();
 	pGrid->RestartAllPlayers();
+	pGrid->SetClipboard(NULL);
 	CellPosition end;
 	CellPosition start;
 	int ladderCount, snakeCount, cardCount;
