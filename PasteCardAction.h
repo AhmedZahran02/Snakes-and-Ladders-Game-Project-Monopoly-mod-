@@ -6,8 +6,8 @@ class PasteCardAction :
 {
 	// [Action Parameters]
 	CellPosition pastePosition; //  cell position of the card
-	Card* pCard=NULL;
-
+	Card* pCard;
+	int cardnum;
 public:
 
 	PasteCardAction(ApplicationManager* pApp); // A Constructor
