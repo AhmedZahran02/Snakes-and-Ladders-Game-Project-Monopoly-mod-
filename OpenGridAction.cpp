@@ -63,7 +63,7 @@ void OpenGridAction::Execute()
 	if (inFile.is_open())
 	{
 		inFile >> snakeCount;
-		for (int i = 0; i < ladderCount; i++) {
+		for (int i = 0; i < snakeCount; i++) {
 			Snake* pSnake = new Snake(end, start);
 			pSnake->Open(inFile);
 			pGrid->AddObjectToCell(pSnake);
