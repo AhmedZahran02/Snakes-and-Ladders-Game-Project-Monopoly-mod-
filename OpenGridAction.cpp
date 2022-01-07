@@ -58,88 +58,109 @@ void OpenGridAction::Execute()
 			pLadder->Open(inFile);
 			pGrid->AddObjectToCell(pLadder);
 		}
-	}
 	
-	if (inFile.is_open())
-	{
 		inFile >> snakeCount;
 		for (int i = 0; i < snakeCount; i++) {
 			Snake* pSnake = new Snake(end, start);
 			pSnake->Open(inFile);
 			pGrid->AddObjectToCell(pSnake);
 		}
-	}
-
-	inFile >> cardCount;
-	Card* pCard = new Card(start);
-
-	CardOne * pCardOne = new CardOne(start);
-	CardTwo * pCardTwo = new CardTwo(start);
-	CardThree * pCardThree = new CardThree(start);
-	CardFour* pCardFour = new CardFour(start);
-	CardFive* pCardFive = new CardFive(start);
-	CardSix* pCardSix = new CardSix(start);
-	CardSeven* pCardSeven = new CardSeven(start);
-	CardEight* pCardEight = new CardEight(start);
-	CardNine* pCardNine = new CardNine(start);
-	CardTen* pCardTen = new CardTen(start);
-	CardEleven* pCardEleven = new CardEleven(start);
-	CardTwelve* pCardTwelve = new CardTwelve(start);
 	
-	int cardNumber;
-	inFile >> cardNumber;
-	for (int i = 0; i < cardCount; i++) {
-		switch (cardNumber)
-		{
-		case 1:
-			pCardOne->Open(inFile);
-			pGrid->AddObjectToCell(pCardOne);
+		inFile >> cardCount;
+
+	
+		int cardNumber;
+		for (int i = 0; i < cardCount; i++) {
+			inFile >> cardNumber;
+			switch (cardNumber)
+			{
+			case 1:
+			{
+				CardOne* pCardOne = new CardOne(start);
+				pCardOne->Open(inFile);
+				pGrid->AddObjectToCell(pCardOne);
+			}
 			break;
-		case 2:
-			pCardTwo->Open(inFile);
-			pGrid->AddObjectToCell(pCardTwo);
+			case 2:
+			{
+				CardTwo* pCardTwo = new CardTwo(start);
+				pCardTwo->Open(inFile);
+				pGrid->AddObjectToCell(pCardTwo);
+			}
 			break;
-		case 3:
-			pCardThree->Open(inFile);
-			pGrid->AddObjectToCell(pCardThree);
+			case 3:
+			{
+				CardThree* pCardThree = new CardThree(start);
+				pCardThree->Open(inFile);
+				pGrid->AddObjectToCell(pCardThree);
+			}
 			break;
-		case 4:
-			pCardFour->Open(inFile);
-			pGrid->AddObjectToCell(pCardFour);
+			case 4:
+			{
+				CardFour* pCardFour = new CardFour(start);
+				pCardFour->Open(inFile);
+				pGrid->AddObjectToCell(pCardFour);
+			}
 			break;
-		case 5:
-			pCardFive->Open(inFile);
-			pGrid->AddObjectToCell(pCardFive);
+			case 5:
+			{
+				CardFive* pCardFive = new CardFive(start);
+				pCardFive->Open(inFile);
+				pGrid->AddObjectToCell(pCardFive);
+			}
 			break;
-		case 6:
-			pCardSix->Open(inFile);
-			pGrid->AddObjectToCell(pCardSix);
+			case 6:
+			{
+				CardSix* pCardSix = new CardSix(start);
+				pCardSix->Open(inFile);
+				pGrid->AddObjectToCell(pCardSix);
+			}
 			break;
-		case 7:
-			pCardSeven->Open(inFile);
-			pGrid->AddObjectToCell(pCardSeven);
-			break;
-		case 8:
-			pCardEight->Open(inFile);
-			pGrid->AddObjectToCell(pCardEight);
-			break;
-		case 9:
-			pCardNine->Open(inFile);
-			pGrid->AddObjectToCell(pCardNine);
-			break;
-		case 10:
-			pCardTen->Open(inFile);
-			pGrid->AddObjectToCell(pCardTen);
-			break;
-		case 11:
-			pCardEleven->Open(inFile);
-			pGrid->AddObjectToCell(pCardEleven);
-			break;
-		case 12:
-			pCardTwelve->Open(inFile);
-			pGrid->AddObjectToCell(pCardTwelve);
-			break;
+			case 7:
+			{
+				CardSeven * pCardSeven = new CardSeven(start);
+				pCardSeven->Open(inFile);
+				pGrid->AddObjectToCell(pCardSeven);
+			}
+				break;
+			case 8:
+			{
+				CardEight* pCardEight = new CardEight(start);
+				pCardEight->Open(inFile);
+				pGrid->AddObjectToCell(pCardEight);
+			}
+				break;
+			case 9:
+			{
+				CardNine* pCardNine = new CardNine(start);
+				pCardNine->Open(inFile);
+				pGrid->AddObjectToCell(pCardNine);
+			}
+				break;
+			case 10:
+			{
+				CardTen* pCardTen = new CardTen(start);
+				pCardTen->Open(inFile);
+				pGrid->AddObjectToCell(pCardTen);
+			}
+				break;
+			case 11:
+			{
+				CardEleven* pCardEleven = new CardEleven(start);
+				pCardEleven->Open(inFile);
+				pGrid->AddObjectToCell(pCardEleven);
+			}
+				break;
+			case 12:
+			{
+				CardTwelve* pCardTwelve = new CardTwelve(start);
+				pCardTwelve->Open(inFile);
+				pGrid->AddObjectToCell(pCardTwelve);
+			}
+				break;
+			}
 		}
+		inFile.close();
 	}
 	pGrid->UpdateInterface();
 }
