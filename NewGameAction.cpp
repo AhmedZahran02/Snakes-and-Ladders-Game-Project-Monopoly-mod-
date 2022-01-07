@@ -29,12 +29,7 @@ void NewGameAction::Execute()
 	for (int i = 0; i < 4; i++) {
 		Player* pPlayer = pGrid->GetCurrentPlayer();
 		pGrid->UpdatePlayerCell(pPlayer, start);
-		pPlayer->SetWallet(100);
-		pPlayer->SetStepCount(1);
-		pPlayer->SetTurnCount(0);
-		pPlayer->ReleaseOwnership(0);
-		pPlayer->ReleaseOwnership(1);
-		pPlayer->ReleaseOwnership(2);
+		pPlayer->Restart();
 		pGrid->AdvanceCurrentPlayer();
 	}
 	pGrid->ReSetCurrentPlayerNum();

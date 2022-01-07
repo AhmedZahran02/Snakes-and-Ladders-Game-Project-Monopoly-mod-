@@ -46,6 +46,7 @@ void OpenGridAction::Execute()
 	ifstream inFile(fileName+".txt",ios::in);
 	Grid* pGrid = pManager->GetGrid();
 	pGrid->RemoveAllObjects();
+	pGrid->RestartAllPlayers();
 	CellPosition end;
 	CellPosition start;
 	int ladderCount, snakeCount, cardCount;
