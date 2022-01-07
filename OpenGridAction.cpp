@@ -43,7 +43,7 @@ void OpenGridAction::ReadActionParameters()
 void OpenGridAction::Execute()
 {
 	ReadActionParameters();
-	ifstream inFile(fileName);
+	ifstream inFile(fileName+".txt");
 	Grid* pGrid = pManager->GetGrid();
 	pGrid->RemoveAllObjects();
 	CellPosition end(0, 0);
