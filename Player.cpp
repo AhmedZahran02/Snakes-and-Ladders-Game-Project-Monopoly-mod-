@@ -167,3 +167,13 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(wallet) + ", ";
 	playersInfo += to_string(stepCount) + ")";
 }
+
+void Player::Restart()
+{
+	SetWallet(100);
+	SetStepCount(1);
+	SetTurnCount(0);
+	ReleaseOwnership(0);
+	ReleaseOwnership(1);
+	ReleaseOwnership(2);
+}

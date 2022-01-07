@@ -87,6 +87,16 @@ void Grid::RemoveAllObjects()
 	}
 }
 
+void Grid::RestartAllPlayers()
+{
+	for (int i = 0; i < MaxPlayerCount; i++) {
+		CellPosition start(8, 0);
+		PlayerList[i]->Restart();
+		UpdatePlayerCell(PlayerList[i], start);
+	}
+	ReSetCurrentPlayerNum();
+}
+
 void Grid::UpdatePlayerCell(Player * player, const CellPosition & newPosition)
 {
 	// Clear the player's circle from the old cell position
