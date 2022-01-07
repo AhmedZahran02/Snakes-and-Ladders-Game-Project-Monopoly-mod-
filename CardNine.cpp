@@ -119,5 +119,6 @@ void CardNine::Save(ofstream& outFile, int Type)
 void CardNine::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
-	inFile >> CardPrice >> Fees; //load data from .txt
+		inFile >> CardPrice >> Fees; //load data from .txt
+	
 }

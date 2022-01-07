@@ -43,29 +43,36 @@ void OpenGridAction::ReadActionParameters()
 void OpenGridAction::Execute()
 {
 	ReadActionParameters();
-	ifstream inFile(fileName+".txt");
+	ifstream inFile(fileName+".txt",ios::in);
 	Grid* pGrid = pManager->GetGrid();
 	pGrid->RemoveAllObjects();
-	CellPosition end(0, 0);
-	CellPosition start(1, 0);
+	CellPosition end;
+	CellPosition start;
 	int ladderCount, snakeCount, cardCount;
-
-	inFile >> ladderCount;
-	Ladder* pLadder = new Ladder(start, end);
-	for (int i = 0; i < ladderCount; i++) {
-		pLadder->Open(inFile);
-		pGrid->AddObjectToCell(pLadder);
+	
+	if (inFile.is_open())
+	{
+		inFile >> ladderCount;
+		for (int i = 0; i < ladderCount; i++) {
+			Ladder* pLadder = new Ladder(start, end);
+			pLadder->Open(inFile);
+			pGrid->AddObjectToCell(pLadder);
+		}
 	}
-
-	inFile >> snakeCount;
-	Snake* pSnake = new Snake(end, start);
-	for (int i = 0; i < snakeCount; i++) {
-		pSnake->Open(inFile);
-		pGrid->AddObjectToCell(pSnake);
+	
+	if (inFile.is_open())
+	{
+		inFile >> snakeCount;
+		for (int i = 0; i < ladderCount; i++) {
+			Snake* pSnake = new Snake(end, start);
+			pSnake->Open(inFile);
+			pGrid->AddObjectToCell(pSnake);
+		}
 	}
 
 	inFile >> cardCount;
 	Card* pCard = new Card(start);
+
 	CardOne * pCardOne = new CardOne(start);
 	CardTwo * pCardTwo = new CardTwo(start);
 	CardThree * pCardThree = new CardThree(start);
@@ -78,9 +85,10 @@ void OpenGridAction::Execute()
 	CardTen* pCardTen = new CardTen(start);
 	CardEleven* pCardEleven = new CardEleven(start);
 	CardTwelve* pCardTwelve = new CardTwelve(start);
+	
+	int cardNumber;
+	inFile >> cardNumber;
 	for (int i = 0; i < cardCount; i++) {
-		int cardNumber;
-		inFile >> cardNumber;
 		switch (cardNumber)
 		{
 		case 1:
@@ -133,4 +141,5 @@ void OpenGridAction::Execute()
 			break;
 		}
 	}
+	pGrid->UpdateInterface();
 }
