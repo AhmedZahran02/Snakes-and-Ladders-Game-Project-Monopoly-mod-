@@ -28,7 +28,7 @@ void CutCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	Card* CardinCell= pGrid->GetGameObject(cardPosition); //get card object in the cell
+	Card* CardinCell= dynamic_cast<Card*>(pGrid->GetGameObject(cardPosition)); //get card object in the cell
 	if (CardinCell)
 	{
 		pGrid->SetClipboard(CardinCell);

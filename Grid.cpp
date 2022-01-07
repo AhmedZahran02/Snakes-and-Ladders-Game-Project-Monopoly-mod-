@@ -146,9 +146,9 @@ void Grid::ReSetCurrentPlayerNum()
 	currPlayerNumber = 0;
 }
 
-Card* Grid::GetGameObject(const CellPosition& position) const
+GameObject* Grid::GetGameObject(const CellPosition& position) const
 {
-	return dynamic_cast<Card*>(CellList[position.VCell()][position.HCell()]->GetGameObject());
+	return (CellList[position.VCell()][position.HCell()]->GetGameObject());
 }
 
 // ========= Other Getters =========

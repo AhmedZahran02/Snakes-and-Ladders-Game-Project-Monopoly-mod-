@@ -64,7 +64,7 @@ public:
 
 	///TODO: add any needed setter/getter "EXCEPT" ANY setters or getters of "CellList" or "PlayerList" (Forbidden for class Responsibilities)
 	void ReSetCurrentPlayerNum();
-	Card* GetGameObject(const CellPosition& position)const;
+	GameObject* GetGameObject(const CellPosition& position)const;
 	void SetCurrentPlayer(const int playerNum);
 	// ========= Other Getters =========
 	
