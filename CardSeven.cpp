@@ -14,6 +14,7 @@ void CardSeven::Apply(Grid* pGrid, Player* pPlayer)
 {
 	Card::Apply(pGrid, pPlayer);
 	pGrid->AdvanceCurrentPlayer();
+	Output* pOut = pGrid->GetOutput();
 	Player* currPlayer = pGrid->GetCurrentPlayer();
 	CellPosition start(8, 0);
 	bool done = false;
@@ -23,6 +24,7 @@ void CardSeven::Apply(Grid* pGrid, Player* pPlayer)
 			pGrid->UpdatePlayerCell(pPlayer, start);
 			pPlayer->SetStepCount(1);
 			done = true;
+			pOut->PrintMessage("Moving Player " + to_string(pPlayer->GetPlayerNum()) + " to the start cell");
 			break;
 		}
 		else {

@@ -29,6 +29,8 @@ void CardSix::Apply(Grid* pGrid, Player* pPlayer)
 	Cell DestinationCell(YdestinationCell, XdestinationCell);
 	CellPosition DestinationPosition(YdestinationCell, XdestinationCell);
 	pGrid->UpdatePlayerCell(pPlayer, DestinationCell.GetCellPosition());
+	Output* pOut = pGrid->GetOutput();
+	pOut->PrintMessage("Moving Player " + to_string(pPlayer->GetPlayerNum()) + " to cell number " + to_string(DestinationPosition.GetCellNum()));
 	GameObject* obj = pGrid->GetGameObject(DestinationPosition);
 	if (obj) {
 		obj->Apply(pGrid, pPlayer);
