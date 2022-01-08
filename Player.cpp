@@ -239,7 +239,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 			Remainingattacks--;
 		break;
 	case 2:
-			//Fire::Execute(pGrid);
+			Fire::Execute(pGrid);
 			specialattackarray[1] = true;
 			Remainingattacks--;
 		break;
