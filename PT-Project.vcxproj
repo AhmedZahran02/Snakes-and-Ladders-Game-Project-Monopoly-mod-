@@ -133,6 +133,7 @@
     <ClCompile Include="AddLadderAction.cpp" />
     <ClCompile Include="AddSnakeAction.cpp" />
     <ClCompile Include="ApplicationManager.cpp" />
+    <ClCompile Include="Attack.cpp" />
     <ClCompile Include="Card.cpp" />
     <ClCompile Include="CardEight.cpp" />
     <ClCompile Include="CardEleven.cpp" />
@@ -192,6 +193,7 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputDiceValueAction.cpp" />
     <ClCompile Include="Ladder.cpp" />
+    <ClCompile Include="Lightning.cpp" />
     <ClCompile Include="NewGameAction.cpp" />
     <ClCompile Include="OpenGridAction.cpp" />
     <ClCompile Include="Output.cpp" />
@@ -210,6 +212,7 @@
     <ClInclude Include="AddLadderAction.h" />
     <ClInclude Include="AddSnakeAction.h" />
     <ClInclude Include="ApplicationManager.h" />
+    <ClInclude Include="Attack.h" />
     <ClInclude Include="Card.h" />
     <ClInclude Include="CardEight.h" />
     <ClInclude Include="CardEleven.h" />
@@ -254,6 +257,7 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputDiceValueAction.h" />
     <ClInclude Include="Ladder.h" />
+    <ClInclude Include="Lightning.h" />
     <ClInclude Include="NewGameAction.h" />
     <ClInclude Include="OpenGridAction.h" />
     <ClInclude Include="Output.h" />
