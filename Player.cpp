@@ -147,18 +147,20 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		int newCell = NewCellPos.GetCellNum() + justRolledDiceNum;
 
 		NewCellPos.AddCellNum(justRolledDiceNum);
-		pGrid->UpdatePlayerCell(this, NewCellPos);
-		Output* pOut = pGrid->GetOutput();
-		Input* pIn = pGrid->GetInput();
-		GameObject* pGameObject = pCell->GetGameObject();
-		if (pGameObject != NULL) {
-			pGameObject->Apply(pGrid, this);
+		if (newCell < 100){
+			pGrid->UpdatePlayerCell(this, NewCellPos);
+			Output* pOut = pGrid->GetOutput();
+			Input* pIn = pGrid->GetInput();
+			GameObject* pGameObject = pCell->GetGameObject();
+			if (pGameObject != NULL) {
+				pGameObject->Apply(pGrid, this);
+			stepCount = pCell->GetCellPosition().GetCellNum();
+			}
 		}
-		if (newCell > 99) {
+		if (newCell == 100) {
 			pGrid->PrintErrorMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
 			pGrid->SetEndGame(true);
-	}
-		stepCount = pCell->GetCellPosition().GetCellNum();
+		}
 }
 
 void Player::AppendPlayerInfo(string & playersInfo) const
@@ -166,4 +168,14 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += "P" + to_string(playerNum) + "(" ;
 	playersInfo += to_string(wallet) + ", ";
 	playersInfo += to_string(stepCount) + ")";
+}
+
+void Player::Restart()
+{
+	SetWallet(100);
+	SetStepCount(1);
+	SetTurnCount(0);
+	ReleaseOwnership(0);
+	ReleaseOwnership(1);
+	ReleaseOwnership(2);
 }

@@ -9,6 +9,7 @@ CardTwo::CardTwo(const CellPosition& pos) : Card(pos) // set the cell position o
 }
 
 void CardTwo::Apply(Grid* pGrid, Player* pPlayer) {
+	Card::Apply(pGrid, pPlayer);
 	Output* pOut = pGrid->GetOutput();
 	CellPosition CellPositionOfPlayer = pPlayer->GetCell()->GetCellPosition();
 	Ladder* NextLadder = pGrid->GetNextLadder(CellPositionOfPlayer);

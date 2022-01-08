@@ -13,7 +13,7 @@ public:
 
 	virtual void ReadActionParameters(); // Reads CutCardAction parameters (cardNumber, cardPosition)
 
-	virtual void Execute();
-
+	virtual void Execute(); // Applies the effect of Cut action on the passed Player
+	                                                  // by putting card in clipboard and removing it from grid
 	virtual ~CutCardAction(); // Virtual Destructor
 };

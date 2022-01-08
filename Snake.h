@@ -18,6 +18,8 @@ public:
 
 	virtual bool IsOverLapping(GameObject* NewGameObject) const;
 
+	virtual bool IsValid();
+
 	virtual ~Snake(); // Virtual destructor
 };
 

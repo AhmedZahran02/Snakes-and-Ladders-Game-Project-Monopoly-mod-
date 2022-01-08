@@ -26,10 +26,10 @@ void CopyCardAction::Execute()
 	// 1- The first line of any Action Execution is to read its parameter first
 	ReadActionParameters();
 	Grid* pGrid = pManager->GetGrid();
-	Card* CardinCell = pGrid->GetGameObject(cardPosition); //get card object in the cell
+	Card* CardinCell = dynamic_cast<Card*>(pGrid->GetGameObject(cardPosition)); //get card object in the cell
 	if (CardinCell)
 	{
-		pGrid->SetClipboard(CardinCell);
+		pGrid->SetClipboard(CardinCell); //putting card in clipboard
 		//update interface
 		pGrid->UpdateInterface();
 		pGrid->PrintErrorMessage("Successfully Card " + to_string(CardinCell->GetCardNumber()) + " was copied ,click to continue!");

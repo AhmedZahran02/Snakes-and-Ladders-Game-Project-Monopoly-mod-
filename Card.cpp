@@ -62,6 +62,13 @@ bool Card::IsOverLapping(GameObject* NewGameObject) const {
 	return false;
 }
 
+bool Card::IsValid()
+{
+	if (position.GetCellNum() == 1 || position.GetCellNum() == 99)
+		return false;
+	return true;
+}
+
 Card::~Card()
 {
 }

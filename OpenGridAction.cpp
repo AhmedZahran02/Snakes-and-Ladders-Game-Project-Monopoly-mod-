@@ -43,94 +43,140 @@ void OpenGridAction::ReadActionParameters()
 void OpenGridAction::Execute()
 {
 	ReadActionParameters();
-	ifstream inFile(fileName);
+	ifstream inFile(fileName+".txt",ios::in);
 	Grid* pGrid = pManager->GetGrid();
 	pGrid->RemoveAllObjects();
-	CellPosition end(0, 0);
-	CellPosition start(1, 0);
+	pGrid->RestartAllPlayers();
+	pGrid->SetClipboard(NULL);
+	CellPosition end;
+	CellPosition start;
 	int ladderCount, snakeCount, cardCount;
-
-	inFile >> ladderCount;
-	Ladder* pLadder = new Ladder(start, end);
-	for (int i = 0; i < ladderCount; i++) {
-		pLadder->Open(inFile);
-		pGrid->AddObjectToCell(pLadder);
-	}
-
-	inFile >> snakeCount;
-	Snake* pSnake = new Snake(end, start);
-	for (int i = 0; i < snakeCount; i++) {
-		pSnake->Open(inFile);
-		pGrid->AddObjectToCell(pSnake);
-	}
-
-	inFile >> cardCount;
-	Card* pCard = new Card(start);
-	CardOne * pCardOne = new CardOne(start);
-	CardTwo * pCardTwo = new CardTwo(start);
-	CardThree * pCardThree = new CardThree(start);
-	CardFour* pCardFour = new CardFour(start);
-	CardFive* pCardFive = new CardFive(start);
-	CardSix* pCardSix = new CardSix(start);
-	CardSeven* pCardSeven = new CardSeven(start);
-	CardEight* pCardEight = new CardEight(start);
-	CardNine* pCardNine = new CardNine(start);
-	CardTen* pCardTen = new CardTen(start);
-	CardEleven* pCardEleven = new CardEleven(start);
-	CardTwelve* pCardTwelve = new CardTwelve(start);
-	for (int i = 0; i < cardCount; i++) {
-		int cardNumber;
-		inFile >> cardNumber;
-		switch (cardNumber)
-		{
-		case 1:
-			pCardOne->Open(inFile);
-			pGrid->AddObjectToCell(pCardOne);
-			break;
-		case 2:
-			pCardTwo->Open(inFile);
-			pGrid->AddObjectToCell(pCardTwo);
-			break;
-		case 3:
-			pCardThree->Open(inFile);
-			pGrid->AddObjectToCell(pCardThree);
-			break;
-		case 4:
-			pCardFour->Open(inFile);
-			pGrid->AddObjectToCell(pCardFour);
-			break;
-		case 5:
-			pCardFive->Open(inFile);
-			pGrid->AddObjectToCell(pCardFive);
-			break;
-		case 6:
-			pCardSix->Open(inFile);
-			pGrid->AddObjectToCell(pCardSix);
-			break;
-		case 7:
-			pCardSeven->Open(inFile);
-			pGrid->AddObjectToCell(pCardSeven);
-			break;
-		case 8:
-			pCardEight->Open(inFile);
-			pGrid->AddObjectToCell(pCardEight);
-			break;
-		case 9:
-			pCardNine->Open(inFile);
-			pGrid->AddObjectToCell(pCardNine);
-			break;
-		case 10:
-			pCardTen->Open(inFile);
-			pGrid->AddObjectToCell(pCardTen);
-			break;
-		case 11:
-			pCardEleven->Open(inFile);
-			pGrid->AddObjectToCell(pCardEleven);
-			break;
-		case 12:
-			pCardTwelve->Open(inFile);
-			pGrid->AddObjectToCell(pCardTwelve);
-			break;
+	
+	if (inFile.is_open())
+	{
+		inFile >> ladderCount;
+		for (int i = 0; i < ladderCount; i++) {
+			Ladder* pLadder = new Ladder(start, end);
+			pLadder->Open(inFile);
+			if (pLadder->IsValid() && !pGrid->IsOverLapping(pLadder))
+				pGrid->AddObjectToCell(pLadder);
 		}
+	
+		inFile >> snakeCount;
+		for (int i = 0; i < snakeCount; i++) {
+			Snake* pSnake = new Snake(end, start);
+			pSnake->Open(inFile);
+			if (pSnake->IsValid() && !pGrid->IsOverLapping(pSnake))
+				pGrid->AddObjectToCell(pSnake);
+		}
+	
+		inFile >> cardCount;
+
+	
+		int cardNumber;
+		for (int i = 0; i < cardCount; i++) {
+			inFile >> cardNumber;
+			switch (cardNumber)
+			{
+			case 1:
+			{
+				CardOne* pCardOne = new CardOne(start);
+				pCardOne->Open(inFile);
+				if (pCardOne->IsValid() && !pGrid->IsOverLapping(pCardOne))
+					pGrid->AddObjectToCell(pCardOne);
+			}
+			break;
+			case 2:
+			{
+				CardTwo* pCardTwo = new CardTwo(start);
+				pCardTwo->Open(inFile);
+				if (pCardTwo->IsValid() && !pGrid->IsOverLapping(pCardTwo))
+					pGrid->AddObjectToCell(pCardTwo);
+			}
+			break;
+			case 3:
+			{
+				CardThree* pCardThree = new CardThree(start);
+				pCardThree->Open(inFile);
+				if (pCardThree->IsValid() && !pGrid->IsOverLapping(pCardThree))
+					pGrid->AddObjectToCell(pCardThree);
+			}
+			break;
+			case 4:
+			{
+				CardFour* pCardFour = new CardFour(start);
+				pCardFour->Open(inFile);
+				if (pCardFour->IsValid() && !pGrid->IsOverLapping(pCardFour))
+					pGrid->AddObjectToCell(pCardFour);
+			}
+			break;
+			case 5:
+			{
+				CardFive* pCardFive = new CardFive(start);
+				pCardFive->Open(inFile);
+				if (pCardFive->IsValid() && !pGrid->IsOverLapping(pCardFive))
+					pGrid->AddObjectToCell(pCardFive);
+			}
+			break;
+			case 6:
+			{
+				CardSix* pCardSix = new CardSix(start);
+				pCardSix->Open(inFile);
+				if (pCardSix->IsValid() && !pGrid->IsOverLapping(pCardSix))
+					pGrid->AddObjectToCell(pCardSix);
+			}
+			break;
+			case 7:
+			{
+				CardSeven * pCardSeven = new CardSeven(start);
+				pCardSeven->Open(inFile);
+				if (pCardSeven->IsValid() && !pGrid->IsOverLapping(pCardSeven))
+					pGrid->AddObjectToCell(pCardSeven);
+			}
+				break;
+			case 8:
+			{
+				CardEight* pCardEight = new CardEight(start);
+				pCardEight->Open(inFile);
+				if (pCardEight->IsValid() && !pGrid->IsOverLapping(pCardEight))
+					pGrid->AddObjectToCell(pCardEight);
+			}
+				break;
+			case 9:
+			{
+				CardNine* pCardNine = new CardNine(start);
+				pCardNine->Open(inFile);
+				if (pCardNine->IsValid() && !pGrid->IsOverLapping(pCardNine))
+					pGrid->AddObjectToCell(pCardNine);
+			}
+				break;
+			case 10:
+			{
+				CardTen* pCardTen = new CardTen(start);
+				pCardTen->Open(inFile);
+				if (pCardTen->IsValid() && !pGrid->IsOverLapping(pCardTen))
+					pGrid->AddObjectToCell(pCardTen);
+			}
+				break;
+			case 11:
+			{
+				CardEleven* pCardEleven = new CardEleven(start);
+				pCardEleven->Open(inFile);
+				if (pCardEleven->IsValid() && !pGrid->IsOverLapping(pCardEleven))
+					pGrid->AddObjectToCell(pCardEleven);
+			}
+				break;
+			case 12:
+			{
+				CardTwelve* pCardTwelve = new CardTwelve(start);
+				pCardTwelve->Open(inFile);
+				if (pCardTwelve->IsValid() && !pGrid->IsOverLapping(pCardTwelve))
+					pGrid->AddObjectToCell(pCardTwelve);
+			}
+				break;
+			}
+		}
+		inFile.close();
 	}
+	pGrid->UpdateInterface();
 }

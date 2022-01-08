@@ -74,7 +74,7 @@ void CardNine::Apply(Grid* pGrid, Player* pPlayer)
 
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	if (card9owner ==NULL)
+	if (card9owner ==NULL) //check if card 9 has no owner
 	{
 		pOut->PrintMessage("Do you want to buy those cells with cardnumber 9 it's price is "+ to_string(CardPrice)+",it's Fees is "+ to_string(Fees) + "   1-yes   2-no");
 		int choise = pIn->GetInteger(pOut);
@@ -110,14 +110,15 @@ void CardNine::Apply(Grid* pGrid, Player* pPlayer)
 
 void CardNine::Save(ofstream& outFile, int Type)
 {
-	if (Type == 2) {
+	if (Type == 2) { // number 2 representing cards
 		Card::Save(outFile, Type);
-		outFile << " " << CardPrice << " " << Fees << endl;
+		outFile << " " << CardPrice << " " << Fees << endl; //writing in save file which is .txt
 	}
 }
 
 void CardNine::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
-	inFile >> CardPrice >> Fees;
+		inFile >> CardPrice >> Fees; //load data from .txt
+	
 }

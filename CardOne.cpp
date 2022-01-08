@@ -47,20 +47,20 @@ void CardOne::Apply(Grid* pGrid, Player* pPlayer)
 	// 1- Call Apply() of the base class Card to print the message that you reached this card number
 	Card::Apply(pGrid,pPlayer);
 	// 2- Decrement the wallet of pPlayer by the walletAmount data member of CardOne
-	pGrid->PrintErrorMessage("Decrementing your wallet by "+to_string(walletAmount)+",click to continue!");
+	pGrid->PrintErrorMessage("Decrementing your wallet by "+to_string(walletAmount)+", click to continue!");
 	pPlayer->SetWallet(pPlayer->GetWallet()-walletAmount);
 }
 
 void CardOne::Save(ofstream& outFile, int Type)
 {
-	if (Type == 2){
+	if (Type == 2){ // number 2 representing cards
 		Card::Save(outFile, Type);
-		outFile << " " << walletAmount << endl;
+		outFile << " " << walletAmount << endl; //writing in save file which is .txt
 	}
 }
 
 void CardOne::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
-	inFile >> walletAmount;
+	inFile >> walletAmount; //load data from .txt
 }

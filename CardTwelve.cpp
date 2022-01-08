@@ -28,8 +28,8 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 			stationNum = i;
 		}
 	}
-	pPlayer->ReleaseOwnership(stationNum);
 	if (stationNum != -1) {
+		pPlayer->ReleaseOwnership(stationNum);
 		int playerNum = -1;
 		int min = INT_MAX;
 		for (int i = 0; i < 4; i++) {
@@ -58,7 +58,7 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 			break;
 		}
 
-		pGrid->GetCurrentPlayer()->SetOwnership(stationNum, max);
+		currPlayer->SetOwnership(stationNum, max);
 		for (int i = 0; i < 4 - diff; i++) {
 			pGrid->AdvanceCurrentPlayer();
 		}

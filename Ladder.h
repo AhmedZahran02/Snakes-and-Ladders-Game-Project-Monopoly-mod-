@@ -23,6 +23,8 @@ public:
 
 	virtual bool Ladder::IsOverLapping(GameObject* NewGameObject) const;
 
+	virtual bool IsValid();
+
 	virtual ~Ladder(); // Virtual destructor
 };
 
