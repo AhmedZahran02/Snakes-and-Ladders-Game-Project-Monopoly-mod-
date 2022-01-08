@@ -10,7 +10,7 @@ public:
 
 	virtual void ReadActionParameters();
 
-	static void Execute(Grid* pGrid, Player* pPlayer);
+	static void Execute(Grid* pGrid);
 
 	virtual ~Lightning(); // A Virtual Destructor
 };

@@ -168,7 +168,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			string checkspecialattack=pIn->GetString(pOut);
 			if (checkspecialattack == "y")
 			{
-				pGrid->PrintErrorMessage("choose the special attack 1-ice 2-fire 3-poision 4-lighting");
+				pGrid->PrintErrorMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
 				int specialattacktype = pIn->GetInteger(pOut);
 				specialattack(pGrid, specialattacktype);
 			}
@@ -242,7 +242,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	case 4:
 		if (Remainingattacks > 0 && specialattack1 == false)
 		{
-			Lightning::Execute(pGrid, this);
+			Lightning::Execute(pGrid);
 			specialattack4 = true;
 			Remainingattacks--;
 		}
