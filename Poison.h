@@ -4,6 +4,7 @@ class Poison :
 	public Attack
 {
 private:
+	static int playernumtoPoison;
 	// [Action Parameters]
 public:
 	Poison(ApplicationManager* pApp); // A Constructor
