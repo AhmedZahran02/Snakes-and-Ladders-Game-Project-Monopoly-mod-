@@ -229,7 +229,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	case2:
 		if (specialattack2 == false)
 		{
-
+			//Fire::Execute(pGrid);
 			specialattack2 = true;
 			Remainingattacks--;
 		}
@@ -237,7 +237,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	case 3:
 		if (specialattack3 == false)
 		{
-
+			//poision::Execute(pGrid);
 			specialattack3 = true;
 			Remainingattacks--;
 		}
