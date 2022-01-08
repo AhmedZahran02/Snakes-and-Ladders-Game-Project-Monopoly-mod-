@@ -24,10 +24,7 @@ class Player
 	bool CardFourEffect = 0;
 
 	int Remainingattacks;            // the attacks remanning to the player
-	bool specialattack1;
-	bool specialattack2;
-	bool specialattack3;
-	bool specialattack4;
+	bool specialattackarray[4];
 
 	int turnsOnFire = 0;
 

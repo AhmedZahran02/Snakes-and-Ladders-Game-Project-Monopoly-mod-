@@ -9,10 +9,10 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerN
 	this->pCell = pCell;
 	this->turnCount = 0;
 	Remainingattacks = 2; //set attacks remained =2
-	specialattack1 = false;
-	specialattack2 = false;
-	specialattack3 = false;
-	specialattack4 = false;
+	specialattackarray[0] = false;
+	specialattackarray[1] = false;
+	specialattackarray[2] = false;
+	specialattackarray[3] = false;
 	// Make all the needed initialization or validations
 }
 
@@ -179,10 +179,14 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			turnCount = 0;
 			pOut->PrintMessage("Do you wish to launch a special attack instead of recharging? y/n");
 			string checkspecialattack=pIn->GetString(pOut);
-			if (checkspecialattack == "y")
+			int specialattacktype;
+			if (checkspecialattack == "y" && Remainingattacks > 0)
 			{
-				pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
-				int specialattacktype = pIn->GetInteger(pOut);
+				do
+				{
+					pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
+					specialattacktype = pIn->GetInteger(pOut);
+				} while (specialattackarray[specialattacktype-1] == true);
 				specialattack(pGrid, specialattacktype);
 			}
 			else
@@ -230,36 +234,24 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	switch (attacknum)
 	{
 	case 1:
-		if (Remainingattacks>0 && specialattack1==false)
-		{
 			Ice::Execute(pGrid);
-			specialattack1 = true;
+			specialattackarray[0] = true;
 			Remainingattacks--;
-		}
 		break;
 	case 2:
-		if (Remainingattacks > 0 && specialattack2 == false)
-		{
-			Fire::Execute(pGrid);
-			specialattack2 = true;
+			//Fire::Execute(pGrid);
+			specialattackarray[1] = true;
 			Remainingattacks--;
-		}
 		break;
 	case 3:
-		if (Remainingattacks > 0 && specialattack3 == false)
-		{
-
-			specialattack3 = true;
+			//poision::Execute(pGrid);
+			specialattackarray[2] = true;
 			Remainingattacks--;
-		}
 		break;
 	case 4:
-		if (Remainingattacks > 0 && specialattack4 == false)
-		{
 			Lightning::Execute(pGrid);
-			specialattack4 = true;
+			specialattackarray[3] = true;
 			Remainingattacks--;
-		}
 		break;
 	default:
 		break;
