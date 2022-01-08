@@ -52,7 +52,7 @@ void CardOne::Apply(Grid* pGrid, Player* pPlayer)
 }
 
 Card* CardOne::getCopy() {
-	return new CardOne(*this);
+	return new CardOne(*this); // using copy constructor to get the copy
 }
 
 void CardOne::Save(ofstream& outFile, int Type)

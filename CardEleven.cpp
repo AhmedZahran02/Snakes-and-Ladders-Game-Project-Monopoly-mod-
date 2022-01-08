@@ -128,5 +128,5 @@ void CardEleven::Open(ifstream& inFile)
 }
 
 Card* CardEleven::getCopy() {
-	return new CardEleven(*this);
+	return new CardEleven(*this); // using copy constructor to get the copy
 }

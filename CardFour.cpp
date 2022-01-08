@@ -55,7 +55,7 @@ void CardFour::Save(ofstream& outFile, int Type)
 }
 
 Card* CardFour::getCopy() {
-	return new CardFour(*this);
+	return new CardFour(*this); // using copy constructor to get the copy
 }
 
 void CardFour::Open(ifstream& inFile)
