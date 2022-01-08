@@ -14,6 +14,8 @@ public:
 
     virtual void Open(ifstream& inFile);
 
+    Card* getCopy();
+
     virtual ~CardTwo(); //A virtual Destructor
 };
 

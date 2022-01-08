@@ -12,6 +12,8 @@ public:
 
     virtual void Open(ifstream& inFile);
 
+    Card* getCopy();
+
     virtual ~CardSeven();
 };
 

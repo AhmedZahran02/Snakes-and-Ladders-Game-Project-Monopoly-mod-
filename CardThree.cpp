@@ -36,6 +36,10 @@ void CardThree::Save(ofstream& outFile, int Type)
 	}
 }
 
+Card* CardThree::getCopy() {
+	return new CardThree(*this); // using copy constructor to get the copy
+}
+
 void CardThree::Open(ifstream& inFile)
 {
 	Card::Open(inFile); //load data from .txt

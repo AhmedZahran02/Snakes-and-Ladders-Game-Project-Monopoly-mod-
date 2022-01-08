@@ -26,6 +26,8 @@ public:
 
     virtual void Open(ifstream& inFile);
 
+    Card* getCopy();
+
     void free(int playerNum);
 };
 

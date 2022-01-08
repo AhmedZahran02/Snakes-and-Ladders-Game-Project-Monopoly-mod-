@@ -50,40 +50,40 @@ void PasteCardAction::Execute()
 		switch (cardnum) //creating new card depending on card number taken from clipboard 
 		{
 		case 1:
-			pCard = new CardOne(*(dynamic_cast<CardOne*>(cCard)));
+			pCard = dynamic_cast<CardOne*>(cCard)->getCopy();
 			break;
 		case 2:
-			pCard = new CardTwo(*(dynamic_cast<CardTwo*>(cCard)));
+			pCard = dynamic_cast<CardTwo*>(cCard)->getCopy();
 			break;
 		case 3:
-			pCard = new CardThree(*(dynamic_cast<CardThree*>(cCard)));
+			pCard = dynamic_cast<CardThree*>(cCard)->getCopy();
 			break;
 		case 4:
-			pCard = new CardFour(*(dynamic_cast<CardFour*>(cCard)));
+			pCard = dynamic_cast<CardFour*>(cCard)->getCopy();
 			break;
 		case 5:
-			pCard = new CardFive(*(dynamic_cast<CardFive*>(cCard)));
+			pCard = dynamic_cast<CardFive*>(cCard)->getCopy();
 			break;
 		case 6:
-			pCard = new CardSix(*(dynamic_cast<CardSix*>(cCard)));
+			pCard = dynamic_cast<CardSix*>(cCard)->getCopy();
 			break;
 		case 7:
-			pCard = new CardSeven(*(dynamic_cast<CardSeven*>(cCard)));
+			pCard = dynamic_cast<CardSeven*>(cCard)->getCopy();
 			break;
 		case 8:
-			pCard = new CardEight(*(dynamic_cast<CardEight*>(cCard)));
+			pCard = dynamic_cast<CardEight*>(cCard)->getCopy();
 			break;
 		case 9:
-			pCard = new CardNine(*(dynamic_cast<CardNine*>(cCard)));
+			pCard = dynamic_cast<CardNine*>(cCard)->getCopy();
 			break;
 		case 10:
-			pCard = new CardTen(*(dynamic_cast<CardTen*>(cCard)));
+			pCard = dynamic_cast<CardTen*>(cCard)->getCopy();
 			break;
 		case 11:
-			pCard = new CardEleven(*(dynamic_cast<CardEleven*>(cCard)));
+			pCard = dynamic_cast<CardEleven*>(cCard)->getCopy();
 			break;
 		case 12:
-			pCard = new CardTwelve(*(dynamic_cast<CardTwelve*>(cCard)));
+			pCard = dynamic_cast<CardTwelve*>(cCard)->getCopy();
 			break;
 		}
 		pCard->SetPosition(pastePosition); //changing position to new paste position

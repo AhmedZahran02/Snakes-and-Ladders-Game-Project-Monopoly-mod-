@@ -9,7 +9,7 @@ CardOne::~CardOne(void)
 {
 }
 
-void CardOne::ReadCardParameters(Grid * pGrid)
+void CardOne::ReadCardParameters(Grid *pGrid)
 {
 	
 	
@@ -49,6 +49,10 @@ void CardOne::Apply(Grid* pGrid, Player* pPlayer)
 	// 2- Decrement the wallet of pPlayer by the walletAmount data member of CardOne
 	pGrid->PrintErrorMessage("Decrementing your wallet by "+to_string(walletAmount)+", click to continue!");
 	pPlayer->SetWallet(pPlayer->GetWallet()-walletAmount);
+}
+
+Card* CardOne::getCopy() {
+	return new CardOne(*this); // using copy constructor to get the copy
 }
 
 void CardOne::Save(ofstream& outFile, int Type)

@@ -46,3 +46,7 @@ void CardSeven::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
 }
+
+Card* CardSeven::getCopy() {
+	return new CardSeven(*this);
+}

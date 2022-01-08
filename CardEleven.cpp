@@ -127,3 +127,6 @@ void CardEleven::Open(ifstream& inFile)
 	inFile >> CardPrice >> Fees; //load data from .txt
 }
 
+Card* CardEleven::getCopy() {
+	return new CardEleven(*this); // using copy constructor to get the copy
+}
