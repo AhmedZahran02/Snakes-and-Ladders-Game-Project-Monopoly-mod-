@@ -33,6 +33,7 @@ void CardSix::Apply(Grid* pGrid, Player* pPlayer)
 	pOut->PrintMessage("Moving Player " + to_string(pPlayer->GetPlayerNum()) + " to cell number " + to_string(DestinationPosition.GetCellNum()));
 	GameObject* obj = pGrid->GetGameObject(DestinationPosition);
 	if (obj) {
+		  
 		obj->Apply(pGrid, pPlayer);
 	}
 }

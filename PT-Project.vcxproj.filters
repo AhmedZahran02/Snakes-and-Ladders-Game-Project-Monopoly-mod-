@@ -179,9 +179,6 @@
     <ClCompile Include="Output.cpp">
       <Filter>GUIClasses</Filter>
     </ClCompile>
-    <ClCompile Include="RollDiceAction.cpp">
-      <Filter>Actions</Filter>
-    </ClCompile>
     <ClCompile Include="SwitchToDesignModeAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
@@ -231,6 +228,9 @@
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="Ice.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="RollDiceAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
     <ClCompile Include="Fire.cpp">
