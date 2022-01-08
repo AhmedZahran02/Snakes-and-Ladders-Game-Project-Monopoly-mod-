@@ -1,9 +1,14 @@
 #include "Lightning.h"
 #include "Player.h"
 
-Lightning::Lightning()
+Lightning::Lightning(ApplicationManager* pApp) : Attack(pApp)
 {
 	
+}
+
+void Lightning::ReadActionParameters()
+{
+
 }
 
 Lightning::~Lightning()

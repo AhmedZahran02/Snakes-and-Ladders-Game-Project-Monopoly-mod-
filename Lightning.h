@@ -6,9 +6,11 @@ class Lightning :
 private:
 	// [Action Parameters]
 public:
-	Lightning(); // A Constructor
+	Lightning(ApplicationManager* pApp); // A Constructor
 
-	virtual void Execute(Grid* pGrid, Player* pPlayer);
+	virtual void ReadActionParameters();
+
+	static void Execute(Grid* pGrid, Player* pPlayer);
 
 	virtual ~Lightning(); // A Virtual Destructor
 };

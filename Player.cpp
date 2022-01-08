@@ -242,8 +242,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	case 4:
 		if (Remainingattacks > 0 && specialattack1 == false)
 		{
-			Attack* specialattack = new Lightning();
-			dynamic_cast<Lightning*>(specialattack)->Execute(pGrid, this);
+			Lightning::Execute(pGrid, this);
 			specialattack4 = true;
 			Remainingattacks--;
 		}
