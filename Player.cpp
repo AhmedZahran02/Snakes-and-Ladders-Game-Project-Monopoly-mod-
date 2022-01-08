@@ -13,7 +13,6 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerN
 	specialattackarray[0] = false;
 	specialattackarray[1] = false;
 	specialattackarray[2] = false;
-	specialattackarray[3] = false;
 	// Make all the needed initialization or validations
 }
 
@@ -177,24 +176,26 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		turnCount++;
 		if (turnCount == 3) {
 			turnCount = 0;
-			pOut->PrintMessage("Do you wish to launch a special attack instead of recharging? y/n");
-			string checkspecialattack=pIn->GetString(pOut);
-			int specialattacktype;
-			if (checkspecialattack == "y" && Remainingattacks > 0)
-			{
-				bool done = false;
-				do {
-					do
-					{
-						pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
-						specialattacktype = pIn->GetInteger(pOut);
-					} while (specialattacktype < 1 || specialattacktype > 4);
-					if (specialattackarray[specialattacktype - 1]) {
-						pOut->PrintMessage("This attack was already used");
-					}
-					else done = true;
-				} while (!done);
-				specialattack(pGrid, specialattacktype);
+			if (Remainingattacks > 0){
+				pOut->PrintMessage("Do you wish to launch a special attack instead of recharging? y/n");
+				string checkspecialattack = pIn->GetString(pOut);
+				int specialattacktype;
+				if (checkspecialattack == "y")
+				{
+					bool done = false;
+					do {
+						do
+						{
+							pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
+							specialattacktype = pIn->GetInteger(pOut);
+						} while (specialattacktype < 1 || specialattacktype > 4);
+						if (specialattackarray[specialattacktype - 1]) {
+							pOut->PrintMessage("This attack was already used");
+						}
+						else done = true;
+					} while (!done);
+					specialattack(pGrid, specialattacktype);
+				}
 			}
 			else
 			{
@@ -284,4 +285,14 @@ void Player::Restart()
 	ReleaseOwnership(0);
 	ReleaseOwnership(1);
 	ReleaseOwnership(2);
+	prisonRemTurns = 0;
+	CardFourEffect = 0;
+	Remainingattacks = 2;
+	specialattackarray[0] = false;
+	specialattackarray[1] = false;
+	specialattackarray[2] = false;
+	specialattackarray[3] = false;
+	turnsOnFire = 0;
+	poisons = 0;
+
 }
