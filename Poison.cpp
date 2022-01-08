@@ -32,6 +32,4 @@ Poison::~Poison()
 			  pGrid->GetCurrentPlayer()->Poison();
 		  }
 	  }
-	
-
 }
