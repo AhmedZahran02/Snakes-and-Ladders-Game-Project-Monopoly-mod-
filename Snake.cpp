@@ -59,6 +59,7 @@ void Snake::Open(ifstream& inFile)
 	endCellPos = endCellPos.GetCellPositionFromNum(endCellNum);
 }
  bool Snake::IsOverLapping(GameObject* NewGameObject) const{
+	
 	 Snake* NewSnake = dynamic_cast<Snake*> (NewGameObject);
 	 if (!NewSnake) return false;
 	 
