@@ -18,7 +18,8 @@ Ice::~Ice()
 // Execute the action
 void Ice::Execute(Grid* pGrid)
 {
-	pGrid->PrintErrorMessage("Choose a player to prevent from rolling the next turn");
+	Output* pOut = pGrid->GetOutput();
+	pOut->PrintMessage("Choose a player to prevent from rolling the next turn");
 	int playernumtoice =pGrid->GetInput()->GetInteger(pGrid->GetOutput());
 	Player* player = pGrid->GetCurrentPlayer();
 	int playernum = player->GetPlayerNum();

@@ -165,11 +165,12 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		Input* pIn = pGrid->GetInput();
 		turnCount++;
 		if (turnCount == 3) {
-			pGrid->PrintErrorMessage("Do you wish to launch a special attack instead of recharging? y/n");
+			turnCount = 0;
+			pOut->PrintMessage("Do you wish to launch a special attack instead of recharging? y/n");
 			string checkspecialattack=pIn->GetString(pOut);
 			if (checkspecialattack == "y")
 			{
-				pGrid->PrintErrorMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
+				pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
 				int specialattacktype = pIn->GetInteger(pOut);
 				specialattack(pGrid, specialattacktype);
 			}
@@ -177,31 +178,32 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			{
 				int newWallet = wallet + diceNumber * 10;
 				SetWallet(newWallet);
-				turnCount = 0;
 				pOut->PrintMessage("Player " + to_string(playerNum) + " recharging " + to_string(
 					diceNumber * 10) + " coins");
 				pIn->GetPointClicked(x, y);
 				return;
 			}
 		}
-		justRolledDiceNum = diceNumber;
-		CellPosition NewCellPos = pCell->GetCellPosition();
-		int newCell = NewCellPos.GetCellNum() + justRolledDiceNum;
+		else {
+			justRolledDiceNum = diceNumber;
+			CellPosition NewCellPos = pCell->GetCellPosition();
+			int newCell = NewCellPos.GetCellNum() + justRolledDiceNum;
 
-		NewCellPos.AddCellNum(justRolledDiceNum);
-		if (newCell < 100){
-			pGrid->UpdatePlayerCell(this, NewCellPos);
-			pOut->PrintMessage("Player " + to_string(playerNum) + " moving to cell number: " + to_string(NewCellPos.GetCellNum()));
-			pIn->GetPointClicked(x, y);
-			GameObject* pGameObject = pCell->GetGameObject();
-			if (pGameObject != NULL) {
-				pGameObject->Apply(pGrid, this);
+			NewCellPos.AddCellNum(justRolledDiceNum);
+			if (newCell < 100) {
+				pGrid->UpdatePlayerCell(this, NewCellPos);
+				pOut->PrintMessage("Player " + to_string(playerNum) + " moving to cell number: " + to_string(NewCellPos.GetCellNum()));
+				pIn->GetPointClicked(x, y);
+				GameObject* pGameObject = pCell->GetGameObject();
+				if (pGameObject != NULL) {
+					pGameObject->Apply(pGrid, this);
+				}
+				stepCount = pCell->GetCellPosition().GetCellNum();
 			}
-			stepCount = pCell->GetCellPosition().GetCellNum();
-		}
-		if (newCell == 100) {
-			pGrid->PrintErrorMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
-			pGrid->SetEndGame(true);
+			if (newCell == 100) {
+				pGrid->PrintErrorMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");
+				pGrid->SetEndGame(true);
+			}
 		}
 }
 
