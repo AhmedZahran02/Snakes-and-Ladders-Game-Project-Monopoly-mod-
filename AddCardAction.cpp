@@ -51,7 +51,11 @@ void AddCardAction::ReadActionParameters()
 	}
 	// 3- Read the "cardPosition" parameter (its cell position) and set its data member
 	// 4- Make the needed validations on the read parameters
-	
+	if (cardPosition.GetCellNum() == 1 || cardPosition.GetCellNum() == 99) {
+		pGrid->PrintErrorMessage("Invalid Positions");
+		cardPosition.SetHCell(0);
+		cardPosition.SetVCell(0);
+	}
 	// 5- Clear status bar
 	pOut->ClearStatusBar();
 }

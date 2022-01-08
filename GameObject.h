@@ -36,6 +36,8 @@ public:
 	//virtual void Load(ifstream &Infile) = 0;	// Loads and Reads the GameObject parameters from the file
 	virtual bool IsOverLapping(GameObject* NewGameObject) const =0;
 
+	virtual bool IsValid() = 0;
+
 	virtual ~GameObject(); // Virtual destructor
 };
 

@@ -121,6 +121,19 @@ bool Ladder::IsOverLapping(GameObject* NewGameObject) const {
 	}
 }
 
+bool Ladder::IsValid()
+{
+	if (position.GetCellNum() == 1)
+		return false;
+	if (position.GetCellNum() == 99)
+		return false;
+	if (position.HCell() != endCellPos.HCell())
+		return false;
+	if (position.VCell() <= endCellPos.VCell())
+		return false;
+	return true;
+}
+
 
 Ladder::~Ladder()
 {

@@ -116,6 +116,19 @@ void Snake::Open(ifstream& inFile)
 	 }
 }
 
+ bool Snake::IsValid()
+ {
+	 if (position.GetCellNum() == 1)
+		 return false;
+	 if (position.GetCellNum() == 99)
+		 return false;
+	 if (position.HCell() != endCellPos.HCell())
+		 return false;
+	 if (position.VCell() >= endCellPos.VCell())
+		 return false;
+	 return true;
+ }
+
 Snake::~Snake()
 {
 }

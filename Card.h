@@ -31,6 +31,8 @@ public:
 
 	virtual bool IsOverLapping(GameObject* NewGameObject) const; 
 
+	virtual bool IsValid();
+
 	virtual ~Card(); // A Virtual Destructor
 };
 

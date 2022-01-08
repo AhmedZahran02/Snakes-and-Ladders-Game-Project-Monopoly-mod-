@@ -46,6 +46,10 @@ void AddSnakeAction::ReadActionParameters() {
 		pGrid->PrintErrorMessage("Cannot put any Game object on the first cell");
 		Valid = false;
 	}
+	else if ((startPos.GetCellNum() == 99)) {
+		pGrid->PrintErrorMessage("Cannot put any Game Object on the last cell");
+		Valid = false;
+	}
 	else if (startPos.HCell() != endPos.HCell()) {
 		pGrid->PrintErrorMessage("The Snake can be vertical only!");
 		Valid = false;
