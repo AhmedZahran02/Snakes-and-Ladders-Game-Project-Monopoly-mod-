@@ -71,7 +71,7 @@ public:
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	
-	void specialattack(int attacknum);
+	void specialattack(Grid* pGrid, int attacknum);
 
 	void Restart();
 };

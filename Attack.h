@@ -5,12 +5,11 @@ class Attack :
 {
 private:
 	// [Action Parameters]
-	int attacknumber;
 	// Note: These parameters should be read in ReadActionParameters()
 public:
-	Attack(ApplicationManager* pApp,int attacknum); // A Constructor
+	Attack(ApplicationManager* pApp); // A Constructor
 
-	virtual void ReadActionParameters(); // Reads action parameters
+	virtual void ReadActionParameters();
 
 	virtual void Execute(Grid* pGrid, Player* pPlayer);
 

@@ -1,23 +1,22 @@
 #include "Lightning.h"
 #include "Player.h"
 
-Lightning::Lightning(ApplicationManager* pApp):Attack(pApp,4)
+Lightning::Lightning(ApplicationManager* pApp):Attack(pApp)
 {
-	done = false;
+	
 }
 
 Lightning::~Lightning()
 {
 }
 
-void Lightning::ReadActionParameters()
-{
-}
-
-
 // Execute the action
 void Lightning::Execute(Grid* pGrid, Player* pPlayer)
 {
-	pPlayer->
-	
+	for (int i = 0; i < MaxPlayerCount-1; i++)
+	{
+		pGrid->AdvanceCurrentPlayer();
+		pPlayer->SetWallet(pPlayer->GetWallet() - 20);
+	}
+	pGrid->AdvanceCurrentPlayer();
 }

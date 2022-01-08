@@ -200,7 +200,7 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(stepCount) + ")";
 }
 
-void Player::specialattack(int attacknum) 
+void Player::specialattack(Attack *specialattack,Grid*pGrid,int attacknum) 
 {
 	switch (attacknum)
 	{
@@ -231,7 +231,7 @@ void Player::specialattack(int attacknum)
 	case 4:
 		if (Remainingattacks > 0 && specialattack1 == false)
 		{
-
+			dynamic_cast<Lightning*>(specialattack)->Execute(pGrid, this);
 			specialattack4 = true;
 			Remainingattacks--;
 		}
