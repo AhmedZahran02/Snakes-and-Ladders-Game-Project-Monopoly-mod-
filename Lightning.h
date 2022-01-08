@@ -11,7 +11,7 @@ public:
 
 	virtual void ReadActionParameters(); // Reads action parameters
 
-	virtual void Execute();
+	virtual void Execute(Grid* pGrid, Player* pPlayer);
 
 	virtual ~Lightning(); // A Virtual Destructor
 };

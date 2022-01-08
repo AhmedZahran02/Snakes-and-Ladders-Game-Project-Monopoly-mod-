@@ -1,10 +1,11 @@
 #include "Attack.h"
 #include "Grid.h"
 
-Attack::Attack(ApplicationManager* pApp) : Action(pApp)
+Attack::Attack(ApplicationManager* pApp,int attacknum) : Action(pApp)
 {
 	// Initializes the pManager pointer of Action with the passed pointer
 	Remainingattacks = 2; //set attacks remained =2
+	attacknumber = attacknum;
 }
 
 Attack::~Attack()
@@ -17,10 +18,8 @@ void Attack::ReadActionParameters()
 
 
 // Execute the action
-void Attack::Execute()
+void Attack::Execute(Grid* pGrid, Player* pPlayer)
 {
-	Grid* pGrid = pManager->GetGrid();
-
 	if (Remainingattacks>0)
 	{
 		Remainingattacks--;

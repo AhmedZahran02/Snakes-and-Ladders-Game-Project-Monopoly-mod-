@@ -1,6 +1,7 @@
 #include "Lightning.h"
+#include "Player.h"
 
-Lightning::Lightning(ApplicationManager* pApp):Attack(pApp)
+Lightning::Lightning(ApplicationManager* pApp):Attack(pApp,4)
 {
 	done = false;
 }
@@ -15,9 +16,8 @@ void Lightning::ReadActionParameters()
 
 
 // Execute the action
-void Lightning::Execute()
+void Lightning::Execute(Grid* pGrid, Player* pPlayer)
 {
-	Grid* pGrid = pManager->GetGrid();
+	pPlayer->
 	
-
 }
