@@ -168,7 +168,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			turnCount = 0;
 			pOut->PrintMessage("Do you wish to launch a special attack instead of recharging? y/n");
 			string checkspecialattack=pIn->GetString(pOut);
-			if (checkspecialattack == "y")
+			if (checkspecialattack == "y" && Remainingattacks > 0)
 			{
 				pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
 				int specialattacktype = pIn->GetInteger(pOut);
@@ -219,7 +219,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	switch (attacknum)
 	{
 	case 1:
-		if (Remainingattacks>0 && specialattack1==false)
+		if (specialattack1==false)
 		{
 			Ice::Execute(pGrid);
 			specialattack1 = true;
@@ -227,7 +227,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		}
 		break;
 	case2:
-		if (Remainingattacks > 0 && specialattack2 == false)
+		if (specialattack2 == false)
 		{
 
 			specialattack2 = true;
@@ -235,7 +235,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		}
 		break;
 	case 3:
-		if (Remainingattacks > 0 && specialattack3 == false)
+		if (specialattack3 == false)
 		{
 
 			specialattack3 = true;
@@ -243,7 +243,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		}
 		break;
 	case 4:
-		if (Remainingattacks > 0 && specialattack4 == false)
+		if (specialattack4 == false)
 		{
 			Lightning::Execute(pGrid);
 			specialattack4 = true;
