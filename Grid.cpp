@@ -218,6 +218,8 @@ int Grid::GetNumOfObjects(int Type) const
 		return cntSnake;
 	case 2:
 		return cntCard;
+	default:
+		break;
 	}
 }
 
