@@ -32,8 +32,7 @@ void Snake::Apply(Grid* pGrid, Player* pPlayer)
 	//    Review the "pGrid" functions and decide which function can be used for that
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	pOut->PrintMessage("You have reached a Snake. Click to continue ...");
-	pIn->GetUserAction();
+	pGrid->PrintErrorMessage("You have reached a Snake. Click to continue ...");
 	pGrid->UpdatePlayerCell(pPlayer, endCellPos);
 
 }

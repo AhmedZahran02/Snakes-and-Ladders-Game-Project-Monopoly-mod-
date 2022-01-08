@@ -26,9 +26,10 @@ void CardSix::ReadCardParameters(Grid* pGrid)
 void CardSix::Apply(Grid* pGrid, Player* pPlayer)
 {
 	Card::Apply(pGrid, pPlayer);
-	Cell destinationCell(YdestinationCell, XdestinationCell);
-	pGrid->UpdatePlayerCell(pPlayer, destinationCell.GetCellPosition());
-	GameObject* obj = destinationCell.GetGameObject();
+	Cell DestinationCell(YdestinationCell, XdestinationCell);
+	CellPosition DestinationPosition(YdestinationCell, XdestinationCell);
+	pGrid->UpdatePlayerCell(pPlayer, DestinationCell.GetCellPosition());
+	GameObject* obj = pGrid->GetGameObject(DestinationPosition);
 	if (obj) {
 		obj->Apply(pGrid, pPlayer);
 	}

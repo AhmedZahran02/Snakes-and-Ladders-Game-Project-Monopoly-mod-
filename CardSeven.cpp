@@ -23,7 +23,10 @@ void CardSeven::Apply(Grid* pGrid, Player* pPlayer)
 			pPlayer->SetStepCount(1);
 			break;
 		}
-		else pGrid->AdvanceCurrentPlayer();
+		else {
+			pGrid->AdvanceCurrentPlayer();
+			pGrid->PrintErrorMessage("No Player after you. Nothing will happen.");
+		}
 	}
 	pGrid->SetCurrentPlayer((currPlayer->GetPlayerNum() + 3) % 4);
 }
