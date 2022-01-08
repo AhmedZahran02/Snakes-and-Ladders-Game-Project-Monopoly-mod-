@@ -8,7 +8,7 @@ private:
 public:
 	Poison(ApplicationManager* pApp); // A Constructor
 
-	virtual void ReadActionParameters();
+	static void ReadActionParameters(Grid* pGrid);
 
 	static  void Execute(Grid* pGrid);
 

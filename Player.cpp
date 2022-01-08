@@ -265,7 +265,7 @@ void Player::Poison() {
 }
 
 void Player::DecrementPoison() {
-	if (p > 0) poisons--;
+	poisons--;
 }
 void Player::Restart()
 {
