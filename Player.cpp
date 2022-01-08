@@ -3,6 +3,7 @@
 #include "Ice.h"
 #include "GameObject.h"
 #include "Fire.h"
+#include "Poison.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerNum(playerNum)
 {
@@ -170,7 +171,6 @@ void Player::Move(Grid* pGrid, int diceNumber)
 	// 6- Apply() the game object of the reached cell (if any)
 
 	// 7- Check if the player reached the end cell of the whole game, and if yes, Set end game with true: pGrid->SetEndGame(true)
-	//turnCount++;
 		Output* pOut = pGrid->GetOutput();
 		int x, y;
 		Input* pIn = pGrid->GetInput();
@@ -221,6 +221,9 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			}
 		}
 }
+int Player::GetPoison() {
+	return poisons;
+}
 
 void Player::AppendPlayerInfo(string & playersInfo) const
 {
@@ -244,7 +247,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 			Remainingattacks--;
 		break;
 	case 3:
-			//poision::Execute(pGrid);
+			Poison::Execute(pGrid);
 			specialattackarray[2] = true;
 			Remainingattacks--;
 		break;
@@ -257,8 +260,13 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		break;
 	}
 }
+void Player::Poison() {
+	poisons=5;
+}
 
-
+void Player::DecrementPoison() {
+	poisons--;
+}
 void Player::Restart()
 {
 	SetWallet(100);

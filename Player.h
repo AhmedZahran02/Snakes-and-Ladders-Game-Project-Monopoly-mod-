@@ -27,6 +27,7 @@ class Player
 	bool specialattackarray[4];
 
 	int turnsOnFire = 0;
+	int poisons = 0;
 
 public:
 
@@ -75,6 +76,9 @@ public:
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
 	
 	void specialattack(Grid* pGrid , int attacknum);
+	void Poison();
+	int GetPoison();
+	void DecrementPoison();
 
 	void Restart();
 };

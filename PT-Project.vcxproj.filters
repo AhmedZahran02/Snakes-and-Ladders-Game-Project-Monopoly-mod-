@@ -236,6 +236,9 @@
     <ClCompile Include="Fire.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Poison.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -425,6 +428,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Fire.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Poison.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

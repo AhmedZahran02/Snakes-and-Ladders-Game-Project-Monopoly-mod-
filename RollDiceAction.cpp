@@ -27,7 +27,7 @@ void RollDiceAction::Execute()
 	// 1- Check if the Game is ended (Use the GetEndGame() function of pGrid), if yes, make the appropriate action
 	Grid* pGrid = pManager->GetGrid();
 	if (pGrid->GetEndGame()) {
-		pGrid->GetOutput()->PrintMessage("game ended !");
+		pGrid->GetOutput()->PrintMessage("Game ended !");
 		int x, y;
 		pGrid->GetInput()->GetPointClicked(x, y);
 		pManager->ExecuteAction(EXITT);
@@ -76,6 +76,11 @@ void RollDiceAction::Execute()
 				pPlayer->SetTurnsOnFire(pPlayer->GetTurnsOnFire() - 1);
 				pOut->PrintMessage("You are under attack by fire, deducting 20 coins... " + to_string(pPlayer->GetTurnsOnFire()) + " turns remaining");
 				pPlayer->SetWallet(pPlayer->GetWallet() - 20);
+			}
+			if (pPlayer->GetPoison() > 0) {
+				pGrid->PrintErrorMessage("Oops You are posioned. The dicenumber will be deducted by 1");
+				pPlayer->DecrementPoison();
+				diceNumber--;
 			}
 			// 4- Move the currentPlayer using function Move of class player
 			pPlayer->Move(pGrid, diceNumber);
