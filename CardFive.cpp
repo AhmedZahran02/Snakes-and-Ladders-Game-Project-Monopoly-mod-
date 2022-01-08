@@ -16,11 +16,13 @@ void CardFive::Apply(Grid* pGrid, Player* pPlayer)
 	CellPosition destination = pPlayer->GetCell()->GetCellPosition();
 	destination.AddCellNum(-1 * diceNumber);
 	pPlayer->SetStepCount(destination.GetCellNum());
+	pGrid->PrintErrorMessage("Oops You will get back to the last position");
 	pGrid->UpdatePlayerCell(pPlayer, destination);
 	pGrid->UpdateInterface();
-	GameObject* pObj  = pPlayer->GetCell()->GetGameObject();
-	if (dynamic_cast<Card*>(pObj))
-		pObj->Apply(pGrid, pPlayer);
+	Card* CardinCellDestination = pGrid->HasCard(destination);
+	if (CardinCellDestination) {
+		CardinCellDestination->Apply(pGrid, pPlayer);
+	}
 }
 
 CardFive::~CardFive()

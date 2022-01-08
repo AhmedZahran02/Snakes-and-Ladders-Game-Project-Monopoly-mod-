@@ -309,6 +309,9 @@ GameError Grid::IsOverLappingGrid(GameObject* NewGameObject) const {
 	}
 	return NoError;
 }
+Card *Grid::HasCard(const CellPosition& CellPos) {
+	return CellList[CellPos.VCell()][CellPos.HCell()]->HasCard();
+}
 
 Grid::~Grid()
 {
