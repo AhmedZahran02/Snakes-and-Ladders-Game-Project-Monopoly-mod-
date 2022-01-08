@@ -13,6 +13,7 @@ Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerN
 	specialattackarray[0] = false;
 	specialattackarray[1] = false;
 	specialattackarray[2] = false;
+	specialattackarray[3] = false;
 	// Make all the needed initialization or validations
 }
 
