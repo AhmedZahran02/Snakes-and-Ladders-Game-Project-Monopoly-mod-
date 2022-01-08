@@ -1,6 +1,8 @@
 #include "Poison.h"
 #include "Player.h"
 
+int Poison::playernumtoPoison;
+
 Poison::Poison(ApplicationManager* pApp) : Attack(pApp)
 {
 
