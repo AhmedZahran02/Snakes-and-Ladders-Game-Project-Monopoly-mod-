@@ -170,7 +170,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			{
 				pGrid->PrintErrorMessage("choose the special attack 1-ice 2-fire 3-poision 4-lighting");
 				int specialattacktype = pIn->GetInteger(pOut);
-				specialattack(pGrid,specialattack);
+				specialattack(pGrid, specialattacktype);
 			}
 			else
 			{
@@ -211,8 +211,9 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(stepCount) + ")";
 }
 
-void Player::specialattack(Attack* specialattack, Grid* pGrid, int attacknum)
+void Player::specialattack(Grid* pGrid, int attacknum)
 {
+	Attack* specialattack;
 	switch (attacknum)
 	{
 	case 1:
