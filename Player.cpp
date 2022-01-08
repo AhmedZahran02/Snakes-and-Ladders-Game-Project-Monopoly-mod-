@@ -228,6 +228,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			}
 		}
 }
+
 int Player::GetPoison() {
 	return poisons;
 }
@@ -267,6 +268,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		break;
 	}
 }
+
 void Player::Poison() {
 	poisons=5;
 }
