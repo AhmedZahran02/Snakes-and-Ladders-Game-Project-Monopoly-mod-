@@ -224,6 +224,12 @@
     <ClCompile Include="OpenGridAction.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Attack.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
+    <ClCompile Include="Lightning.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -401,6 +407,12 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="OpenGridAction.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Attack.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Lightning.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>
