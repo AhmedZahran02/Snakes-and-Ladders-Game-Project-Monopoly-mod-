@@ -3,6 +3,11 @@
 #include "Grid.h"
 #include <fstream>
 // Base Class for All Game Objects ( ladders, snakes and cards )
+enum GameError {
+	NoError, Overlapping, SnakeAtEndOfLadder, LadderAtEndofSnake
+};
+class Grid;
+class Player;
 class GameObject
 {
 
@@ -34,7 +39,7 @@ public:
 	
 	virtual void Save(ofstream &OutFile, int Type) = 0;	// Saves the GameObject parameters to the file
 	//virtual void Load(ifstream &Infile) = 0;	// Loads and Reads the GameObject parameters from the file
-	virtual bool IsOverLapping(GameObject* NewGameObject) const =0;
+	virtual GameError IsOverLapping(GameObject* NewGameObject) const =0;
 
 	virtual bool IsValid() = 0;
 

@@ -48,9 +48,14 @@ void AddLadderAction::ReadActionParameters()
 		pGrid->PrintErrorMessage("The Ladder can be positioned to up only !");
 		Valid = false;
 	}
-	else if (pGrid->IsOverLapping(InputLadder) ){
+	GameError LadderError = pGrid->IsOverLappingGrid(InputLadder);
+	 if (LadderError == Overlapping ){
 		pGrid->PrintErrorMessage("Ladders can't be overlapping!");
 		Valid = false;
+	 }
+	 else if (LadderError == LadderAtEndofSnake) {
+		 pGrid->PrintErrorMessage("Ladders can't be put at end of Snakes!");
+		 Valid = false;
 	}
 	if (!Valid) {
 		endPos.SetHCell(0);

@@ -6,6 +6,7 @@
 #include "Input.h"
 #include "Output.h"
 #include "CellPosition.h"
+#include "GameObject.h"
 
 // forward declarations (the includes are in the cpp)
 class Cell;
@@ -13,7 +14,7 @@ class GameObject;
 class Ladder;
 class Card;
 class Player;
-
+enum GameError;
 class Grid
 {
 	Output * pOut;   // A pointer to the Output object
@@ -90,7 +91,7 @@ public:
 
 	void RestartAllPlayers();
 
-	bool IsOverLapping(GameObject* NewGameObject) const;
+	GameError IsOverLappingGrid(GameObject* NewGameObject) const;
 
 
 	~Grid(); // A destructor for any needed deallcations

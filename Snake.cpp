@@ -1,6 +1,9 @@
 #include "Snake.h"
 #include "Player.h"
 #include "Ladder.h"
+#include "GameObject.h"
+
+
 
 Snake::Snake(const CellPosition& startCellPos, const CellPosition& endCellPos) : GameObject(startCellPos)
 {
@@ -59,15 +62,15 @@ void Snake::Open(ifstream& inFile)
 	position = position.GetCellPositionFromNum(startCellNum);
 	endCellPos = endCellPos.GetCellPositionFromNum(endCellNum);
 }
- bool Snake::IsOverLapping(GameObject* NewGameObject) const{
+ GameError Snake::IsOverLapping(GameObject* NewGameObject) const{
 	 Ladder* NewLadder = dynamic_cast<Ladder*>(NewGameObject);
 	 if (NewLadder) {
-		 if (NewLadder->GetPosition().GetCellNum() == endCellPos.GetCellNum()) return true;
+		 if (NewLadder->GetPosition().GetCellNum() == endCellPos.GetCellNum()) return LadderAtEndofSnake;
 	 }
 	
 	 Snake* NewSnake = dynamic_cast<Snake*> (NewGameObject);
 	 //Ladder* NewLadder = dynamic_cast<Ladder*>(NewGameObject);
-	 if (!NewSnake) return false;
+	 if (!NewSnake) return NoError;
 
 		 CellPosition StartOfNewSnake = NewSnake->GetPosition();
 		 CellPosition EndOfNewSnake = NewSnake->endCellPos;
@@ -77,7 +80,7 @@ void Snake::Open(ifstream& inFile)
 
 		 //Check if they aren't in the same H
 		 if (StartOfNewSnake.HCell() != StartOfCurrentSnake.HCell()) {
-			 return false;
+			 return NoError;
 		 }
 
 		 int NewSnakeStart = StartOfNewSnake.VCell();
@@ -86,9 +89,9 @@ void Snake::Open(ifstream& inFile)
 		 int CurrentSnakeEnd = EndOfCurrentSnake.VCell();
 
 		 if (NewSnakeStart <= CurrentSnakeEnd && NewSnakeEnd >= CurrentSnakeStart) {
-			 return true;
+			 return Overlapping;
 		 }
-		 return false;
+		 return NoError;
 }
 
  bool Snake::IsValid()

@@ -21,7 +21,7 @@ public:
 	virtual void Save(ofstream& outFile, int Type);
 	virtual void Open(ifstream& inFile);
 
-	virtual bool Ladder::IsOverLapping(GameObject* NewGameObject) const;
+	virtual GameError Ladder::IsOverLapping(GameObject* NewGameObject) const;
 
 	virtual bool IsValid();
 

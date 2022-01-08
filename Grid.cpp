@@ -292,23 +292,22 @@ void Grid::SaveAll(ofstream& outFile, int Type)
 	}
 }
 
-bool Grid::IsOverLapping(GameObject* NewGameObject) const {
+GameError Grid::IsOverLappingGrid(GameObject* NewGameObject) const {
 	for (int i = 0; i < 9; i++)
 	{
 		for (int j = 0; j < 11; j++)
 		{
 			GameObject* GameObjectinCell = CellList[i][j]->GetGameObject();
-			if ( GameObjectinCell!= NULL) {
-				if (GameObjectinCell->IsOverLapping(NewGameObject)) {
-					return true;
+			if (GameObjectinCell != NULL) {
+				GameError GameObjectError = GameObjectinCell->IsOverLapping(NewGameObject);
+				if (GameObjectError != NoError) {
+					return GameObjectError;
 				}
 			}
-		
-
 		}
 
 	}
-	return false;
+	return NoError;
 }
 
 Grid::~Grid()

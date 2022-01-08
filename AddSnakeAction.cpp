@@ -58,8 +58,13 @@ void AddSnakeAction::ReadActionParameters() {
 		pGrid->PrintErrorMessage("The Snake can be positioned to down only !");
 		Valid = false;
 	}
-	else if (pGrid->IsOverLapping(InputSnake)) {
+	GameError SnakeError = pGrid->IsOverLappingGrid(InputSnake);
+	if (SnakeError == Overlapping) {
 		pGrid->PrintErrorMessage("Snakes can't be overlapping!");
+		Valid = false;
+	}
+	else if (SnakeError == SnakeAtEndOfLadder) {
+		pGrid->PrintErrorMessage("Snakes can't be put at end of ladders!");
 		Valid = false;
 	}
 	if (!Valid) {

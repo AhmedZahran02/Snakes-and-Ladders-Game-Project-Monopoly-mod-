@@ -58,7 +58,7 @@ void OpenGridAction::Execute()
 		for (int i = 0; i < ladderCount; i++) {
 			Ladder* pLadder = new Ladder(start, end);
 			pLadder->Open(inFile);
-			if (pLadder->IsValid() && !pGrid->IsOverLapping(pLadder))
+			if (pLadder->IsValid() && !pGrid->IsOverLappingGrid(pLadder))
 				pGrid->AddObjectToCell(pLadder);
 		}
 	
@@ -66,7 +66,7 @@ void OpenGridAction::Execute()
 		for (int i = 0; i < snakeCount; i++) {
 			Snake* pSnake = new Snake(end, start);
 			pSnake->Open(inFile);
-			if (pSnake->IsValid() && !pGrid->IsOverLapping(pSnake))
+			if (pSnake->IsValid() && !pGrid->IsOverLappingGrid(pSnake))
 				pGrid->AddObjectToCell(pSnake);
 		}
 	
@@ -82,7 +82,7 @@ void OpenGridAction::Execute()
 			{
 				CardOne* pCardOne = new CardOne(start);
 				pCardOne->Open(inFile);
-				if (pCardOne->IsValid() && !pGrid->IsOverLapping(pCardOne))
+				if (pCardOne->IsValid() && !pGrid->IsOverLappingGrid(pCardOne))
 					pGrid->AddObjectToCell(pCardOne);
 			}
 			break;
@@ -90,7 +90,7 @@ void OpenGridAction::Execute()
 			{
 				CardTwo* pCardTwo = new CardTwo(start);
 				pCardTwo->Open(inFile);
-				if (pCardTwo->IsValid() && !pGrid->IsOverLapping(pCardTwo))
+				if (pCardTwo->IsValid() && !pGrid->IsOverLappingGrid(pCardTwo))
 					pGrid->AddObjectToCell(pCardTwo);
 			}
 			break;
@@ -98,7 +98,7 @@ void OpenGridAction::Execute()
 			{
 				CardThree* pCardThree = new CardThree(start);
 				pCardThree->Open(inFile);
-				if (pCardThree->IsValid() && !pGrid->IsOverLapping(pCardThree))
+				if (pCardThree->IsValid() && !pGrid->IsOverLappingGrid(pCardThree))
 					pGrid->AddObjectToCell(pCardThree);
 			}
 			break;
@@ -106,7 +106,7 @@ void OpenGridAction::Execute()
 			{
 				CardFour* pCardFour = new CardFour(start);
 				pCardFour->Open(inFile);
-				if (pCardFour->IsValid() && !pGrid->IsOverLapping(pCardFour))
+				if (pCardFour->IsValid() && !pGrid->IsOverLappingGrid(pCardFour))
 					pGrid->AddObjectToCell(pCardFour);
 			}
 			break;
@@ -114,7 +114,7 @@ void OpenGridAction::Execute()
 			{
 				CardFive* pCardFive = new CardFive(start);
 				pCardFive->Open(inFile);
-				if (pCardFive->IsValid() && !pGrid->IsOverLapping(pCardFive))
+				if (pCardFive->IsValid() && !pGrid->IsOverLappingGrid(pCardFive))
 					pGrid->AddObjectToCell(pCardFive);
 			}
 			break;
@@ -122,7 +122,7 @@ void OpenGridAction::Execute()
 			{
 				CardSix* pCardSix = new CardSix(start);
 				pCardSix->Open(inFile);
-				if (pCardSix->IsValid() && !pGrid->IsOverLapping(pCardSix))
+				if (pCardSix->IsValid() && !pGrid->IsOverLappingGrid(pCardSix))
 					pGrid->AddObjectToCell(pCardSix);
 			}
 			break;
@@ -130,7 +130,7 @@ void OpenGridAction::Execute()
 			{
 				CardSeven * pCardSeven = new CardSeven(start);
 				pCardSeven->Open(inFile);
-				if (pCardSeven->IsValid() && !pGrid->IsOverLapping(pCardSeven))
+				if (pCardSeven->IsValid() && !pGrid->IsOverLappingGrid(pCardSeven))
 					pGrid->AddObjectToCell(pCardSeven);
 			}
 				break;
@@ -138,7 +138,7 @@ void OpenGridAction::Execute()
 			{
 				CardEight* pCardEight = new CardEight(start);
 				pCardEight->Open(inFile);
-				if (pCardEight->IsValid() && !pGrid->IsOverLapping(pCardEight))
+				if (pCardEight->IsValid() && !pGrid->IsOverLappingGrid(pCardEight))
 					pGrid->AddObjectToCell(pCardEight);
 			}
 				break;
@@ -146,7 +146,7 @@ void OpenGridAction::Execute()
 			{
 				CardNine* pCardNine = new CardNine(start);
 				pCardNine->Open(inFile);
-				if (pCardNine->IsValid() && !pGrid->IsOverLapping(pCardNine))
+				if (pCardNine->IsValid() && !pGrid->IsOverLappingGrid(pCardNine))
 					pGrid->AddObjectToCell(pCardNine);
 			}
 				break;
@@ -154,7 +154,7 @@ void OpenGridAction::Execute()
 			{
 				CardTen* pCardTen = new CardTen(start);
 				pCardTen->Open(inFile);
-				if (pCardTen->IsValid() && !pGrid->IsOverLapping(pCardTen))
+				if (pCardTen->IsValid() && !pGrid->IsOverLappingGrid(pCardTen))
 					pGrid->AddObjectToCell(pCardTen);
 			}
 				break;
@@ -162,7 +162,7 @@ void OpenGridAction::Execute()
 			{
 				CardEleven* pCardEleven = new CardEleven(start);
 				pCardEleven->Open(inFile);
-				if (pCardEleven->IsValid() && !pGrid->IsOverLapping(pCardEleven))
+				if (pCardEleven->IsValid() && !pGrid->IsOverLappingGrid(pCardEleven))
 					pGrid->AddObjectToCell(pCardEleven);
 			}
 				break;
@@ -170,7 +170,7 @@ void OpenGridAction::Execute()
 			{
 				CardTwelve* pCardTwelve = new CardTwelve(start);
 				pCardTwelve->Open(inFile);
-				if (pCardTwelve->IsValid() && !pGrid->IsOverLapping(pCardTwelve))
+				if (pCardTwelve->IsValid() && !pGrid->IsOverLappingGrid(pCardTwelve))
 					pGrid->AddObjectToCell(pCardTwelve);
 			}
 				break;
