@@ -5,7 +5,6 @@ class Attack :
 {
 private:
 	// [Action Parameters]
-	int Remainingattacks;            // 1- the attacks remanning to the player
 	int attacknumber;
 	// Note: These parameters should be read in ReadActionParameters()
 public:

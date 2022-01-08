@@ -4,7 +4,6 @@
 Attack::Attack(ApplicationManager* pApp,int attacknum) : Action(pApp)
 {
 	// Initializes the pManager pointer of Action with the passed pointer
-	Remainingattacks = 2; //set attacks remained =2
 	attacknumber = attacknum;
 }
 

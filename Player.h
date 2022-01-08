@@ -21,7 +21,13 @@ class Player
 
 	int prisonRemTurns = 0;
 	bool CardFourEffect = 0;
-	
+
+	int Remainingattacks;            // the attacks remanning to the player
+	bool specialattack1;
+	bool specialattack2;
+	bool specialattack3;
+	bool specialattack4;
+
 public:
 
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
@@ -64,7 +70,9 @@ public:
 	                                            // for example, if the end cell contains a ladder, take it
 	
 	void AppendPlayerInfo(string & playersInfo) const; // Appends player's info to the input string, 
-	                                                   
+	
+	void specialattack(int attacknum);
+
 	void Restart();
 };
 

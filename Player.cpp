@@ -1,12 +1,16 @@
 #include "Player.h"
-
+#include "Lightning.h"
 #include "GameObject.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerNum(playerNum)
 {
 	this->pCell = pCell;
 	this->turnCount = 0;
-
+	Remainingattacks = 2; //set attacks remained =2
+	specialattack1 = false;
+	specialattack2 = false;
+	specialattack3 = false;
+	specialattack4 = false;
 	// Make all the needed initialization or validations
 }
 
@@ -195,6 +199,48 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(wallet) + ", ";
 	playersInfo += to_string(stepCount) + ")";
 }
+
+void Player::specialattack(int attacknum) 
+{
+	switch (attacknum)
+	{
+	case 1:
+		if (Remainingattacks>0 && specialattack1==false)
+		{
+
+			specialattack1 = true;
+			Remainingattacks--;
+		}
+		break;
+	case2:
+		if (Remainingattacks > 0 && specialattack1 == false)
+		{
+
+			specialattack2 = true;
+			Remainingattacks--;
+		}
+		break;
+	case 3:
+		if (Remainingattacks > 0 && specialattack1 == false)
+		{
+
+			specialattack3 = true;
+			Remainingattacks--;
+		}
+		break;
+	case 4:
+		if (Remainingattacks > 0 && specialattack1 == false)
+		{
+
+			specialattack4 = true;
+			Remainingattacks--;
+		}
+		break;
+	default:
+		break;
+	}
+}
+
 
 void Player::Restart()
 {
