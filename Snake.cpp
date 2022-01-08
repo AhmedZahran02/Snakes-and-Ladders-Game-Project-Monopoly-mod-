@@ -76,26 +76,26 @@ void Snake::Open(ifstream& inFile)
 	 //Ladder* NewLadder = dynamic_cast<Ladder*>(NewGameObject);
 	 if (!NewSnake) return NoError;
 
-		 CellPosition StartOfNewSnake = NewSnake->GetPosition();
-		 CellPosition EndOfNewSnake = NewSnake->endCellPos;
-
-		 CellPosition StartOfCurrentSnake = position.GetCellNum();
-		 CellPosition EndOfCurrentSnake = endCellPos.GetCellNum();
-
-		 //Check if they aren't in the same H
-		 if (StartOfNewSnake.HCell() != StartOfCurrentSnake.HCell()) {
-			 return NoError;
-		 }
-
-		 int NewSnakeStart = StartOfNewSnake.VCell();
-		 int NewSnakeEnd = EndOfNewSnake.VCell();
-		 int CurrentSnakeStart = StartOfCurrentSnake.VCell();
-		 int CurrentSnakeEnd = EndOfCurrentSnake.VCell();
-
-		 if (NewSnakeStart <= CurrentSnakeEnd && NewSnakeEnd >= CurrentSnakeStart) {
-			 return Overlapping;
-		 }
-		 return NoError;
+	 CellPosition StartOfNewSnake = NewSnake->GetPosition();
+	 CellPosition EndOfNewSnake = NewSnake->endCellPos;
+	 
+	 CellPosition StartOfCurrentSnake = position.GetCellNum();
+	 CellPosition EndOfCurrentSnake = endCellPos.GetCellNum();
+	 
+	 //Check if they aren't in the same H
+	 if (StartOfNewSnake.HCell() != StartOfCurrentSnake.HCell()) {
+	  return NoError;
+	 }
+	 
+	 int NewSnakeStart = StartOfNewSnake.VCell();
+	 int NewSnakeEnd = EndOfNewSnake.VCell();
+	 int CurrentSnakeStart = StartOfCurrentSnake.VCell();
+	 int CurrentSnakeEnd = EndOfCurrentSnake.VCell();
+	 
+	 if (NewSnakeStart <= CurrentSnakeEnd && NewSnakeEnd >= CurrentSnakeStart) {
+		return Overlapping;
+	 }
+	 return NoError;
 }
 
  bool Snake::IsValid()

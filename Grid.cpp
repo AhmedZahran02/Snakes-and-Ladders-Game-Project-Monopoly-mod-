@@ -293,9 +293,9 @@ void Grid::SaveAll(ofstream& outFile, int Type)
 }
 
 GameError Grid::IsOverLappingGrid(GameObject* NewGameObject) const {
-	for (int i = 0; i < 9; i++)
+	for (int i = NumVerticalCells - 1; i >= 0; i--)
 	{
-		for (int j = 0; j < 11; j++)
+		for (int j = 0; j < NumHorizontalCells; j++)
 		{
 			GameObject* GameObjectinCell = CellList[i][j]->GetGameObject();
 			if (GameObjectinCell != NULL) {
