@@ -190,6 +190,7 @@
     <ClCompile Include="DeleteGameObjectAction.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Grid.cpp" />
+    <ClCompile Include="Ice.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="InputDiceValueAction.cpp" />
     <ClCompile Include="Ladder.cpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="DeleteGameObjectAction.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Grid.h" />
+    <ClInclude Include="Ice.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="InputDiceValueAction.h" />
     <ClInclude Include="Ladder.h" />

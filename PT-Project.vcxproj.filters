@@ -230,6 +230,9 @@
     <ClCompile Include="Lightning.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="Ice.cpp">
+      <Filter>Actions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="DEFS.h" />
@@ -413,6 +416,9 @@
       <Filter>Actions</Filter>
     </ClInclude>
     <ClInclude Include="Lightning.h">
+      <Filter>Actions</Filter>
+    </ClInclude>
+    <ClInclude Include="Ice.h">
       <Filter>Actions</Filter>
     </ClInclude>
   </ItemGroup>

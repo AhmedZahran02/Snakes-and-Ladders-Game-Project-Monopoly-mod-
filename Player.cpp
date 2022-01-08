@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "Lightning.h"
+#include "Ice.h"
 #include "GameObject.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerNum(playerNum)
@@ -218,13 +219,13 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 	case 1:
 		if (Remainingattacks>0 && specialattack1==false)
 		{
-
+			Ice::Execute(pGrid);
 			specialattack1 = true;
 			Remainingattacks--;
 		}
 		break;
 	case2:
-		if (Remainingattacks > 0 && specialattack1 == false)
+		if (Remainingattacks > 0 && specialattack2 == false)
 		{
 
 			specialattack2 = true;
@@ -232,7 +233,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		}
 		break;
 	case 3:
-		if (Remainingattacks > 0 && specialattack1 == false)
+		if (Remainingattacks > 0 && specialattack3 == false)
 		{
 
 			specialattack3 = true;
@@ -240,7 +241,7 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 		}
 		break;
 	case 4:
-		if (Remainingattacks > 0 && specialattack1 == false)
+		if (Remainingattacks > 0 && specialattack4 == false)
 		{
 			Lightning::Execute(pGrid);
 			specialattack4 = true;
