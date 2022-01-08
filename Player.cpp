@@ -164,13 +164,24 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		Input* pIn = pGrid->GetInput();
 		turnCount++;
 		if (turnCount == 3) {
-			int newWallet = wallet + diceNumber * 10;
-			SetWallet(newWallet);
-			turnCount = 0;
-			pOut->PrintMessage("Player " + to_string(playerNum) + " recharging " + to_string(
-				diceNumber * 10) + " coins");
-			pIn->GetPointClicked(x, y);
-			return;
+			pGrid->PrintErrorMessage("Do you wish to launch a special attack instead of recharging? y/n");
+			string checkspecialattack=pIn->GetString(pOut);
+			if (checkspecialattack == "y")
+			{
+				pGrid->PrintErrorMessage("choose the special attack 1-ice 2-fire 3-poision 4-lighting");
+				int specialattacktype = pIn->GetInteger(pOut);
+				specialattack(pGrid,specialattack);
+			}
+			else
+			{
+				int newWallet = wallet + diceNumber * 10;
+				SetWallet(newWallet);
+				turnCount = 0;
+				pOut->PrintMessage("Player " + to_string(playerNum) + " recharging " + to_string(
+					diceNumber * 10) + " coins");
+				pIn->GetPointClicked(x, y);
+				return;
+			}
 		}
 		justRolledDiceNum = diceNumber;
 		CellPosition NewCellPos = pCell->GetCellPosition();
@@ -200,7 +211,7 @@ void Player::AppendPlayerInfo(string & playersInfo) const
 	playersInfo += to_string(stepCount) + ")";
 }
 
-void Player::specialattack(Attack *specialattack,Grid*pGrid,int attacknum) 
+void Player::specialattack(Attack* specialattack, Grid* pGrid, int attacknum)
 {
 	switch (attacknum)
 	{
