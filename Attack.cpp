@@ -10,7 +10,7 @@ Attack::~Attack()
 {
 }
 
-void ReadActionParameters(){}
+void Attack::ReadActionParameters(){}
 
 // Execute the action
 void Attack::Execute(Grid* pGrid, Player* pPlayer)
