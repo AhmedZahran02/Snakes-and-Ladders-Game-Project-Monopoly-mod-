@@ -72,7 +72,11 @@ void RollDiceAction::Execute()
 			// 3- Get the "current" player from pGrid
 
 
-
+			if (pPlayer->GetTurnsOnFire()) {
+				pPlayer->SetTurnsOnFire(pPlayer->GetTurnsOnFire() - 1);
+				pOut->PrintMessage("You are under attack by fire, deducting 20 coins... " + to_string(pPlayer->GetTurnsOnFire()) + " turns remaining");
+				pPlayer->SetWallet(pPlayer->GetWallet() - 20);
+			}
 			// 4- Move the currentPlayer using function Move of class player
 			pPlayer->Move(pGrid, diceNumber);
 			// 5- Advance the current player number of pGrid

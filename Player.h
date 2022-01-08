@@ -29,6 +29,8 @@ class Player
 	bool specialattack3;
 	bool specialattack4;
 
+	int turnsOnFire = 0;
+
 public:
 
 	Player(Cell * pCell, int playerNum); // Constructor making any needed initializations
@@ -58,6 +60,9 @@ public:
 
 	void SetCardFourEffect(bool f);
 	bool GetCardFourEffect() const;
+
+	void SetTurnsOnFire(int f);
+	int GetTurnsOnFire() const;
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Circle on its current cell

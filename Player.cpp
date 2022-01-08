@@ -2,6 +2,7 @@
 #include "Lightning.h"
 #include "Ice.h"
 #include "GameObject.h"
+#include "Fire.h"
 
 Player::Player(Cell * pCell, int playerNum) : stepCount(1), wallet(100), playerNum(playerNum)
 {
@@ -110,6 +111,16 @@ void Player::SetCardFourEffect(bool f)
 bool Player::GetCardFourEffect() const
 {
 	return CardFourEffect;
+}
+
+void Player::SetTurnsOnFire(int f)
+{
+	turnsOnFire = f;
+}
+
+int Player::GetTurnsOnFire() const
+{
+	return turnsOnFire;
 }
 
 // ====== Drawing Functions ======
@@ -226,10 +237,10 @@ void Player::specialattack(Grid* pGrid, int attacknum)
 			Remainingattacks--;
 		}
 		break;
-	case2:
+	case 2:
 		if (Remainingattacks > 0 && specialattack2 == false)
 		{
-
+			Fire::Execute(pGrid);
 			specialattack2 = true;
 			Remainingattacks--;
 		}
