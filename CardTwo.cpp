@@ -35,6 +35,10 @@ void CardTwo::Save(ofstream& outFile, int Type)
 	}
 }
 
+Card* CardTwo::getCopy() {
+	return new CardTwo(*this);
+}
+
 CardTwo::~CardTwo() {
 
 }

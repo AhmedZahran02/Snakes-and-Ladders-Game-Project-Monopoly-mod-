@@ -54,3 +54,7 @@ void CardSix::Open(ifstream& inFile)
 	Card::Open(inFile);
 	inFile >> XdestinationCell >> YdestinationCell;
 }
+
+Card* CardSix::getCopy() {
+	return new CardSix(*this);
+}

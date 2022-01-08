@@ -54,6 +54,10 @@ void CardFour::Save(ofstream& outFile, int Type)
 	}
 }
 
+Card* CardFour::getCopy() {
+	return new CardFour(*this);
+}
+
 void CardFour::Open(ifstream& inFile)
 {
 	Card::Open(inFile); //load data from .txt

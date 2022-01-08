@@ -41,3 +41,7 @@ void CardFive::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
 }
+
+Card* CardFive::getCopy() {
+	return new CardFive(*this);
+}

@@ -83,3 +83,7 @@ void CardTwelve::Open(ifstream& inFile)
 {
 	Card::Open(inFile);
 }
+
+Card* CardTwelve::getCopy() {
+	return new CardTwelve(*this);
+}

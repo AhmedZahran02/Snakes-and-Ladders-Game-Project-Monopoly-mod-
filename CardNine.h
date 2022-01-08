@@ -23,5 +23,7 @@ public:
 
 	virtual void Open(ifstream& inFile); //load card 9 data using fstream
 
+	Card* getCopy();
+
 	virtual ~CardNine(); // A Virtual Destructor
 };

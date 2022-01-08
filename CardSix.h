@@ -11,6 +11,7 @@ public:
     void Apply(Grid* pGrid, Player* pPlayer);
     virtual void Save(ofstream& outFile, int Type);
     virtual void Open(ifstream& inFile);
+    Card* getCopy();
     ~CardSix();
 };
 

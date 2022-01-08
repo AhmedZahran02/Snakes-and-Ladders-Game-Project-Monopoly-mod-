@@ -92,3 +92,7 @@ void CardEight::Open(ifstream& inFile)
 	Card::Open(inFile);
 	inFile >> bailMoney;
 }
+
+Card* CardEight::getCopy() {
+	return new CardEight(*this);
+}
