@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Ladder.h"
 #include "GameObject.h"
+#include "Card.h"
 
 
 
@@ -35,6 +36,10 @@ void Snake::Apply(Grid* pGrid, Player* pPlayer)
 	pGrid->PrintErrorMessage("You have reached a Snake. Click to continue ...");
 	pGrid->UpdatePlayerCell(pPlayer, endCellPos);
 
+	if (Card* pCard = dynamic_cast<Card*>(pGrid->GetGameObject(endCellPos)))
+	{
+		pCard->Apply(pGrid, pPlayer);
+	}
 }
 
 CellPosition Snake::GetEndPosition() const
