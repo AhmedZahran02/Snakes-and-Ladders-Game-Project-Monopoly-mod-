@@ -18,10 +18,16 @@ Ice::~Ice()
 // Execute the action
 void Ice::Execute(Grid* pGrid)
 {
-	for (int i = 0; i < MaxPlayerCount - 1; i++)
+	pGrid->PrintErrorMessage("Choose a player to prevent from rolling the next turn");
+	int playernumtoice =pGrid->GetInput()->GetInteger(pGrid->GetOutput());
+	Player* player = pGrid->GetCurrentPlayer();
+	int playernum = player->GetPlayerNum();
+	for (int i = 0; i < MaxPlayerCount; i++)
 	{
 		pGrid->AdvanceCurrentPlayer();
-		pGrid->GetCurrentPlayer()->SetWallet(pGrid->GetCurrentPlayer()->GetWallet() - 20);
+		if (pGrid->GetCurrentPlayer()->GetPlayerNum()==playernumtoice && pGrid->GetCurrentPlayer()->GetPlayerNum() != playernum)
+		{
+			pGrid->GetCurrentPlayer()->SetCardFourEffect(true);
+		}
 	}
-	pGrid->AdvanceCurrentPlayer();
 }
