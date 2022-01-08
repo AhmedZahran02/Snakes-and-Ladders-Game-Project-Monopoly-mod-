@@ -38,15 +38,23 @@ void InputDiceValueAction::Execute()
 		Cell* pCell = pPlayer->GetCell();
 		GameObject* pObj = pCell->GetGameObject();
 		CardEight* pCardEight = dynamic_cast<CardEight*>(pObj);
-		if (pCardEight && pCardEight->isJailed(playerNum)) {
+		int prisonRemTurns = pPlayer->GetPrisonRemTurns();
+		if (prisonRemTurns) {
 			pCardEight->DecrementRemDays(playerNum);
-			if (pCardEight->GetRemDays(playerNum) == 0) {
+			pPlayer->SetPrisonRemTurns(prisonRemTurns - 1);
+			if (pPlayer->GetPrisonRemTurns() == 0) {
 				pCardEight->free(playerNum);
 				pOut->PrintMessage("You are now free from next turn!");
 			}
 			else {
-				pOut->PrintMessage("You are locked in prison! " + to_string(pCardEight->GetRemDays(playerNum)) + " turns remaining.");
+				pOut->PrintMessage("You are locked in prison! " + to_string(pPlayer->GetPrisonRemTurns()) + " turns remaining.");
 			}
+			pGrid->AdvanceCurrentPlayer();
+			pGrid->UpdateInterface();
+		}
+		else if (pPlayer->GetCardFourEffect()) {
+			pPlayer->SetCardFourEffect(0);
+			pOut->PrintMessage("You will be free from the next turn.");
 			pGrid->AdvanceCurrentPlayer();
 			pGrid->UpdateInterface();
 		}

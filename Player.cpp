@@ -87,6 +87,26 @@ void Player::ReleaseOwnership(int stationNumber)
 	stationPrices[stationNumber] = 0;
 }
 
+void Player::SetPrisonRemTurns(int r)
+{
+	prisonRemTurns = r;
+}
+
+int Player::GetPrisonRemTurns() const
+{
+	return prisonRemTurns;
+}
+
+void Player::SetCardFourEffect(bool f)
+{
+	CardFourEffect = f;
+}
+
+bool Player::GetCardFourEffect() const
+{
+	return CardFourEffect;
+}
+
 // ====== Drawing Functions ======
 
 void Player::Draw(Output* pOut) const
@@ -135,11 +155,17 @@ void Player::Move(Grid* pGrid, int diceNumber)
 
 	// 7- Check if the player reached the end cell of the whole game, and if yes, Set end game with true: pGrid->SetEndGame(true)
 	//turnCount++;
+		Output* pOut = pGrid->GetOutput();
+		int x, y;
+		Input* pIn = pGrid->GetInput();
 		turnCount++;
 		if (turnCount == 3) {
 			int newWallet = wallet + diceNumber * 10;
 			SetWallet(newWallet);
 			turnCount = 0;
+			pOut->PrintMessage("Player " + to_string(playerNum) + " recharging " + to_string(
+				diceNumber * 10) + " coins");
+			pIn->GetPointClicked(x, y);
 			return;
 		}
 		justRolledDiceNum = diceNumber;
@@ -149,13 +175,13 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		NewCellPos.AddCellNum(justRolledDiceNum);
 		if (newCell < 100){
 			pGrid->UpdatePlayerCell(this, NewCellPos);
-			Output* pOut = pGrid->GetOutput();
-			Input* pIn = pGrid->GetInput();
+			pOut->PrintMessage("Player " + to_string(playerNum) + " moving to cell number: " + to_string(NewCellPos.GetCellNum()));
+			pIn->GetPointClicked(x, y);
 			GameObject* pGameObject = pCell->GetGameObject();
 			if (pGameObject != NULL) {
 				pGameObject->Apply(pGrid, this);
-			stepCount = pCell->GetCellPosition().GetCellNum();
 			}
+			stepCount = pCell->GetCellPosition().GetCellNum();
 		}
 		if (newCell == 100) {
 			pGrid->PrintErrorMessage("Congratulations! Player " + to_string(playerNum) + " won! Click to end the game");

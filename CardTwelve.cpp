@@ -19,7 +19,6 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 	ReadCardParameters(pGrid);
 	Card::Apply(pGrid, pPlayer);
 	Output* pOut = pGrid->GetOutput();
-	pOut->PrintMessage("You will lose your most expensive station to the poorest player.");
 	int stationNum = -1;
 	int max = 0;
 	for (int i = 0; i < 3; i++) {
@@ -40,6 +39,7 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 				playerNum = currPlayer->GetPlayerNum();
 			}
 		}
+		pOut->PrintMessage("You will lose your most expensive station to the poorest player: Player " + to_string(playerNum));
 		int diff = (playerNum - pPlayer->GetPlayerNum());
 		diff = (diff >= 0) ? diff : diff + 3;
 		for (int i = 0; i < diff; i++) {

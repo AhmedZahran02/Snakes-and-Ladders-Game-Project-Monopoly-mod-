@@ -32,7 +32,6 @@ void CardEight::ReadCardParameters(Grid* pGrid)
 
 void CardEight::Apply(Grid* pGrid, Player* pPlayer)
 {
-	ReadCardParameters(pGrid);
 	Card::Apply(pGrid, pPlayer);
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
@@ -47,6 +46,7 @@ void CardEight::Apply(Grid* pGrid, Player* pPlayer)
 		else {
 			pOut->PrintMessage("You don't have enough coins, you will be jailed for 3 turns.");
 			int playerNum = pPlayer->GetPlayerNum();
+			pPlayer->SetPrisonRemTurns(3);
 			arrJailedPlayers[playerNum] = true;
 			arrRemDays[playerNum] = 3;
 		}
@@ -54,6 +54,7 @@ void CardEight::Apply(Grid* pGrid, Player* pPlayer)
 	else if (s == 2) {
 		pOut->PrintMessage("You will be jailed for 3 turns.");
 		int playerNum = pPlayer->GetPlayerNum();
+		pPlayer->SetPrisonRemTurns(3);
 		arrJailedPlayers[playerNum] = true;
 		arrRemDays[playerNum] = 3;
 	}

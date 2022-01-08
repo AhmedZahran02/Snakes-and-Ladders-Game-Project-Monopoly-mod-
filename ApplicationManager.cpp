@@ -82,8 +82,8 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		break;
 
 	case TO_PLAY_MODE:
-		pAct = new SwitchToPlayModeAction(this); // temporary till you made its action class (CHANGE THIS LATER)
-		//pOut->CreatePlayModeToolBar();
+		pAct = new SwitchToPlayModeAction(this); 
+		
 		break;
 
 	case ROLL_DICE:
@@ -93,17 +93,17 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 
 	case TO_DESIGN_MODE:
 		pAct = new SwitchToDesignModeAction(this);
-		//pOut->CreateDesignModeToolBar(); // temporary till you made its action class (CHANGE THIS LATER)
+		
 		break;
 
 		
 
 		///TODO: Add a case for EACH Action type in the Design mode or Play mode
-	case ADD_SNAKE: //To be uncommented:
+	case ADD_SNAKE:
 		pAct = new AddSnakeAction(this);
 		break;
 
-	case COPY_CARD: //To be uncommented:
+	case COPY_CARD:
 		pAct = new CopyCardAction(this);
 		break;
 
@@ -112,19 +112,19 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 		pAct = new CutCardAction(this);
 		break;
 
-	case PST_CARD: //To be uncommented:
+	case PST_CARD: 
 		pAct = new PasteCardAction(this);
 		break;
 
-	case DEL_GM_OBJ: //To be uncommented:
+	case DEL_GM_OBJ:
 		pAct = new DeleteGameObjectAction(this);
 		break;
 
-	case SAVE_GRID: //To be uncommented:
+	case SAVE_GRID: 
 		pAct = new SaveGridAction(this);
 		break;
 
-	case OPEN_GRID: //To be uncommented:
+	case OPEN_GRID: 
 		pAct = new OpenGridAction(this);
 		break;
 

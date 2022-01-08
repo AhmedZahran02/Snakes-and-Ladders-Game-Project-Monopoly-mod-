@@ -26,6 +26,7 @@ void CardFour::Apply(Grid* pGrid, Player* pPlayer)
 	//get player number
 	int playerNum = pPlayer->GetPlayerNum();
 	// make him a card 4 affected player
+	pPlayer->SetCardFourEffect(1);
 	Card4Players[playerNum] = true;
 	// make player not free to roll next roll dice
 	Freed = false;

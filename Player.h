@@ -18,6 +18,9 @@ class Player
 	                       // it is used to indicate when to move and when to add to your wallet
 	bool ownedStations[3];
 	int stationPrices[3];
+
+	int prisonRemTurns = 0;
+	bool CardFourEffect = 0;
 	
 public:
 
@@ -42,6 +45,12 @@ public:
 	void SetOwnership(int stationNumber, int stationPrice);
 	void ReleaseOwnership(int stationNumber);
 	int GetStationPrice(int stationNumber) const;
+
+	void SetPrisonRemTurns(int r);
+	int GetPrisonRemTurns() const;
+
+	void SetCardFourEffect(bool f);
+	bool GetCardFourEffect() const;
 	// ====== Drawing Functions ======
 
 	void Draw(Output* pOut) const;			// Draws the Player's Circle on its current cell

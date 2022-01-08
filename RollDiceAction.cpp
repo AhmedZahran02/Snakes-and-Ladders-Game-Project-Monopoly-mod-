@@ -42,24 +42,23 @@ void RollDiceAction::Execute()
 		CardEight* pCardEight = dynamic_cast<CardEight*>(pObj);
 
 		CardFour* pCardFour = dynamic_cast<CardFour*>(pObj);
-
-		if (pCardEight && pCardEight->isJailed(playerNum)) {
+		int prisonRemTurns = pPlayer->GetPrisonRemTurns();
+		if (prisonRemTurns) {
 			pCardEight->DecrementRemDays(playerNum);
-			if (pCardEight->GetRemDays(playerNum) == 0) {
+			pPlayer->SetPrisonRemTurns(prisonRemTurns - 1);
+			if (pPlayer->GetPrisonRemTurns() == 0) {
 				pCardEight->free(playerNum);
 				pOut->PrintMessage("You are now free from next turn!");
 			}
 			else {
-				pOut->PrintMessage("You are locked in prison! " + to_string(pCardEight->GetRemDays(playerNum)) + " turns remaining.");
+				pOut->PrintMessage("You are locked in prison! " + to_string(pPlayer->GetPrisonRemTurns()) + " turns remaining.");
 			}			
 			pGrid->AdvanceCurrentPlayer();
 			pGrid->UpdateInterface();
 		}
-		else if (pCardFour && pCardFour->isCard4Players(playerNum)) {
-			if (pCardFour->isfree() == false) {
-				pCardFour->free(playerNum);
-				pOut->PrintMessage("You will be able to roll dice from next turn!");
-			}
+		else if (pPlayer->GetCardFourEffect()) {
+			pPlayer->SetCardFourEffect(0);
+			pOut->PrintMessage("You will be free from the next turn.");
 			pGrid->AdvanceCurrentPlayer();
 			pGrid->UpdateInterface();
 		}
