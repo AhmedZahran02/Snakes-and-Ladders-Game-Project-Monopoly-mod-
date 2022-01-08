@@ -24,13 +24,13 @@ void Ladder::Apply(Grid* pGrid, Player* pPlayer)
 
 	// == Here are some guideline steps (numbered below) to implement this function ==
 	
-	// 1- Print a message "You have reached a ladder. Click to continue ..." and wait mouse click
+	// 1- Print a message "You have reached a Ladder. Click to continue ..." and wait mouse click
 
-	// 2- Apply the ladder's effect by moving the player to the endCellPos
+	// 2- Apply the Ladder's effect by moving the player to the endCellPos
 	//    Review the "pGrid" functions and decide which function can be used for that
 	Output* pOut = pGrid->GetOutput();
 	Input* pIn = pGrid->GetInput();
-	pGrid->PrintErrorMessage("You have reached a ladder. Click to continue ...");
+	pGrid->PrintErrorMessage("You have reached a Ladder. Click to continue ...");
 	pGrid->UpdatePlayerCell(pPlayer, endCellPos);
 
 	if (Card* pCard=dynamic_cast<Card*>(pGrid->GetGameObject(endCellPos)))
@@ -66,10 +66,12 @@ void Ladder::Open(ifstream& inFile)
 }
 
 bool Ladder::IsOverLapping(GameObject* NewGameObject) const {
-
-	Ladder* NewLadder= dynamic_cast<Ladder*>(NewGameObject);
 	Snake* NewSnake = dynamic_cast<Snake*>(NewGameObject);
-	if (NewLadder){
+	if (NewSnake) {
+		if (NewSnake->GetPosition().GetCellNum() == endCellPos.GetCellNum()) return true;
+	}
+	Ladder* NewLadder = dynamic_cast<Ladder*>(NewGameObject);
+	if (!NewLadder) return false;
 
 		CellPosition StartOfNewLadder = NewLadder->GetPosition();
 		CellPosition EndOfNewLadder = NewLadder->endCellPos;
@@ -85,41 +87,16 @@ bool Ladder::IsOverLapping(GameObject* NewGameObject) const {
 		int NewLadderStart = StartOfNewLadder.VCell();
 		int NewLadderEnd = EndOfNewLadder.VCell();
 		int CurrentLadderStart = StartOfCurrentLadder.VCell();
-		int CurremtLadderEnd = EndOfCurrentLadder.VCell();
+		int CurrentLadderEnd = EndOfCurrentLadder.VCell();
 
 
-		if (NewLadderStart >= CurremtLadderEnd && NewLadderEnd <= CurrentLadderStart) {
+		if (NewLadderStart >= CurrentLadderEnd && NewLadderEnd <= CurrentLadderStart) {
 			return true;
 		}
 		return false;
-	}
-	if (NewSnake) {
-
-
-		CellPosition StartOfNewSnake = NewSnake->GetPosition();
-		CellPosition EndOfNewSnake = NewSnake->GetEndPosition();
-
-		CellPosition StartOfCurrentLadder = position.GetCellNum();
-		CellPosition EndOfCurrentLadder = endCellPos.GetCellNum();
-
-		//Check if they aren't in the same H
-		if (StartOfNewSnake.HCell() != StartOfCurrentLadder.HCell()) {
-			return false;
-		}
-
-		int NewSnakeStart = StartOfNewSnake.VCell();
-		int NewSnakeEnd = EndOfNewSnake.VCell();
-		int CurrentLadderStart = StartOfCurrentLadder.VCell();
-		int CurremtLadderEnd = EndOfCurrentLadder.VCell();
-
-
-		if (NewSnakeStart <= CurrentLadderStart && NewSnakeEnd >= CurremtLadderEnd) {
-			return true;
-		}
-		return false;
-
-	}
+	
 }
+
 
 bool Ladder::IsValid()
 {
