@@ -219,7 +219,7 @@ int Grid::GetNumOfObjects(int Type) const
 	case 2:
 		return cntCard;
 	default:
-		return;
+		break;
 	}
 }
 
