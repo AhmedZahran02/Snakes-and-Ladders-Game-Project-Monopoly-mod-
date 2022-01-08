@@ -182,11 +182,18 @@ void Player::Move(Grid* pGrid, int diceNumber)
 			int specialattacktype;
 			if (checkspecialattack == "y" && Remainingattacks > 0)
 			{
-				do
-				{
-					pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
-					specialattacktype = pIn->GetInteger(pOut);
-				} while (specialattackarray[specialattacktype-1] == true);
+				bool done = false;
+				do {
+					do
+					{
+						pOut->PrintMessage("choose the special attack 1-ice  2-fire  3-poision  4-lighting");
+						specialattacktype = pIn->GetInteger(pOut);
+					} while (specialattacktype < 1 || specialattacktype > 4);
+					if (specialattackarray[specialattacktype - 1]) {
+						pOut->PrintMessage("This attack was already used");
+					}
+					else done = true;
+				} while (!done);
 				specialattack(pGrid, specialattacktype);
 			}
 			else
