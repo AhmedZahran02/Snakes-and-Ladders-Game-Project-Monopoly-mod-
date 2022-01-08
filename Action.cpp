@@ -8,4 +8,3 @@ Action::Action(ApplicationManager *pApp) : pManager(pApp)
 Action::~Action()
 {
 }
-

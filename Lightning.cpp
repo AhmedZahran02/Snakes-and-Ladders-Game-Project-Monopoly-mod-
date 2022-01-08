@@ -1,7 +1,7 @@
 #include "Lightning.h"
 #include "Player.h"
 
-Lightning::Lightning(ApplicationManager* pApp):Attack(pApp)
+Lightning::Lightning()
 {
 	
 }
