@@ -59,6 +59,17 @@ void InputDiceValueAction::Execute()
 			pGrid->UpdateInterface();
 		}
 		else {
+			// BIG BUG!!!
+			if (pPlayer->GetTurnsOnFire()) {
+				pPlayer->SetTurnsOnFire(pPlayer->GetTurnsOnFire() - 1);
+				pOut->PrintMessage("You are under attack by fire, deducting 20 coins... " + to_string(pPlayer->GetTurnsOnFire()) + " turns remaining");
+				pPlayer->SetWallet(pPlayer->GetWallet() - 20);
+			}
+			if (pPlayer->GetPoison() > 0) {
+				pGrid->PrintErrorMessage("Oops You are posioned. The dicenumber will be deducted by 1");
+				pPlayer->DecrementPoison();
+				inputDiceValue--;
+			}
 			// 4- Move the currentPlayer using function Move of class player
 			pPlayer->Move(pGrid, inputDiceValue);
 			// 5- Advance the current player number of pGrid

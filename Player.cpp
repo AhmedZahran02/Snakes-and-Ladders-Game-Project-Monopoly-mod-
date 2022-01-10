@@ -176,6 +176,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 		Input* pIn = pGrid->GetInput();
 		turnCount++;
 		if (turnCount == 3) {
+			bool attackTaken = 0;
 			turnCount = 0;
 			if (Remainingattacks > 0){
 				pOut->PrintMessage("Do you wish to launch a special attack instead of recharging? y/n");
@@ -183,6 +184,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 				int specialattacktype;
 				if (checkspecialattack == "y")
 				{
+					attackTaken = 1;
 					bool done = false;
 					do {
 						do
@@ -198,7 +200,7 @@ void Player::Move(Grid* pGrid, int diceNumber)
 					specialattack(pGrid, specialattacktype);
 				}
 			}
-			else
+			if (!attackTaken)
 			{
 				int newWallet = wallet + diceNumber * 10;
 				SetWallet(newWallet);
