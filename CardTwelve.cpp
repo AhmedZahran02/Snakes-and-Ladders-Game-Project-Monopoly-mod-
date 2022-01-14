@@ -31,7 +31,7 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 		pPlayer->ReleaseOwnership(stationNum);
 		int playerNum = -1;
 		int min = INT_MAX;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < MaxPlayerCount; i++) {
 			pGrid->AdvanceCurrentPlayer();
 			Player* currPlayer = pGrid->GetCurrentPlayer();
 			if (currPlayer->GetWallet() < min) {
@@ -41,7 +41,7 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 		}
 		pOut->PrintMessage("You will lose your most expensive station to the poorest player: Player " + to_string(playerNum));
 		int diff = (playerNum - pPlayer->GetPlayerNum());
-		diff = (diff >= 0) ? diff : diff + 3;
+		diff = (diff >= 0) ? diff : diff + MaxPlayerCount - 1;
 		for (int i = 0; i < diff; i++) {
 			pGrid->AdvanceCurrentPlayer();
 		}
@@ -59,7 +59,7 @@ void CardTwelve::Apply(Grid* pGrid, Player* pPlayer)
 		}
 
 		currPlayer->SetOwnership(stationNum, max);
-		for (int i = 0; i < 4 - diff; i++) {
+		for (int i = 0; i < MaxPlayerCount - diff; i++) {
 			pGrid->AdvanceCurrentPlayer();
 		}
 	}

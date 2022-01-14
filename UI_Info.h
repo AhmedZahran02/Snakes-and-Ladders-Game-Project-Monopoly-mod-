@@ -7,8 +7,8 @@
 // This file contains info that is needed by Input and Output classes to
 // handle the user interface
 
-#define NumHorizontalCells 11
-#define NumVerticalCells 9
+#define NumHorizontalCells 8
+#define NumVerticalCells 5
 #define MaxPlayerCount 4
 
 enum GUI_MODE		// Graphical user interface mode

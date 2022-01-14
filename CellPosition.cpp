@@ -86,8 +86,8 @@ int CellPosition::GetCellNumFromPosition(const CellPosition& cellPosition)
 	if (x == -1 || y == -1) {
 		return -1;
 	}
-	int cellPos = 99 - (x * 11 + (10 - y));
-	if (cellPos > 0 && cellPos < 100)
+	int cellPos = NumHorizontalCells * NumVerticalCells - (x * NumHorizontalCells + (NumHorizontalCells - 1 - y));
+	if (cellPos > 0 && cellPos <= NumHorizontalCells * NumVerticalCells)
 		return cellPos;// this line should be changed with your implementation
 	return -1;
 }
